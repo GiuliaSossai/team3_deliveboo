@@ -25,9 +25,9 @@ class CreateRestaurantsTable extends Migration
             $table->string('address');
             $table->string('email');
             $table->string('phone', 25);
-            $table->decimal('delivery_price', 4, 2)->default(0);
-            $table->tinyInteger('delivery_time')->default(30);
-            $table->decimal('order_min', 4, 2)->default(0);
+            $table->decimal('delivery_price', 4, 2)->default(0)->nullable();
+            $table->tinyInteger('delivery_time')->nullable()->default(30);
+            $table->decimal('order_min', 4, 2)->nullable()->default(0);
             $table->string('photo')->nullable();
             $table->string('photo_bg')->nullable();
 
