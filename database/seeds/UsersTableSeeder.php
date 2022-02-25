@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
     {
         $faker = Factory::create("it_IT");
 
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < 4; $i++) { 
 
             $new_user = new User();
 
