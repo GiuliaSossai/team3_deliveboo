@@ -8,6 +8,13 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    // Relazione tabella Restaurants
+
+    public function restaurants()
+    {
+        return $this->hasMany('App\Restaurant');
+    }
+
     use Notifiable;
 
     /**
@@ -16,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'surname', 'password',
     ];
 
     /**
