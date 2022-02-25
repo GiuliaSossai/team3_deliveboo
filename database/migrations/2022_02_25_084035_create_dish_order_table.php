@@ -21,7 +21,7 @@ class CreateDishOrderTable extends Migration
             //FK della tabella Orders
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
             // Colonna relativa alla quantità di un relativo cibo
-            $table->tinyInteger('quantity');
+            $table->tinyInteger('quantity')->default(1);
 
             $table->timestamps();
         });

@@ -15,6 +15,6 @@ class Order extends Model
     // Relazione tabella Dishes
     public function dishes()
     {
-        return $this->belongsToMany('App\Dish');
+        return $this->belongsToMany('App\Dish')->withPivot('quantity');
     }
 }

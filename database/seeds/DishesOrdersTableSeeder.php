@@ -14,7 +14,6 @@ class DishesOrdersTableSeeder extends Seeder
      */
     public function run()
     {
-        $quantity = 2;
 
         for ($i=0; $i < 50; $i++) { 
 
@@ -23,6 +22,15 @@ class DishesOrdersTableSeeder extends Seeder
             $dish_id = Dish::inRandomOrder()->first()->id;
 
             $order->dishes()->attach($dish_id);
+
+            //Codice utilizzato per inserire la quantità
+            $orders = Order::all();
+            Dish::all()->each(function ($dish) use ($orders) {
+                $orderIds = $orders->random(3)->pluck('id')->toArray();
+                foreach ($orderIds as $orderId) {
+                    $dish->orders()->attach($orderId, ['quantity' => rand(1, 3)]);
+                }
+            });
 
             
         }

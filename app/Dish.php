@@ -21,6 +21,6 @@ class Dish extends Model
     // Relazione tabella Orders
     public function orders()
     {
-        return $this->belongsToMany('App\Order');
+        return $this->belongsToMany('App\Order')->withPivot('quantity');
     }
 }
