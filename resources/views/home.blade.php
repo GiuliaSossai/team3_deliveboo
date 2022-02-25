@@ -16,6 +16,7 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+                <a href="{{route('index')}}" class="btn w-25 btn-primary">Vai ai Ristoranti</a>
             </div>
         </div>
     </div>
