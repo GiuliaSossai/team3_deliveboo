@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="container">
-        <h1>I miei Ristoranti</h1>
+        <h1>I miei Ristoranti {{ $restaurant->name }}</h1>
 
-        <td> <a class="btn btn-primary mb-3" href="{{ route('admin.ristoranti.create') }}" role="button">Aggiungi un nuovo
-                ristorante</a>
+        <td> <a class="btn btn-primary mb-3" href="#" role="button">Aggiungi un nuovo
+                piatto</a>
         </td>
 
-        <table class="table table-striped">
+        {{-- <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -21,8 +21,7 @@
                     <tr>
                         <th scope="row">{{ $restaurant->id }}</th>
                         <td>{{ $restaurant->name }}</td>
-                        <td> <a class="btn btn-primary" href="{{ route('admin.ristoranti.show', $restaurant->slug) }}"
-                                role="button">Mostra</a>
+                        <td> <a class="btn btn-primary" href="#" role="button">Mostra</a>
                         </td>
                         <td><a class="btn btn-success" href="{{ route('admin.ristoranti.edit', $restaurant->slug) }}"
                                 role="button">Modifica</a></td>
@@ -31,7 +30,7 @@
                 @endforeach
 
             </tbody>
-        </table>
+        </table> --}}
 
     </div>
 @endsection
