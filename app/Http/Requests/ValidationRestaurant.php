@@ -43,7 +43,20 @@ class ValidationRestaurant extends FormRequest
         return [
             'name.required' => "Il nome è obbligatorio",
             'name.min' => "Il nome deve avere almeno :min caratteri",
-            
+            'name.max' => "Il nome deve avere massimo :max caratteri",
+            'address.required' => "L'indirizzo è obbligatorio",
+            'address.max' => "L'indirizzo deve avere massimo :max caratteri",
+            'p_iva.required' => "La partita iva è obbligatoria",
+            'p_iva.max' => "La partita iva deve avere massimo :max caratteri",
+            'phone.required' => "Il numero di telefono è obbligatorio",
+            'phone.max' => "Il numero di telefono deve avere massimo :max caratteri",
+            'delivery_price.numeric' => "Il prezzo di consegna deve essere un numero",
+            'delivery_price.between' => "Il prezzo di consegna deve essere un numero compreso tra :min e :max",
+            'order_min.numeric' => "L'ordine minimo deve essere un numero",
+            'order_min.between' => "L'ordine minimo deve essere un numero compreso tra :min e :max",
+            'delivery_time.numeric' => "Il tempo di consegna deve essere un numero",
+            'delivery_time.between' => "Il tempo di consegna deve essere un numero compreso tra :min e :max",
+
         ];
     }
 }
