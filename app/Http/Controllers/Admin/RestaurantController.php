@@ -94,15 +94,21 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ValidationRestaurant $request, Restaurant $restaurant)
+    public function update(ValidationRestaurant $request, $id)
     {
+        $restaurant = Restaurant::find($id);
+
         $data = $request->all();
 
-        dd($restaurant);
+        if ($data['name'] != $restaurant->name) {
+            $data['slug'] = Restaurant::generateSlug($data['name']);
+        }
 
         $restaurant->update($data);
 
-        return redirect()->route('admin.ristoranti.show', compact('restaurant'));
+        $restaurant->categories()->sync($data['categories']);
+
+        return redirect()->route('admin.ristoranti.show', $restaurant->slug);
     }
 
     /**
@@ -113,6 +119,9 @@ class RestaurantController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $restaurant = Restaurant::find($id);
+        $restaurant->delete();
+
+        return redirect()->route('admin.ristoranti.index');
     }
 }

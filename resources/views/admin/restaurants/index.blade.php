@@ -26,7 +26,14 @@
                         </td>
                         <td><a class="btn btn-success" href="{{ route('admin.ristoranti.edit', $restaurant->slug) }}"
                                 role="button">Modifica</a></td>
-                        <td><a class="btn btn-danger" href="#" role="button">Elimiina</a></td>
+                        <td>
+                            <form action="{{ route('admin.ristoranti.destroy', $restaurant) }}" method="post"
+                                onsubmit="return confirm('Sei sicuro di voler eliminare il ristorante {{ $restaurant->name }}')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Elimina</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
 
