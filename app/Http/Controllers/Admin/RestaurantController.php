@@ -20,7 +20,7 @@ class RestaurantController extends Controller
     {
         $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
-        return view('admin.index', compact('restaurants'));
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
     /**
@@ -30,7 +30,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        return view('admin.restaurants.create');
     }
 
     /**
