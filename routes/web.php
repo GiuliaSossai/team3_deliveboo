@@ -26,4 +26,5 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
         Route::resource('/ristoranti', 'RestaurantController');
+        Route::resource('{slug}/dish','DishController');
     });

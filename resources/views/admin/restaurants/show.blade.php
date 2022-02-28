@@ -8,29 +8,32 @@
                 piatto</a>
         </td>
 
-        {{-- <table class="table table-striped">
+        <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Ingredienti</th>
+                    <th scope="col">Prezzo</th>
                     <th scope="col" colspan="3">Azioni</th>
+
                 </tr>
             </thead>
             <tbody>
-                @foreach ($restaurants as $restaurant)
+                @foreach ($restaurant->dishes as $dish)
                     <tr>
-                        <th scope="row">{{ $restaurant->id }}</th>
-                        <td>{{ $restaurant->name }}</td>
-                        <td> <a class="btn btn-primary" href="#" role="button">Mostra</a>
+                        <th scope="row">{{ $dish->name }}</th>
+                        <td>{{ $dish->description }}</td>
+                        <td>{{ $dish->price }}</td>
+                        <td> <a class="btn btn-primary" href="{{route('admin.dish.show', ["slug"=>$restaurant->slug, "dish"=>$dish->slug])}}" role="button">Mostra</a>
                         </td>
-                        <td><a class="btn btn-success" href="{{ route('admin.ristoranti.edit', $restaurant->slug) }}"
+                        <td><a class="btn btn-success" href="#"
                                 role="button">Modifica</a></td>
-                        <td><a class="btn btn-danger" href="#" role="button">Elimiina</a></td>
+                        <td><a class="btn btn-danger" href="#" role="button">Elimina</a></td>
                     </tr>
                 @endforeach
 
             </tbody>
-        </table> --}}
+        </table>
 
     </div>
 @endsection
