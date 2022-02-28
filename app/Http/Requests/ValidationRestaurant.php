@@ -29,9 +29,9 @@ class ValidationRestaurant extends FormRequest
             "email" => "required|email|max:255",
             "p_iva" => "required|max:20",
             "phone" => "required|max:25",
-            "delivery_price" => "nullable|numeric|min:0|max:99",
-            "order_min" => "nullable|numeric|min:0|max:255",
-            "delivery_time" => "nullable|numeric|min:0|max:255",
+            "delivery_price" => "numeric|between:0, 99",
+            "order_min" => "numeric|between: 0, 255",
+            "delivery_time" => "numeric|between: 0, 200",
             "photo" => "mimes:jpeg,png,jpg,gif|max:2048",
             "photo_bg" => "mimes:jpeg,png,jpg,gif|max:32000",
         ];
