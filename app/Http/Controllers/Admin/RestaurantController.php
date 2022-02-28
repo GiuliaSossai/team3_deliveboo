@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidationRestaurant;
 use App\Restaurant;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use SebastianBergmann\GlobalState\Restorer;
 
 class RestaurantController extends Controller
 {
@@ -30,7 +30,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        return view('admin.restaurants.create');
+        $categories = Category::all();
+
+        return view('admin.restaurants.create', compact('categories'));
     }
 
     /**
@@ -53,6 +55,8 @@ class RestaurantController extends Controller
 
         $new_restaurant->save();
 
+        $new_restaurant->categories()->attach($data['categories']);
+
         return redirect()->route('admin.ristoranti.index');
     }
 
@@ -62,9 +66,11 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->first();
+
+        return view('admin.restaurants.show', compact('restaurant'));
     }
 
     /**
@@ -73,9 +79,12 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $categories = Category::all();
+
+        return view('admin.restaurants.edit', compact('restaurant', 'categories'));
     }
 
     /**
@@ -85,9 +94,21 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidationRestaurant $request, $id)
     {
-        //
+        $restaurant = Restaurant::find($id);
+
+        $data = $request->all();
+
+        if ($data['name'] != $restaurant->name) {
+            $data['slug'] = Restaurant::generateSlug($data['name']);
+        }
+
+        $restaurant->update($data);
+
+        $restaurant->categories()->sync($data['categories']);
+
+        return redirect()->route('admin.ristoranti.show', $restaurant->slug);
     }
 
     /**
@@ -98,6 +119,9 @@ class RestaurantController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $restaurant = Restaurant::find($id);
+        $restaurant->delete();
+
+        return redirect()->route('admin.ristoranti.index');
     }
 }
