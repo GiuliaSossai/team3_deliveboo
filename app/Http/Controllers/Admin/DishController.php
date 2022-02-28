@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Dish;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidationDish;
+use App\Restaurant;
+use App\Type;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
@@ -15,9 +18,13 @@ class DishController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($slug)
     {
-        //
+        $types = Type::all();
+
+        $restaurant_id = Restaurant::where('slug', $slug)->first()->id;
+
+        return view('admin.dishes.create', compact('types', 'restaurant_id'));
     }
 
     /**
@@ -26,9 +33,21 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidationDish $request, $restaurant_id, Restaurant $restaurant)
     {
-        //
+        $data = $request->all();
+
+        $new_dish = new Dish();
+
+        $new_dish->fill($data);
+
+        $new_dish->restaurant_id = $restaurant_id;
+
+        $new_dish->save();
+
+        $restaurant = Restaurant::where('id', $restaurant_id)->first();
+
+        return redirect()->route('admin.ristoranti.show', $restaurant->slug);
     }
 
     /**
@@ -37,11 +56,9 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug){
-        $dish = Dish::where('slug',$slug)->first();
+    public function show($dish)
+    {
         dd($dish);
-
-
     }
 
     /**
