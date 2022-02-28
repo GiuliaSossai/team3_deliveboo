@@ -4,7 +4,7 @@
     <div class="container">
         <h1>I miei Ristoranti</h1>
 
-        <td> <a class="btn btn-primary" href="{{ route('admin.ristoranti.create') }}" role="button">Aggiungi un nuovo
+        <td> <a class="btn btn-primary mb-3" href="{{ route('admin.ristoranti.create') }}" role="button">Aggiungi un nuovo
                 ristorante</a>
         </td>
 
