@@ -10019,3 +10019,39 @@ h3 {
     border-color: #dee2e6;
   }
 }
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #0f0f0f;
+  box-shadow: #272727 0px -2px 0px inset;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  height: 80px;
+}
+
+header h1 {
+  font-size: 48px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header h1 span {
+  color: #60da60;
+}
+
+header li a {
+  color: #60da60 !important;
+}
+
+header .dropdown-menu {
+  background-color: black;
+}
+
+header .dropdown-item {
+  background-color: black;
+}
+
+main {
+  margin-top: 100px;
+}
