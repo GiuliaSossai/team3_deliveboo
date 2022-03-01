@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidationDish;
 use App\Restaurant;
 use App\Type;
-use Illuminate\Http\Request;
 
 class DishController extends Controller
 {
@@ -33,7 +32,7 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ValidationDish $request, $restaurant_id, Restaurant $restaurant)
+    public function store(ValidationDish $request, $restaurant_id)
     {
         $data = $request->all();
 
@@ -56,9 +55,9 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($dish)
+    public function show($id)
     {
-        dd($dish);
+        //
     }
 
     /**
@@ -67,9 +66,12 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($restaurant_slug, $dish_id)
     {
-        //
+        $types = Type::all();
+        $dish = Dish::find($dish_id);
+
+        return view('admin.dishes.edit', compact('restaurant_slug', 'dish', 'types'));
     }
 
     /**
@@ -79,9 +81,16 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidationDish $request, $restaurant_slug, $dish_id)
     {
-        //
+
+        $dish = Dish::find($dish_id);
+
+        $data = $request->all();
+
+        $dish->update($data);
+
+        return redirect()->route('admin.ristoranti.show', $restaurant_slug);
     }
 
     /**
@@ -90,8 +99,12 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($restaurant_slug, $dish_id)
     {
-        //
+        $dish = Dish::find($dish_id);
+
+        $dish->delete();
+
+        return redirect()->route('admin.ristoranti.show', $restaurant_slug);
     }
 }

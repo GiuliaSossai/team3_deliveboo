@@ -2,15 +2,17 @@
 
 @section('content')
     <div class="container">
-        <h1>Aggiungi un nuovo piatto</h1>
+        <h1>Modifica {{ $dish->name }}</h1>
 
-        <form action="{{ route('admin.piatti.store', $restaurant_id) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.piatti.update', ['slug' => $restaurant_slug, 'piatti' => $dish]) }}" method="post"
+            enctype="multipart/form-data">
             @csrf
+            @method('PUT')
 
             <div class="form-group">
                 <label for="name">Nome Piatto</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                    value="{{ old('name') }}">
+                    value="{{ old('name', $dish->name) }}">
                 @error('name')
                     <div class="invalid-feedback d-block">
                         {{ $message }}
@@ -23,7 +25,7 @@
                 <select name="type_id" id="type_id" class="form-control">
                     <option value="" selected>Scegli:</option>
                     @foreach ($types as $type)
-                        <option @if ($type->id == old('type_id')) selected @endif value="{{ $type->id }}">
+                        <option @if ($type->id == old('type_id', $dish->type_id)) selected @endif value="{{ $type->id }}">
                             {{ $type->name }} </option>
                     @endforeach
 
@@ -38,7 +40,7 @@
             <div class="form-group">
                 <label for="description">Descrizione (es: Ingrediente1 | Ingrediente2)</label>
                 <textarea type="text" class="form-control @error('description') is-invalid @enderror" id="description"
-                    name="description">{{ old('description') }}</textarea>
+                    name="description">{{ old('description', $dish->description) }}</textarea>
                 @error('description')
                     <div class="invalid-feedback d-block">
                         {{ $message }}
@@ -49,7 +51,7 @@
             <div class="form-group">
                 <label for="price">Prezzo</label>
                 <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price"
-                    value="{{ old('price') }}">
+                    value="{{ old('price', $dish->price) }}">
                 @error('price')
                     <div class="invalid-feedback d-block">
                         {{ $message }}
@@ -60,9 +62,14 @@
             <div class="form-group">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" name="visible" id="visible" value="0"
-                        {{ old('visible') == '0' ? 'checked' : '' }}>
+                        @if (old('visible', $dish->visible)) checked @endif>
                     <label class="custom-control-label" for="visible">Non Disponibile</label>
                 </div>
+                @error('visible')
+                    <div class="invalid-feedback d-block">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>

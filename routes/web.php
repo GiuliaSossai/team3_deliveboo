@@ -26,6 +26,5 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
         Route::resource('/ristoranti', 'RestaurantController');
-        Route::get('{slug}/piatti/create', 'DishController@create')->name('dish.create');
-        Route::post('piatti/{restaurant_id}', 'DishController@store')->name('dish.store');
+        Route::resource('{slug}/piatti', 'DishController');
     });

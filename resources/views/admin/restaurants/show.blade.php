@@ -4,7 +4,7 @@
     <div class="container">
         <h1>I miei Ristoranti {{ $restaurant->name }}</h1>
 
-        <td> <a class="btn btn-primary mb-3" href="{{ route('admin.dish.create', $restaurant->slug) }}"
+        <td> <a class="btn btn-primary mb-3" href="{{ route('admin.piatti.create', $restaurant->slug) }}"
                 role="button">Aggiungi un nuovo
                 piatto</a>
         </td>
@@ -25,10 +25,21 @@
                         <th scope="row">{{ $dish->name }}</th>
                         <td>{{ $dish->description }}</td>
                         <td>{{ $dish->price }}</td>
-                        <td> <a class="btn btn-primary" {{-- href="{{ route('admin.dish.show', ['dish' => $dish, 'slug' => $restaurant->slug]) }}" --}} role="button">Mostra</a>
+                        <td> <a class="btn btn-primary" href="#" role="button">Mostra</a>
                         </td>
-                        <td><a class="btn btn-success" href="#" role="button">Modifica</a></td>
-                        <td><a class="btn btn-danger" href="#" role="button">Elimina</a></td>
+                        <td><a class="btn btn-success"
+                                href="{{ route('admin.piatti.edit', ['slug' => $restaurant->slug, 'piatti' => $dish]) }}"
+                                role="button">Modifica</a></td>
+                        <td>
+                            <form
+                                action="{{ route('admin.piatti.destroy', ['slug' => $restaurant->slug, 'piatti' => $dish]) }}"
+                                method="post"
+                                onsubmit="return confirm('Sei sicuro di voler eliminare il piattp {{ $dish->name }}')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Elimina</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
 

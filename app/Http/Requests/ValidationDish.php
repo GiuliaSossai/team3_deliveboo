@@ -28,7 +28,6 @@ class ValidationDish extends FormRequest
             "type_id" => "required",
             "description" => "required",
             "price" => "numeric|between: 0.99, 999",
-            "visible" => "required",
             "photo" => "mimes:jpeg,png,jpg,gif|max:2048",
         ];
     }
