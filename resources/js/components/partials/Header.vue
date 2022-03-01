@@ -1,15 +1,15 @@
 <template>
-    <header class="py-5">
+    <header class="py-2">
         <div class="container d-flex justify-content-between">
-          <div class="logo font-weight-bold">
-            <p class="d-inline-block">delive</p>
-            <p class="d-inline-block">Boo</p>
-          </div>
-          
-          <button class="btn font-weight-bold">Accedi</button>
-        </div> 
+            <div class="logo font-weight-bold">
+                <p class="d-inline-block">delive</p>
+                <p class="d-inline-block">Boo</p>
+            </div>
+
+            <button class="btn font-weight-bold">Accedi</button>
+        </div>
     </header>
-   <!-- <div>
+    <!-- <div>
       <div class="header">
         <div id="background"></div>
         <div id="labels">
@@ -19,15 +19,13 @@
 
       <div class="content"></div>
    </div> -->
-   
-
 </template>
 
 <script>
-    export default {
-      name: "Header",
+export default {
+    name: "Header",
 
-      methods: {
+    methods: {
         // $(window).scroll(function() {
         //     if ($(this).scrollTop() > 400) {
         //         $( ".header #background" ).fadeIn();
@@ -36,36 +34,35 @@
         //         $( ".header #background" ).fadeOut();
         //     }
         // }),
-      }
-        
-    }
+    },
+};
 </script>
 
 <style lang="scss" scoped>
-  header {
+header {
     position: fixed;
     width: 100%;
     top: 0;
-    //background-color: rgb(253, 238, 238);
-    background: rgb(253, 238, 238) none repeat scroll 0% 0%;
+    background-color: rgb(253, 238, 238);
+    // background: rgb(253, 238, 238) none repeat scroll 0% 0%;
     box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
     color: rgb(26, 26, 26);
     .logo {
-      cursor: pointer;
-      font-size: 48px;
-      p:nth-of-type(2) {
-      color: rgb(96, 218, 96);
-      }
+        cursor: pointer;
+        font-size: 48px;
+        p:nth-of-type(2) {
+            color: rgb(96, 218, 96);
+        }
     }
     button {
-      padding: 0 16px;
-      border-radius: 32px;
-      background-color: rgb(253, 196, 196);
-      &:hover {
-        background-color: rgb(207, 158, 158);
-      }
+        padding: 0 16px;
+        border-radius: 32px;
+        background-color: rgb(253, 196, 196);
+        &:hover {
+            background-color: rgb(207, 158, 158);
+        }
     }
-  }
+}
 
 //   .header{
 //     width:100%;
@@ -95,12 +92,9 @@
 //     display:none;
 // }
 
-
 // .content{
 //     width:100%;
 //     height:5000px;
 //     background-color:green;
 // }
-
-
 </style>
