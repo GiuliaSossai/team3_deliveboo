@@ -1,25 +1,22 @@
 <template>
-   <div>
-
-     <Header />
-     <router-view></router-view>
-     
-   </div>
+    <div>
+        <Header />
+        <router-view></router-view>
+        <Footer />
+    </div>
 </template>
 
 <script>
+import Header from "./components/partials/Header.vue";
+import Footer from "./components/partials/Footer.vue";
 
-import Header from './components/partials/Header.vue';
-
-    export default {
-      name: "App",
-      components:{
+export default {
+    name: "App",
+    components: {
         Header,
-      }
-        
-    }
+        Footer,
+    },
+};
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

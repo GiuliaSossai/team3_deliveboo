@@ -1,27 +1,28 @@
 <template>
-   <div>
-     <h1>Home</h1>
-     <Jumbotron />
-     <FirstSection />
-     
-   </div>
+    <main>
+        <h1>Home</h1>
+        <Jumbotron />
+        <FirstSection />
+    </main>
 </template>
 
 <script>
+import Jumbotron from "./Jumbotron.vue";
+import FirstSection from "./FirstSection.vue";
 
-import Jumbotron from './Jumbotron.vue';
-import FirstSection from './FirstSection.vue';
-
-    export default {
-      name: "Home",
-      components: {
+export default {
+    name: "Home",
+    components: {
         Jumbotron,
         FirstSection,
-      }
-        
-    }
+    },
+};
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+main {
+    margin-top: 120px;
+    background-color: greenyellow;
+    height: 500px;
+}
 </style>
