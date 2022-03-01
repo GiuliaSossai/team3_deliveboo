@@ -1,4 +1,5 @@
 /node_modules
+/public/js/app.js
 /public/hot
 /public/storage
 /storage/*.key
