@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dish extends Model
 {
+    protected $fillable = [
+        'restaurant_id',
+        'type_id',
+        'name',
+        'description',
+        'price',
+        'visible'
+    ];
+
     // Relazione tabella Restaurants
     public function restaurant()
     {

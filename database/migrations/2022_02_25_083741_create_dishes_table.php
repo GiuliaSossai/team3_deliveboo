@@ -22,7 +22,7 @@ class CreateDishesTable extends Migration
             $table->string('name', 100);
             $table->text('description');
             $table->decimal('price', 5, 2);
-            $table->tinyInteger('visible');
+            $table->tinyInteger('visible')->default(1);
             $table->string('photo')->nullable();
 
             $table->timestamps();
