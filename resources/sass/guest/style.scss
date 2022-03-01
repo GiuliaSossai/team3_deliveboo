@@ -1,4 +1,12 @@
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
-@import 'generals';
+//Fontawesome
+//@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+//@import '~font-awesome/scss/font-awesome.scss';
+
+//font Poppins
+// @import "@fontsource/poppins";
+
+@import "variables";
+@import "generals";
