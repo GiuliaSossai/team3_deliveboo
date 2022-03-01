@@ -5,8 +5,7 @@
                 <div class="row">
                     <div class="col-12 col-md-4 col-lg-6">
                         <div class="logo">
-                            <h1 class="d-inline-block">delive</h1>
-                            <h1 class="d-inline-block">Boo</h1>
+                            <p class="d-inline-block m-0 p-0 ">delive</p><p class="d-inline-block m-0 p-0 font-weight-bold">Boo</p>
                         </div>
                         <div class="image">
                             <img src="img/footer/Apple.svg" alt="Apple" />
@@ -93,7 +92,9 @@ footer {
     .footer__top {
         .logo {
             height: 30%;
-            h1:nth-of-type(2) {
+            cursor: pointer;
+            font-size: 38px;
+            p:nth-of-type(2) {
                 color: rgb(96, 218, 96);
             }
         }

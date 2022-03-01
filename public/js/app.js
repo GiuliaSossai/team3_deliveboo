@@ -2098,7 +2098,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Footer"
 });
@@ -6569,7 +6568,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "footer[data-v-bc338846] {\n  background-color: #000;\n  color: #fff;\n  padding-top: 50px;\n  padding-bottom: 80px;\n}\nfooter ul[data-v-bc338846] {\n  list-style: none;\n  padding: 0;\n}\nfooter a[data-v-bc338846] {\n  color: white;\n}\nfooter .footer__top .logo[data-v-bc338846] {\n  height: 30%;\n}\nfooter .footer__top .logo h1[data-v-bc338846]:nth-of-type(2) {\n  color: #60da60;\n}\nfooter .footer__top .image[data-v-bc338846] {\n  height: 70%;\n  display: flex;\n  align-items: flex-end;\n}\nfooter .footer__top .image img[data-v-bc338846] {\n  width: 30%;\n  margin-right: 25px;\n  margin-top: 15px;\n}\nfooter .footer__top .col[data-v-bc338846] {\n  margin-bottom: 25px;\n}\nfooter .footer__top li[data-v-bc338846] {\n  margin-bottom: 20px;\n}\nfooter .line[data-v-bc338846] {\n  height: 1px;\n  width: 100%;\n  background-color: #fff;\n  margin: 35px 0;\n}\nfooter .footer__botton[data-v-bc338846] {\n  font-size: 14px;\n}\nfooter .footer__botton li[data-v-bc338846] {\n  margin-bottom: 20px;\n}\nfooter .footer__botton p[data-v-bc338846] {\n  margin-top: 5px;\n  text-align: right;\n}", ""]);
+exports.push([module.i, "footer[data-v-bc338846] {\n  background-color: #000;\n  color: #fff;\n  padding-top: 50px;\n  padding-bottom: 80px;\n}\nfooter ul[data-v-bc338846] {\n  list-style: none;\n  padding: 0;\n}\nfooter a[data-v-bc338846] {\n  color: white;\n}\nfooter .footer__top .logo[data-v-bc338846] {\n  height: 30%;\n  cursor: pointer;\n  font-size: 38px;\n}\nfooter .footer__top .logo p[data-v-bc338846]:nth-of-type(2) {\n  color: #60da60;\n}\nfooter .footer__top .image[data-v-bc338846] {\n  height: 70%;\n  display: flex;\n  align-items: flex-end;\n}\nfooter .footer__top .image img[data-v-bc338846] {\n  width: 30%;\n  margin-right: 25px;\n  margin-top: 15px;\n}\nfooter .footer__top .col[data-v-bc338846] {\n  margin-bottom: 25px;\n}\nfooter .footer__top li[data-v-bc338846] {\n  margin-bottom: 20px;\n}\nfooter .line[data-v-bc338846] {\n  height: 1px;\n  width: 100%;\n  background-color: #fff;\n  margin: 35px 0;\n}\nfooter .footer__botton[data-v-bc338846] {\n  font-size: 14px;\n}\nfooter .footer__botton li[data-v-bc338846] {\n  margin-bottom: 20px;\n}\nfooter .footer__botton p[data-v-bc338846] {\n  margin-top: 5px;\n  text-align: right;\n}", ""]);
 
 // exports
 
@@ -6588,7 +6587,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "header[data-v-79cec062] {\n  position: fixed;\n  width: 100%;\n  top: 0;\n  background-color: #fdeeee;\n  box-shadow: #e2e2e2 0px -2px 0px inset;\n  color: #1a1a1a;\n}\nheader .logo[data-v-79cec062] {\n  cursor: pointer;\n  font-size: 48px;\n}\nheader .logo p[data-v-79cec062]:nth-of-type(2) {\n  color: #60da60;\n}\nheader button[data-v-79cec062] {\n  padding: 0 16px;\n  border-radius: 32px;\n  background-color: #fdc4c4;\n}\nheader button[data-v-79cec062]:hover {\n  background-color: #cf9e9e;\n}", ""]);
+exports.push([module.i, "header[data-v-79cec062] {\n  position: fixed;\n  width: 100%;\n  top: 0;\n  height: 120px;\n  padding: 20px 0;\n  background-color: whitesmoke;\n  box-shadow: #e2e2e2 0px -2px 0px inset;\n  color: #1a1a1a;\n}\nheader .gs-box[data-v-79cec062] {\n  height: 100%;\n}\nheader .gs-box .logo[data-v-79cec062] {\n  cursor: pointer;\n  font-size: 38px;\n}\nheader .gs-box .logo p[data-v-79cec062]:nth-of-type(2) {\n  color: #60da60;\n}\nheader .gs-box .gs-button[data-v-79cec062] {\n  color: #1a1a1a;\n  padding: 12px 24px;\n  border-radius: 16px;\n  background-color: #dad8d8;\n}\nheader .gs-box .gs-button[data-v-79cec062]:hover {\n  background-color: #bfbdbd;\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -38705,9 +38704,14 @@ var staticRenderFns = [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-12 col-md-4 col-lg-6" }, [
               _c("div", { staticClass: "logo" }, [
-                _c("h1", { staticClass: "d-inline-block" }, [_vm._v("delive")]),
-                _vm._v(" "),
-                _c("h1", { staticClass: "d-inline-block" }, [_vm._v("Boo")]),
+                _c("p", { staticClass: "d-inline-block m-0 p-0 " }, [
+                  _vm._v("delive"),
+                ]),
+                _c(
+                  "p",
+                  { staticClass: "d-inline-block m-0 p-0 font-weight-bold" },
+                  [_vm._v("Boo")]
+                ),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "image" }, [
@@ -38874,18 +38878,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("header", { staticClass: "py-2" }, [
-      _c("div", { staticClass: "container d-flex justify-content-between" }, [
-        _c("div", { staticClass: "logo font-weight-bold" }, [
-          _c("p", { staticClass: "d-inline-block" }, [_vm._v("delive")]),
+    return _c("header", {}, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "container d-flex justify-content-between align-items-center gs-box",
+        },
+        [
+          _c("div", { staticClass: "logo" }, [
+            _c("p", { staticClass: "d-inline-block m-0 p-0 " }, [
+              _vm._v("delive"),
+            ]),
+            _c(
+              "p",
+              { staticClass: "d-inline-block m-0 p-0 font-weight-bold" },
+              [_vm._v("Boo")]
+            ),
+          ]),
           _vm._v(" "),
-          _c("p", { staticClass: "d-inline-block" }, [_vm._v("Boo")]),
-        ]),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn font-weight-bold" }, [
-          _vm._v("Accedi"),
-        ]),
-      ]),
+          _c(
+            "a",
+            { staticClass: "gs-button", attrs: { href: "/admin/dashboard" } },
+            [_vm._v("accedi")]
+          ),
+        ]
+      ),
     ])
   },
 ]
