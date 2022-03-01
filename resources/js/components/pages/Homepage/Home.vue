@@ -22,7 +22,7 @@ export default {
 <style lang="scss" scoped>
 main {
     margin-top: 120px;
-    background-color: greenyellow;
+    background-color: rgb(253, 241, 241);
     height: 500px;
 }
 </style>
