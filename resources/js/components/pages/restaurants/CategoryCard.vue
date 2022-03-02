@@ -1,12 +1,12 @@
 <template>
     <a class="card-cat">
         <div class="card-cat__text">
-            <p>Pizza</p>
+            <p>{{ category.name }}</p>
         </div>
         <div class="card-cat__image">
             <img
-                src="https://duyt4h9nfnj50.cloudfront.net/new_search_home_eats_icon/Pizza_BrowseHome@2x.png"
-                alt="italiana"
+                :src="category.image"
+                :alt="category.name"
             />
         </div>
     </a>
@@ -15,6 +15,9 @@
 <script>
 export default {
     name: "CategoryCard",
+    props: {
+        category: Object
+    }
 };
 </script>
 
