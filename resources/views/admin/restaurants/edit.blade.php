@@ -113,6 +113,44 @@
                 @enderror
             </div>
 
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="mb-2">
+                        <img width="250px" src="{{ asset($restaurant->photo) }}" alt="">
+                    </div>
+                    @if ($restaurant->photo)
+                        <label for="photo">Modifica l' immagine</label>
+                    @else
+                        <label for="photo">Inserisci un immagine</label>
+                    @endif
+                    <input type="file" class="form-control-file" name="photo" id="photo">
+                </div>
+                @error('photo')
+                    <div class="invalid-feedback d-block">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="mb-2">
+                        <img width="250px" src="{{ asset($restaurant->photo_bg) }}" alt="">
+                    </div>
+                    @if ($restaurant->photo_bg)
+                        <label for="photo_bg">Modifica l' immagine</label>
+                    @else
+                        <label for="photo_bg">Inserisci un immagine</label>
+                    @endif
+                    <input type="file" class="form-control-file" name="photo_bg" id="photo_bg">
+                </div>
+                @error('photo_bg')
+                    <div class="invalid-feedback d-block">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
             <button type="submit" class="btn btn-primary">Salva</button>
         </form>
 

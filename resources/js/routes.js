@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import Home from './components/pages/Homepage/Home';
+import Restaurants from './components/pages/restaurants/Restaurants';
 
 const router = new VueRouter({
   mode: 'history',
@@ -13,6 +14,11 @@ const router = new VueRouter({
       path: '/',
       name: 'home',
       component: Home,
+    },
+    {
+      path: '/ristoranti',
+      name: 'restaurants',
+      component: Restaurants,
     },
   ]
 });
