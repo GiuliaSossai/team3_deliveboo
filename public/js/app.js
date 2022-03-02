@@ -6695,7 +6695,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "section[data-v-635f2178] {\n  padding: 25px;\n}\nsection .ls-text[data-v-635f2178] {\n  margin-bottom: 50px;\n}\nsection .ls-text h2[data-v-635f2178] {\n  font-size: 42px;\n}\nsection .ls-text p[data-v-635f2178] {\n  font-size: 18px;\n}\nsection .ls-container[data-v-635f2178] {\n  width: 90%;\n  margin: 0 auto;\n}\nsection .ls-box[data-v-635f2178] {\n  position: relative;\n  height: 200px;\n  border-radius: 15px;\n  margin-bottom: 25px;\n  overflow: hidden;\n}\nsection .ls-box img[data-v-635f2178] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  filter: brightness(60%);\n}\nsection .ls-box .box__text[data-v-635f2178] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  padding: 15px;\n  color: #fff;\n  z-index: 2;\n}\nsection .ls-box .box__text .ls-btn[data-v-635f2178] {\n  display: inline-block;\n  padding: 2px 8px;\n  border-radius: 15px;\n  background-color: #fff;\n  color: #000;\n  font-weight: 600;\n  margin-top: 25px;\n}", ""]);
+exports.push([module.i, "section[data-v-635f2178] {\n  padding: 25px;\n}\nsection .ls-text[data-v-635f2178] {\n  margin-bottom: 50px;\n}\nsection .ls-text h2[data-v-635f2178] {\n  font-size: 42px;\n}\nsection .ls-text p[data-v-635f2178] {\n  font-size: 18px;\n}\nsection .ls-box[data-v-635f2178] {\n  position: relative;\n  height: 200px;\n  border-radius: 15px;\n  margin-bottom: 25px;\n  overflow: hidden;\n}\nsection .ls-box img[data-v-635f2178] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  filter: brightness(60%);\n}\nsection .ls-box .box__text[data-v-635f2178] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  padding: 15px;\n  color: #fff;\n  z-index: 2;\n}\nsection .ls-box .box__text .ls-btn[data-v-635f2178] {\n  display: inline-block;\n  padding: 2px 8px;\n  border-radius: 15px;\n  background-color: #fff;\n  color: #000;\n  font-weight: 600;\n  margin-top: 25px;\n}", ""]);
 
 // exports
 
@@ -38915,8 +38915,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", [
-      _c("div", { staticClass: "ls-text container" }, [
+    return _c("section", { staticClass: "container" }, [
+      _c("div", { staticClass: "ls-text" }, [
         _c("h2", [_vm._v("Consegna di Cibo a Perugia")]),
         _vm._v(" "),
         _c("p", [
@@ -38926,7 +38926,7 @@ var staticRenderFns = [
         ]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row ls-container" }, [
+      _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12 col-md-6 col-lg-4" }, [
           _c("div", { staticClass: "ls-box" }, [
             _c("img", {

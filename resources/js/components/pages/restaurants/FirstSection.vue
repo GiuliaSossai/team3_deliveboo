@@ -1,6 +1,6 @@
 <template>
-    <section>
-        <div class="ls-text container">
+    <section class="container">
+        <div class="ls-text">
             <h2>Consegna di Cibo a Perugia</h2>
             <p>
                 Ordina dal tuo ristorante di Perugia preferito e ricevi il cibo
@@ -11,7 +11,7 @@
                 monitora tutto il tragitto.
             </p>
         </div>
-        <div class="row ls-container">
+        <div class="row">
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="ls-box">
                     <img src="img/restaurants/img1.jpg" alt="img1" />
@@ -65,10 +65,6 @@ section {
         p {
             font-size: 18px;
         }
-    }
-    .ls-container {
-        width: 90%;
-        margin: 0 auto;
     }
     .ls-box {
         position: relative;
