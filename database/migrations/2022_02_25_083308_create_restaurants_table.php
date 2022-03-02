@@ -20,14 +20,14 @@ class CreateRestaurantsTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
 
             $table->string('name', 100);
-            $table->string('slug', 100);
+            $table->string('slug', 100)->unique();
             $table->string('p_iva', 20);
             $table->string('address');
             $table->string('email');
             $table->string('phone', 25);
-            $table->decimal('delivery_price', 4, 2)->default(0);
-            $table->tinyInteger('delivery_time')->default(30);
-            $table->decimal('order_min', 4, 2)->default(0);
+            $table->decimal('delivery_price', 4, 2);
+            $table->tinyInteger('delivery_time');
+            $table->decimal('order_min', 4, 2);
             $table->string('photo')->nullable();
             $table->string('photo_bg')->nullable();
 

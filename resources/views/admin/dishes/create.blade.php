@@ -58,6 +58,18 @@
             </div>
 
             <div class="form-group">
+                <div class="form-group">
+                    <label for="photo">Inserisci un immagine</label>
+                    <input type="file" class="form-control-file" name="photo" id="photo">
+                </div>
+                @error('photo')
+                    <div class="invalid-feedback d-block">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+            <div class="form-group">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" name="visible" id="visible" value="0"
                         {{ old('visible') == '0' ? 'checked' : '' }}>

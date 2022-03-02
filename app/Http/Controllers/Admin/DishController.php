@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidationDish;
 use App\Restaurant;
 use App\Type;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -37,6 +38,12 @@ class DishController extends Controller
         $data = $request->all();
 
         $new_dish = new Dish();
+
+        if (array_key_exists('photo', $data)) {
+
+            $img_path = Storage::put('uploads', $data['photo']);
+            $data['photo'] = 'storage/' . $img_path;
+        }
 
         $new_dish->fill($data);
 
@@ -88,6 +95,21 @@ class DishController extends Controller
 
         $data = $request->all();
 
+        if (!array_key_exists('visible',  $data)) {
+            $data['visible'] = '1';
+        }
+
+        if (array_key_exists('photo', $data)) {
+
+            if ($dish->photo) {
+                $dish->photo = str_replace('storage/', '', $dish->photo);
+                Storage::delete($dish->photo);
+            }
+
+            $img_path = Storage::put('uploads', $data['photo']);
+            $data['photo'] = 'storage/' . $img_path;
+        }
+
         $dish->update($data);
 
         return redirect()->route('admin.ristoranti.show', $restaurant_slug);
@@ -102,6 +124,11 @@ class DishController extends Controller
     public function destroy($restaurant_slug, $dish_id)
     {
         $dish = Dish::find($dish_id);
+
+        if ($dish->photo) {
+            $dish->photo = str_replace('storage/', '', $dish->photo);
+            Storage::delete($dish->photo);
+        }
 
         $dish->delete();
 

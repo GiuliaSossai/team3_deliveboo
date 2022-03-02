@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidationRestaurant;
 use App\Restaurant;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use SebastianBergmann\GlobalState\Restorer;
 
 class RestaurantController extends Controller
@@ -46,6 +47,18 @@ class RestaurantController extends Controller
         $data = $request->all();
 
         $new_restaurant = new Restaurant();
+
+        if (array_key_exists('photo', $data)) {
+
+            $img_path = Storage::put('uploads', $data['photo']);
+            $data['photo'] = 'storage/' . $img_path;
+        }
+
+        if (array_key_exists('photo_bg', $data)) {
+
+            $img_path = Storage::put('uploads', $data['photo_bg']);
+            $data['photo_bg'] = 'storage/' . $img_path;
+        }
 
         $new_restaurant->fill($data);
 
@@ -104,6 +117,28 @@ class RestaurantController extends Controller
             $data['slug'] = Restaurant::generateSlug($data['name']);
         }
 
+        if (array_key_exists('photo', $data)) {
+
+            if ($restaurant->photo) {
+                $restaurant->photo = str_replace('storage/', '', $restaurant->photo);
+                Storage::delete($restaurant->photo);
+            }
+
+            $img_path = Storage::put('uploads', $data['photo']);
+            $data['photo'] = 'storage/' . $img_path;
+        }
+
+        if (array_key_exists('photo_bg', $data)) {
+
+            if ($restaurant->photo_bg) {
+                $restaurant->photo_bg = str_replace('storage/', '', $restaurant->photo_bg);
+                Storage::delete($restaurant->photo_bg);
+            }
+
+            $img_path = Storage::put('uploads', $data['photo_bg']);
+            $data['photo_bg'] = 'storage/' . $img_path;
+        }
+
         $restaurant->update($data);
 
         $restaurant->categories()->sync($data['categories']);
@@ -120,6 +155,17 @@ class RestaurantController extends Controller
     public function destroy($id)
     {
         $restaurant = Restaurant::find($id);
+
+        if ($restaurant->photo) {
+            $restaurant->photo = str_replace('storage/', '', $restaurant->photo);
+            Storage::delete($restaurant->photo);
+        }
+
+        if ($restaurant->photo_bg) {
+            $restaurant->photo_bg = str_replace('storage/', '', $restaurant->photo_bg);
+            Storage::delete($restaurant->photo_bg);
+        }
+
         $restaurant->delete();
 
         return redirect()->route('admin.ristoranti.index');
