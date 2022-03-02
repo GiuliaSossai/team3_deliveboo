@@ -111,6 +111,30 @@
                 @enderror
             </div>
 
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="photo">Inserisci un immagine</label>
+                    <input type="file" class="form-control-file" name="photo" id="photo">
+                </div>
+                @error('photo')
+                    <div class="invalid-feedback d-block">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="photo_bg">Inserisci un immagine per il bg</label>
+                    <input type="file" class="form-control-file" name="photo_bg" id="photo_bg">
+                </div>
+                @error('photo_bg')
+                    <div class="invalid-feedback d-block">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
             <button type="submit" class="btn btn-primary">Salva</button>
             <button type="reset" class="btn btn-dark">Reset</button>
         </form>

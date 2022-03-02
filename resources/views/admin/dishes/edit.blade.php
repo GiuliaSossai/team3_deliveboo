@@ -60,6 +60,25 @@
             </div>
 
             <div class="form-group">
+                <div class="form-group">
+                    <div class="mb-2">
+                        <img width="250px" src="{{ asset($dish->photo) }}" alt="">
+                    </div>
+                    @if ($dish->photo)
+                        <label for="photo">Modifica l' immagine</label>
+                    @else
+                        <label for="photo">Inserisci un immagine</label>
+                    @endif
+                    <input type="file" class="form-control-file" name="photo" id="photo">
+                </div>
+                @error('photo')
+                    <div class="invalid-feedback d-block">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+            <div class="form-group">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" name="visible" id="visible" value="0"
                         @if (old('visible', $dish->visible)) checked @endif>

@@ -12,7 +12,8 @@ class Dish extends Model
         'name',
         'description',
         'price',
-        'visible'
+        'visible',
+        'photo'
     ];
 
     // Relazione tabella Restaurants

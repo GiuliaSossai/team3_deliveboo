@@ -11,15 +11,21 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Nome</th>
                     <th scope="col" colspan="3">Azioni</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($restaurants as $restaurant)
                     <tr>
-                        <th scope="row">{{ $restaurant->id }}</th>
+                        <td>
+                            @if ($restaurant->photo)
+                                <img src="{{ asset($restaurant->photo) }}" alt="#" style="width:50px">
+                            @else
+                                <p>Nessuna foto presente</p>
+                            @endif
+                        </td>
                         <td>{{ $restaurant->name }}</td>
                         <td> <a class="btn btn-primary" href="{{ route('admin.ristoranti.show', $restaurant->slug) }}"
                                 role="button">Mostra</a>

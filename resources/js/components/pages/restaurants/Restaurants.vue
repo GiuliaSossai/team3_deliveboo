@@ -1,16 +1,39 @@
 <template>
-    <main class="container">
-        <h1>Pagina Ristoranti</h1>
+    <main>
+        <FirstSection />
+        <div class="container">
+            <h2 class="mb-4">Esplora per Categorie</h2>
+            <div class="row row-cols-5">
+                <div class="col">
+                    <CategoryCard />
+                </div>
+                <div class="col">
+                    <CategoryCard />
+                </div>
+                <div class="col">
+                    <CategoryCard />
+                </div>
+                <div class="col">
+                    <CategoryCard />
+                </div>
+                <div class="col">
+                    <CategoryCard />
+                </div>
+            </div>
+            <h1 class="mb-4">I Ristoranti</h1>
+        </div>
     </main>
 </template>
 
 <script>
 import FirstSection from "./FirstSection.vue";
+import CategoryCard from "./CategoryCard.vue";
 
 export default {
     name: "Restaurants",
     components: {
         FirstSection,
+        CategoryCard,
     },
 };
 </script>
@@ -18,6 +41,5 @@ export default {
 <style lang="scss" scoped>
 main {
     margin-top: 200px;
-    height: 500px;
 }
 </style>

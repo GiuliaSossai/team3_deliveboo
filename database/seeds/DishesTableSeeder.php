@@ -22,7 +22,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Margherita',
                 'description' => 'mozzarella | pomodoro | basilico',
                 'price' => 4.50,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/margherita.jpg',
                 'visible' => 1,
                 'type_id' => 2,
                 'restaurant_id' => 7
@@ -31,7 +31,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Marinara',
                 'description' => 'pomodoro | aglio',
                 'price' => 4,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/marinara.jpeg',
                 'visible' => 1,
                 'type_id' => 2,
                 'restaurant_id' => 1
@@ -40,7 +40,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Calzone',
                 'description' => 'mozzarella | pomodoro | prosciutto',
                 'price' => 6,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/calzone.jpg',
                 'visible' => 1,
                 'type_id' => 2,
                 'restaurant_id' => 10
@@ -49,7 +49,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Udon alle verdure',
                 'description' => 'carote | zucchine | funghi | germogli di soia',
                 'price' => 6.50,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/udon.jpg',
                 'visible' => 1,
                 'type_id' => 2,
                 'restaurant_id' => 4
@@ -58,16 +58,16 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Tagliolini al tartufo',
                 'description' => 'tartufo nero | aglio | burro | uova',
                 'price' => 10.50,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/tartufo.jpeg',
                 'visible' => 1,
                 'type_id' => 2,
                 'restaurant_id' => 2
             ],
             [
-                'name' => 'Lasagne ai frutti di mare',
-                'description' => 'cozze | vongole | gamberoni | pomodoro | prezzemolo',
+                'name' => 'Lasagne della nonna',
+                'description' => 'ragu | besciamella | pomodoro | prezzemolo',
                 'price' => 8.50,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/lasagne.jpg',
                 'visible' => 1,
                 'type_id' => 2,
                 'restaurant_id' => 6
@@ -76,7 +76,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Arrotolato Kebab',
                 'description' => 'carne | patatine | cipolla | insalata | pomodoro | salse',
                 'price' => 5.50,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/kebab.jpg',
                 'visible' => 1,
                 'type_id' => 3,
                 'restaurant_id' => 3
@@ -85,7 +85,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Baklava',
                 'description' => 'miele | noci | pistacchio',
                 'price' => 3.50,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/baklava.jpg',
                 'visible' => 1,
                 'type_id' => 4,
                 'restaurant_id' => 3
@@ -94,7 +94,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Bowl Colorata',
                 'description' => 'riso | mango | edamame | salmone affumicato | funghi | avocado',
                 'price' => 9.50,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/poke.jpg',
                 'visible' => 1,
                 'type_id' => 2,
                 'restaurant_id' => 9
@@ -103,7 +103,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Toro Seduto',
                 'description' => 'pane ciabatta | hamburger chianina | cheddar | pomodoro | cipolla caramellata | maionese al pepe',
                 'price' => 8.50,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/hamburger.jpg',
                 'visible' => 1,
                 'type_id' => 3,
                 'restaurant_id' => 5
@@ -112,7 +112,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Fagioli Trinità',
                 'description' => 'fagioli | cipolla | pomodoro | chilli | panna acida',
                 'price' => 6.50,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/fagioli.jpg',
                 'visible' => 1,
                 'type_id' => 3,
                 'restaurant_id' => 8
@@ -121,7 +121,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Tiramisù',
                 'description' => 'savoiardi | mascarpone | cacao | caffè | uova',
                 'price' => 5,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/tiramisu.jpg',
                 'visible' => 1,
                 'type_id' => 4,
                 'restaurant_id' => 1
@@ -130,7 +130,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Tisana del dolce dormire',
                 'description' => 'melissa | valeriana | camomilla',
                 'price' => 4,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/tisana.jpg',
                 'visible' => 1,
                 'type_id' => 5,
                 'restaurant_id' => 11
@@ -139,7 +139,7 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Hummus',
                 'description' => 'ceci | limone | tahina | prezzemolo | aglio',
                 'price' => 5,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/hummus.jpg',
                 'visible' => 1,
                 'type_id' => 1,
                 'restaurant_id' => 11
@@ -148,14 +148,14 @@ class DishesTableSeeder extends Seeder
                 'name' => 'Pacchero della casa',
                 'description' => 'pomodorini gialli | scampi | pesce spada | prezzemolo',
                 'price' => 9,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'fish'),
+                'photo' => 'img/img-seeder/dishes/pachhero.jpg',
                 'visible' => 1,
                 'type_id' => 2,
                 'restaurant_id' => 12
             ]
         ];
 
-        foreach($plates as $plate) { 
+        foreach ($plates as $plate) {
 
             $new_dish = new Dish();
             // $new_dish->restaurant_id = Restaurant::inRandomOrder()->first()->id;
@@ -173,6 +173,5 @@ class DishesTableSeeder extends Seeder
 
             $new_dish->save();
         }
-
     }
 }
