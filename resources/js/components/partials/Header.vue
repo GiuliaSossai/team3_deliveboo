@@ -3,16 +3,16 @@
         <div
             class="container d-flex justify-content-between align-items-center gs-box"
         >
-            <router-link :to="{name:'home'}"> 
+            <router-link :to="{ name: 'home' }">
                 <div class="logo">
                     <p class="d-inline-block m-0 p-0 text-black">
-                       delive<span class="m-0 p-0 font-weight-bold">Boo</span>
+                        delive<span class="m-0 p-0 font-weight-bold">Boo</span>
                     </p>
                 </div>
             </router-link>
 
             <!-- aggiungere if: se sei già loggato, entri in area admin personale -->
-            <a href="/admin/dashboard" class="gs-button">accedi</a>
+            <a href="/admin/dashboard" class="gs-button">Accedi</a>
         </div>
     </header>
     <!-- <div>
@@ -49,8 +49,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    height: 90px;
-    padding: 20px 0;
+    height: 80px;
     background-color: rgb(245, 245, 245);
     // background: rgb(253, 238, 238) none repeat scroll 0% 0%;
     box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
@@ -58,7 +57,7 @@ header {
     z-index: 999;
     .gs-box {
         height: 100%;
-        a{
+        a {
             color: black;
         }
         .logo {
@@ -70,7 +69,8 @@ header {
         }
         .gs-button {
             color: rgb(26, 26, 26);
-            padding: 12px 24px;
+            padding: 8px 22px;
+            font-weight: 600;
             border-radius: 16px;
             background-color: rgb(218, 216, 216);
             &:hover {

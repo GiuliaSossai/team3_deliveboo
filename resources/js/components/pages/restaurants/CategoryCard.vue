@@ -34,6 +34,7 @@ export default {
     cursor: pointer;
     .card-cat__text {
         p {
+            margin: 0;
             font-size: 22px;
             font-weight: 500;
         }
