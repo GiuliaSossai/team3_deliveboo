@@ -4,8 +4,9 @@
             class="container d-flex justify-content-between align-items-center gs-box"
         >
             <div class="logo">
-                <p class="d-inline-block m-0 p-0">delive</p>
-                <p class="d-inline-block m-0 p-0 font-weight-bold">Boo</p>
+                <p class="d-inline-block m-0 p-0">
+                    delive<span class="m-0 p-0 font-weight-bold">Boo</span>
+                </p>
             </div>
 
             <!-- aggiungere if: se sei già loggato, entri in area admin personale -->
@@ -58,7 +59,7 @@ header {
         .logo {
             cursor: pointer;
             font-size: 38px;
-            p:nth-of-type(2) {
+            span {
                 color: rgb(96, 218, 96);
             }
         }
