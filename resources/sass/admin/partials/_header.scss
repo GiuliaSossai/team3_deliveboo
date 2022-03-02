@@ -1,0 +1,33 @@
+header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: rgb(15, 15, 15);
+  // background: rgb(253, 238, 238) none repeat scroll 0% 0%;
+  box-shadow: rgb(39, 39, 39) 0px -2px 0px inset;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  height: 80px;
+}
+
+header h1{
+  font-size: 48px;
+  font-weight: bold;
+  cursor:pointer;
+}
+
+header h1 span{
+  color: rgb(96, 218, 96);
+}
+
+header li a{
+  color: rgb(96, 218, 96) !important;
+}
+
+header .dropdown-menu{
+  background-color: black;
+}
+
+header .dropdown-item{
+  background-color: black;
+}

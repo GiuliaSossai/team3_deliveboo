@@ -1,12 +1,12 @@
 <template>
-    <header class="py-2">
-        <div class="container d-flex justify-content-between">
-            <div class="logo font-weight-bold">
-                <p class="d-inline-block">delive</p>
-                <p class="d-inline-block">Boo</p>
+    <header class="">
+        <div class="container d-flex justify-content-between align-items-center gs-box">
+            <div class="logo">
+                <p class="d-inline-block m-0 p-0 ">delive</p><p class="d-inline-block m-0 p-0 font-weight-bold">Boo</p>    
             </div>
 
-            <button class="btn font-weight-bold">Accedi</button>
+            <!-- aggiungere if: se sei già loggato, entri in area admin personale -->
+            <a href="/admin/dashboard" class="gs-button">accedi</a>
         </div>
     </header>
     <!-- <div>
@@ -43,25 +43,33 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    background-color: rgb(253, 238, 238);
+    height: 120px;
+    padding: 20px 0;
+    background-color: rgb(245, 245, 245);
     // background: rgb(253, 238, 238) none repeat scroll 0% 0%;
     box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
     color: rgb(26, 26, 26);
-    .logo {
-        cursor: pointer;
-        font-size: 48px;
-        p:nth-of-type(2) {
-            color: rgb(96, 218, 96);
+    .gs-box {
+        height: 100%;
+        .logo {
+            cursor: pointer;
+            font-size: 38px;
+            p:nth-of-type(2) {
+                color: rgb(96, 218, 96);
+            }
+        }
+        .gs-button {
+            color: rgb(26, 26, 26);
+            padding: 12px 24px;
+            border-radius: 16px;
+            background-color: rgb(218, 216, 216);
+            &:hover {
+                background-color: rgb(191, 189, 189);
+                text-decoration: none;
+            }
         }
     }
-    button {
-        padding: 0 16px;
-        border-radius: 32px;
-        background-color: rgb(253, 196, 196);
-        &:hover {
-            background-color: rgb(207, 158, 158);
-        }
-    }
+    
 }
 
 //   .header{
