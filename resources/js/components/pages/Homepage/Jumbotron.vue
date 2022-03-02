@@ -64,9 +64,9 @@
     </div>
   </div>
    
-  <div class="content-jumbo">
+  <div class="content-jumbo ">
     <h5>Ordina cosa vuoi mangiare, a casa tua.</h5>
-    <p>La tua città, <span class=" font-weight-bold">Perugia</span></p>
+    <p class="m-0 rounded-pill">La tua città, <span class=" font-weight-bold">Perugia</span></p>
     <div class="mdg-btn">
       <router-link :to="{name:'restaurants'}" class="text-white">
         Vedi i ristoranti
