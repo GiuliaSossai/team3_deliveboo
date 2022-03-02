@@ -2335,6 +2335,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   methods: {// $(window).scroll(function() {
@@ -6862,7 +6865,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "header[data-v-79cec062] {\n  position: fixed;\n  width: 100%;\n  top: 0;\n  height: 120px;\n  padding: 20px 0;\n  background-color: whitesmoke;\n  box-shadow: #e2e2e2 0px -2px 0px inset;\n  color: #1a1a1a;\n}\nheader .gs-box[data-v-79cec062] {\n  height: 100%;\n}\nheader .gs-box .logo[data-v-79cec062] {\n  cursor: pointer;\n  font-size: 38px;\n}\nheader .gs-box .logo p[data-v-79cec062]:nth-of-type(2) {\n  color: #60da60;\n}\nheader .gs-box .gs-button[data-v-79cec062] {\n  color: #1a1a1a;\n  padding: 12px 24px;\n  border-radius: 16px;\n  background-color: #dad8d8;\n}\nheader .gs-box .gs-button[data-v-79cec062]:hover {\n  background-color: #bfbdbd;\n  text-decoration: none;\n}", ""]);
+exports.push([module.i, "header[data-v-79cec062] {\n  position: fixed;\n  width: 100%;\n  top: 0;\n  height: 90px;\n  padding: 20px 0;\n  background-color: whitesmoke;\n  box-shadow: #e2e2e2 0px -2px 0px inset;\n  color: #1a1a1a;\n  z-index: 999;\n}\nheader .gs-box[data-v-79cec062] {\n  height: 100%;\n}\nheader .gs-box .logo[data-v-79cec062] {\n  cursor: pointer;\n  font-size: 38px;\n}\nheader .gs-box .logo p[data-v-79cec062]:nth-of-type(2) {\n  color: #60da60;\n}\nheader .gs-box .gs-button[data-v-79cec062] {\n  color: #1a1a1a;\n  padding: 12px 24px;\n  border-radius: 16px;\n  background-color: #dad8d8;\n}\nheader .gs-box .gs-button[data-v-79cec062]:hover {\n  background-color: #bfbdbd;\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -39618,9 +39621,10 @@ var staticRenderFns = [
         },
         [
           _c("div", { staticClass: "logo" }, [
-            _c("p", { staticClass: "d-inline-block m-0 p-0 " }, [
+            _c("p", { staticClass: "d-inline-block m-0 p-0" }, [
               _vm._v("delive"),
             ]),
+            _vm._v(" "),
             _c(
               "p",
               { staticClass: "d-inline-block m-0 p-0 font-weight-bold" },

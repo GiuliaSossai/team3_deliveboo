@@ -1,8 +1,11 @@
 <template>
     <header class="">
-        <div class="container d-flex justify-content-between align-items-center gs-box">
+        <div
+            class="container d-flex justify-content-between align-items-center gs-box"
+        >
             <div class="logo">
-                <p class="d-inline-block m-0 p-0 ">delive</p><p class="d-inline-block m-0 p-0 font-weight-bold">Boo</p>    
+                <p class="d-inline-block m-0 p-0">delive</p>
+                <p class="d-inline-block m-0 p-0 font-weight-bold">Boo</p>
             </div>
 
             <!-- aggiungere if: se sei già loggato, entri in area admin personale -->
@@ -43,12 +46,13 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    height: 120px;
+    height: 90px;
     padding: 20px 0;
     background-color: rgb(245, 245, 245);
     // background: rgb(253, 238, 238) none repeat scroll 0% 0%;
     box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
     color: rgb(26, 26, 26);
+    z-index: 999;
     .gs-box {
         height: 100%;
         .logo {
@@ -69,7 +73,6 @@ header {
             }
         }
     }
-    
 }
 
 //   .header{

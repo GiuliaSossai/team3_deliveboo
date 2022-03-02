@@ -10027,17 +10027,20 @@ header {
   box-shadow: #272727 0px -2px 0px inset;
   color: white;
   font-family: "Poppins", sans-serif;
-  height: 80px;
+  height: 90px;
+}
+header .logo {
+  cursor: pointer;
+  font-size: 38px;
+}
+header .logo span {
+  color: #60da60;
 }
 
 header h1 {
   font-size: 48px;
   font-weight: bold;
   cursor: pointer;
-}
-
-header h1 span {
-  color: #60da60;
 }
 
 header li a {
