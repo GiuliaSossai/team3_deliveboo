@@ -1,6 +1,5 @@
 <template>
     <main>
-        <h1>Home</h1>
         <Jumbotron />
         <FirstSection />
     </main>
@@ -20,9 +19,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-main {
-    margin-top: 120px;
-    background-color: rgb(253, 241, 241);
-    height: 500px;
-}
+/*main {
+    margin-top: 90px;
+}*/
 </style>
