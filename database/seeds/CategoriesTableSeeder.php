@@ -16,43 +16,43 @@ class CategoriesTableSeeder extends Seeder
         $categories = [
             [
                 'name' => 'Italiana',
-                'image' => 'img/categories/italiana.png',
+                'image' => 'img/img-seeder/categories/italiana.png',
             ],
             [
                 'name' => 'Cinese',
-                'image' => 'img/categories/cinese.png',
+                'image' => 'img/img-seeder/categories/cinese.png',
             ],
             [
                 'name' => 'Giapponese',
-                'image' => 'img/categories/japanese.png',
+                'image' => 'img/img-seeder/categories/japanese.png',
             ],
             [
                 'name' => 'Messicana',
-                'image' => 'img/categories/mexican.png',
+                'image' => 'img/img-seeder/categories/mexican.png',
             ],
             [
                 'name' => 'Sushi',
-                'image' => 'img/categories/sushi.png',
+                'image' => 'img/img-seeder/categories/sushi.png',
             ],
             [
                 'name' => 'Pizza',
-                'image' => 'img/categories/pizza.png',
+                'image' => 'img/img-seeder/categories/pizza.png',
             ],
             [
                 'name' => 'Kebap',
-                'image' => 'img/categories/kebab.png',
+                'image' => 'img/img-seeder/categories/kebab.png',
             ],
             [
                 'name' => 'Hamburger',
-                'image' => 'img/categories/hamburger.png',
+                'image' => 'img/img-seeder/categories/hamburger.png',
             ],
             [
                 'name' => 'Vegan',
-                'image' => 'img/categories/vegan.png',
+                'image' => 'img/img-seeder/categories/vegan.png',
             ],
             [
                 'name' => 'Dolci',
-                'image' => 'img/categories/dessert.png',
+                'image' => 'img/img-seeder/categories/dessert.png',
             ]
         ];
 

@@ -4,41 +4,24 @@
         <div class="container">
             <h2 class="mb-4">Esplora per Categorie</h2>
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5">
-                <div class="col">
-                    <CategoryCard />
+                <div class="col"
+                    v-for="category in categories"
+                    :key="category.id"
+                >
+                    <CategoryCard :category="category"/>
                 </div>
-                <div class="col">
-                    <CategoryCard />
-                </div>
-                <div class="col">
-                    <CategoryCard />
-                </div>
-                <div class="col">
-                    <CategoryCard />
-                </div>
-                <div class="col">
-                    <CategoryCard />
-                </div>
+                
             </div>
             <h1 class="my-5">I Ristoranti</h1>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 <!-- <div class="col d-flex">
                     <RestaurantCard />
                 </div> -->
-                <div class="col d-flex justify-content-center">
-                    <RestaurantCard />
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <RestaurantCard />
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <RestaurantCard />
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <RestaurantCard />
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <RestaurantCard />
+                <div class="col d-flex justify-content-center"
+                    v-for="restaurant in restaurants"
+                    :key="restaurant.id"
+                >
+                    <RestaurantCard :restaurant="restaurant"/>
                 </div>
             </div>
         </div>
@@ -57,6 +40,32 @@ export default {
         CategoryCard,
         RestaurantCard,
     },
+
+    data(){
+        return {
+            categories: [],
+            apiUrl: '/api/restaurants',
+            restaurants: [],
+        }
+    },
+
+    mounted(){
+        this.getApi();
+    },
+
+    methods: {
+        getApi(){
+            axios.get(this.apiUrl)
+            .then(res => {
+                this.restaurants = res.data.restaurants;
+                this.categories = res.data.categories;
+                console.log(this.categories);
+            })
+            .catch(error =>{
+                console.log(error);
+            })
+        }
+    }
 };
 </script>
 

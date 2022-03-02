@@ -17,4 +17,4 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/guest/style.scss', 'public/css/guest')
     .options({
         processCssUrls: false
-    });
+    }).sourceMaps();

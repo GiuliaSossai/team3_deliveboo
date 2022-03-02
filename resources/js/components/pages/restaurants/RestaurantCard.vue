@@ -2,13 +2,13 @@
     <a class="card-rest">
         <div class="card-rest-box">
             <div class="card-rest-box-image">
-                <img src="img/img-seeder/restaurants/chinese.jpg" alt="#" />
+                <img :src="restaurant.photo" :alt="restaurant.name" />
             </div>
             <div class="card-rest-box-text">
-                <h5>Il capriccio di Ciccio</h5>
-                <span>Costo: 2,99€</span>
+                <h5>{{ restaurant.name }}</h5>
+                <span>Costo: {{ restaurant.delivery_price }}€</span>
                 <span>•</span>
-                <span class="ls-min">20-40 min</span>
+                <span class="ls-min">{{ restaurant.delivery_time }} min</span>
             </div>
         </div>
     </a>
@@ -17,6 +17,9 @@
 <script>
 export default {
     name: "RestaurantCard",
+    props: {
+        restaurant: Object
+    }
 };
 </script>
 
