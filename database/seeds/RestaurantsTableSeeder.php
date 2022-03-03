@@ -22,58 +22,55 @@ class RestaurantsTableSeeder extends Seeder
             [
                 'name' => 'Flora Alpina',
                 'address' => 'Via del Lucumone 5, 06129 Perugia',
-                'delivery_price' => 3,
+                'delivery_price' => 3.99,
                 'delivery_time' => 20,
                 'order_min' => 5,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' => 'img/img-seeder/restaurants/lasagna-rest.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Il capriccio di Ciccio',
                 'address' => 'Strada del gioco 5, 06129 Perugia',
-                'delivery_price' => 2,
+                'delivery_price' => 1.99,
                 'delivery_time' => 30,
                 'order_min' => 6,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' =>  'img/img-seeder/restaurants/ciccio-rest.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Kebab da Ciro',
                 'address' => 'Via Enrico Caruso 7, 06132 Perugia',
-                'delivery_price' => 1,
+                'delivery_price' => 1.50,
                 'delivery_time' => 40,
                 'order_min' => 0,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' => 'img/img-seeder/restaurants/kebab-rest.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Samurai Sushi',
                 'address' => 'Strada San Simone del Carmine 13, 06126 Perugia',
-                'delivery_price' => 4,
+                'delivery_price' => 2.50,
                 'delivery_time' => 20,
                 'order_min' => 10,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' => 'img/img-seeder/restaurants/sushi-rest.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Los Pollos Hermanos',
                 'address' => 'Via Tommaso Tittoni 1, 06131 Perugia',
-                'delivery_price' => 2,
+                'delivery_price' => 5,
                 'delivery_time' => 30,
                 'order_min' => 5,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' =>  'img/img-seeder/restaurants/pollos-rest.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'La bella bettola',
-                'p_iva' => $faker->vat,
-                'email' => $faker->unique()->safeEmail,
                 'address' => 'Via delle Valli 4, 06125 Perugia',
-                'phone' => $faker->phoneNumber,
-                'delivery_price' => 2,
+                'delivery_price' => 0,
                 'delivery_time' => 10,
                 'order_min' => 7,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' =>  'img/img-seeder/restaurants/trattoria1.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
@@ -82,52 +79,52 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 5,
                 'delivery_time' => 30,
                 'order_min' => 6,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' =>  'img/img-seeder/restaurants/risto1.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Dopolavoro Ferroviario',
                 'address' => 'Via Quintino Sella 37, 06131 Perugia',
-                'delivery_price' => 3,
+                'delivery_price' => 0,
                 'delivery_time' => 20,
                 'order_min' => 5,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' =>  'img/img-seeder/restaurants/dopo-rest.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Bambù Pokè',
                 'address' => 'Corso Bersaglieri 20, 06130 Perugia',
-                'delivery_price' => 7,
+                'delivery_price' => 0.99,
                 'delivery_time' => 15,
                 'order_min' => 10,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' => 'img/img-seeder/restaurants/poke-rest.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Non è mica pizza e fichi',
                 'address' => 'Via dei narcisi 2, 06126 Perugia',
-                'delivery_price' => 5,
+                'delivery_price' => 2.50,
                 'delivery_time' => 20,
                 'order_min' => 8,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' => 'img/img-seeder/restaurants/pizza-fichi-rest.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Le mille e una notte',
                 'address' => 'Via dei gladioli 3, 06126 Perugia',
-                'delivery_price' => 7,
+                'delivery_price' => 3.99,
                 'delivery_time' => 20,
                 'order_min' => 7,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' => 'img/img-seeder/restaurants/chinese.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Il pacchero',
                 'address' => 'Via Bruno Colli 19, 06127 Perugia',
-                'delivery_price' => 8,
+                'delivery_price' => 0,
                 'delivery_time' => 30,
                 'order_min' => 7,
-                'photo' => $faker->imageUrl(360, 360, 'animals', true, 'parrots'),
+                'photo' =>  'img/img-seeder/restaurants/trattoria.jpg',
                 'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ]
 

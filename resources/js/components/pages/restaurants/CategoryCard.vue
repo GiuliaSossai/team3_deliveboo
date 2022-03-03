@@ -4,10 +4,7 @@
             <p>{{ category.name }}</p>
         </div>
         <div class="card-cat__image">
-            <img
-                :src="category.image"
-                :alt="category.name"
-            />
+            <img :src="category.image" :alt="category.name" />
         </div>
     </a>
 </template>
@@ -16,8 +13,8 @@
 export default {
     name: "CategoryCard",
     props: {
-        category: Object
-    }
+        category: Object,
+    },
 };
 </script>
 
@@ -38,14 +35,19 @@ export default {
     .card-cat__text {
         p {
             margin: 0;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 500;
         }
     }
     .card-cat__image {
+        display: flex;
+        justify-content: flex-end;
+        width: 60%;
+        height: 100%;
         img {
-            width: 90%;
-            height: 90%;
+            width: 80%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 }
