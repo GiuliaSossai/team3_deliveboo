@@ -1,12 +1,14 @@
 <template>
-    <a class="card-cat">
+    <div class="card-cat"
+        @click="getRestaurantsByCategory"
+    >
         <div class="card-cat__text">
             <p>{{ category.name }}</p>
         </div>
         <div class="card-cat__image">
             <img :src="category.image" :alt="category.name" />
         </div>
-    </a>
+    </div>
 </template>
 
 <script>
@@ -15,6 +17,12 @@ export default {
     props: {
         category: Object,
     },
+
+    methods: {
+        getRestaurantsByCategory(){
+            this.$emit('getCategory', this.category.slug)
+        },
+    }
 };
 </script>
 
