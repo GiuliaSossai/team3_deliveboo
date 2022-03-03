@@ -81,12 +81,12 @@
             <div class="form-group">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" name="visible" id="visible" value="0"
-                        @if (old('visible', $dish->visible)) checked @endif>
+                        @if (!old('visible', $dish->visible)) checked @endif>
                     <label class="custom-control-label" for="visible">Non Disponibile</label>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Modifica</button>
             <button type="reset" class="btn btn-dark">Reset</button>
         </form>
 
