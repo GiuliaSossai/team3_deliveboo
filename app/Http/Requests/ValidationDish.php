@@ -31,4 +31,19 @@ class ValidationDish extends FormRequest
             "photo" => "mimes:jpeg,png,jpg,gif|max:2048",
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => "Il nome è obbligatorio",
+            'name.min' => "Il nome deve avere almeno :min caratteri",
+            'name.max' => "Il nome deve avere massimo :max caratteri",
+            'type_id.required' => "Selezionare almeno una tipo",
+            'description.required' => "Scrivere almeno 1 ingrediente",
+            'price.numeric' => "il prezzo minimo deve essere un numero",
+            'price.between' => "il prezzo minimo deve essere un numero compreso tra :min e :max",
+            'photo.mimes' => "Il file deve essere jpeg,png,jpg,gif",
+            'photo.max' => "Il nome del file deve essere lungo massimo 2048 caratteri",
+        ];
+    }
 }
