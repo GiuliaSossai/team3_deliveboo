@@ -13,7 +13,8 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
+                        Ciao
+                        {{ Auth::user()->name }}
                         {{ __('You are logged in!') }}
                     </div>
                     <a href="{{ route('admin.ristoranti.index') }}" class="btn w-25 btn-primary m-2">Vai ai Ristoranti</a>

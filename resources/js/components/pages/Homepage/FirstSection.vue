@@ -15,7 +15,7 @@
                     alt=""
                 />
                 <h5>Il tuo ristorante, a domicilio</h5>
-                <a href="#">Aggiungi il tuo ristorante</a>
+                <a href="/register">Aggiungi il tuo ristorante</a>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <img

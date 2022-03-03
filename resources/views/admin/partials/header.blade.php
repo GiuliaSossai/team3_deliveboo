@@ -1,9 +1,11 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-light h-100">
         <div class="container">
-            <div class="logo">
-                <p class="d-inline-block m-0 p-0">delive<span class=" m-0 p-0 font-weight-bold">Boo</span></p>
-            </div>
+            <a href="/">
+                <div class="logo">
+                    <p>delive<span class="font-weight-bold">Boo</span></p>
+                </div>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="{{ __('Toggle navigation') }}">

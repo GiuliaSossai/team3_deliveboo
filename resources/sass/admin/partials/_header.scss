@@ -7,12 +7,24 @@ header {
     box-shadow: rgb(39, 39, 39) 0px -2px 0px inset;
     color: white;
     font-family: "Poppins", sans-serif;
-    height: 90px;
+    height: 80px;
+    a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+            color: white;
+            text-decoration: none;
+        }
+    }
     .logo {
         cursor: pointer;
         font-size: 38px;
-        span {
-            color: rgb(96, 218, 96);
+        p {
+            margin: 0;
+            padding: 0;
+            span {
+                color: rgb(96, 218, 96);
+            }
         }
     }
 }
