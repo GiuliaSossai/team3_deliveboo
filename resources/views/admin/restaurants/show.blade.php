@@ -17,7 +17,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Ingredienti</th>
                     <th scope="col">Prezzo</th>
-                    <th scope="col" colspan="3">Azioni</th>
+                    <th scope="col" colspan="2">Azioni</th>
 
                 </tr>
             </thead>
@@ -34,8 +34,6 @@
                         <td>{{ $dish->name }}</td>
                         <td>{{ $dish->description }}</td>
                         <td>{{ $dish->price }}</td>
-                        <td> <a class="btn btn-primary" href="#" role="button">Mostra</a>
-                        </td>
                         <td><a class="btn btn-success"
                                 href="{{ route('admin.piatti.edit', ['slug' => $restaurant->slug, 'piatti' => $dish]) }}"
                                 role="button">Modifica</a></td>
