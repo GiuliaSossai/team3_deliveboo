@@ -30,6 +30,20 @@ export default {
             loading: false,
         };
     },
+    methods: {
+        getApi() {
+            axios
+                .get(this.apiUrl + this.slug)
+                .then((response) => {
+                    // handle success
+                    this.restaurant = response.data;
+                })
+                .catch((error) => {
+                    // handle error
+                    console.log(error);
+                });
+        },
+    },
 };
 </script>
 
