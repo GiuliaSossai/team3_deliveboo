@@ -84,8 +84,9 @@ export default {
             ) {
                 add(item);
             } else {
-                alert("Stai facendo un nuovo ordine");
+                confirm("Vuoi davvero eliminare il carrello?");
                 destroy();
+                add(item);
             }
         },
         printQuantity() {

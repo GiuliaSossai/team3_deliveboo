@@ -1,5 +1,8 @@
 <template>
-    <a class="card-rest">
+    <router-link
+        :to="{ name: 'restaurants-show', params: { slug: restaurant.slug } }"
+        class="card-rest"
+    >
         <div class="card-rest-box">
             <div class="card-rest-box-image">
                 <img :src="restaurant.photo" :alt="restaurant.name" />
@@ -11,15 +14,15 @@
                 <span class="ls-min">{{ restaurant.delivery_time }} min</span>
             </div>
         </div>
-    </a>
+    </router-link>
 </template>
 
 <script>
 export default {
     name: "RestaurantCard",
     props: {
-        restaurant: Object
-    }
+        restaurant: Object,
+    },
 };
 </script>
 

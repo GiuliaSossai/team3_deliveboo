@@ -12,7 +12,11 @@
             </router-link>
 
             <!-- aggiungere if: se sei già loggato, entri in area admin personale -->
-            <p>Carrello: {{ cartQuantity }}</p>
+            <p v-if="cart">
+                <router-link :to="{ name: 'checkout' }"
+                    >Carrello: {{ cartQuantity }}</router-link
+                >
+            </p>
             <a href="/admin/dashboard" class="gs-button">Accedi</a>
         </div>
     </header>
@@ -35,12 +39,16 @@ import { EventBus } from "../../global-event-bus.js";
 
 export default {
     name: "Header",
+    props: {
+        cart: Boolean,
+    },
     data() {
         return {
             cartQuantity: this.printQuantity(),
         };
     },
     mounted() {
+        this.cart = true;
         EventBus.$on("getCartQuantity", (data) => {
             this.cartQuantity = data;
         });
