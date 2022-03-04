@@ -5,11 +5,14 @@
                 <div class="row">
                     <div class="col-12 col-md-4 col-lg-6">
                         <div class="logo">
-                            <p class="d-inline-block m-0 p-0 ">delive</p><p class="d-inline-block m-0 p-0 font-weight-bold">Boo</p>
+                            <p class="d-inline-block m-0 p-0">delive</p>
+                            <p class="d-inline-block m-0 p-0 font-weight-bold">
+                                Boo
+                            </p>
                         </div>
                         <div class="image">
-                            <img src="img/footer/Apple.svg" alt="Apple" />
-                            <img src="img/footer/Google.png" alt="Google" />
+                            <img src="/img/footer/Apple.svg" alt="Apple" />
+                            <img src="/img/footer/Google.png" alt="Google" />
                         </div>
                     </div>
                     <div class="col-12 my-5 col-md-4 my-md-0 col-lg-3">
