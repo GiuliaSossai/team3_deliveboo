@@ -12,6 +12,11 @@
             </router-link>
 
             <!-- aggiungere if: se sei già loggato, entri in area admin personale -->
+            <p v-if="cart">
+                <router-link :to="{ name: 'checkout' }"
+                    >Carrello: {{ cartQuantity }}</router-link
+                >
+            </p>
             <a href="/admin/dashboard" class="gs-button">Accedi</a>
         </div>
     </header>
@@ -28,18 +33,36 @@
 </template>
 
 <script>
+import { list } from "cart-localstorage";
+
+import { EventBus } from "../../global-event-bus.js";
+
 export default {
     name: "Header",
-
+    props: {
+        cart: Boolean,
+    },
+    data() {
+        return {
+            cartQuantity: this.printQuantity(),
+        };
+    },
+    mounted() {
+        this.cart = true;
+        EventBus.$on("getCartQuantity", (data) => {
+            this.cartQuantity = data;
+        });
+    },
+    computed: {},
     methods: {
-        // $(window).scroll(function() {
-        //     if ($(this).scrollTop() > 400) {
-        //         $( ".header #background" ).fadeIn();
-        //     } else {
-        //         console.log('there');
-        //         $( ".header #background" ).fadeOut();
-        //     }
-        // }),
+        printQuantity() {
+            let dishes = list();
+            this.cartQuantity = 0;
+            for (let key in dishes) {
+                this.cartQuantity += dishes[key].quantity;
+            }
+            return this.cartQuantity;
+        },
     },
 };
 </script>

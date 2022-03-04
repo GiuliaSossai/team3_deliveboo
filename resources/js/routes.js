@@ -3,8 +3,10 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import Home from './components/pages/Homepage/Home';
+import Home from './components/pages/homepage/Home';
 import Restaurants from './components/pages/restaurants/Restaurants';
+import Show from './components/pages/show-restaurant/Show';
+import Checkout from './components/pages/Checkout';
 import Error404 from './components/pages/Error404';
 
 const router = new VueRouter({
@@ -20,6 +22,16 @@ const router = new VueRouter({
       path: '/ristoranti',
       name: 'restaurants',
       component: Restaurants,
+    },
+    {
+      path: '/ristoranti/:slug',
+      name: 'restaurants-show',
+      component: Show,
+    },
+    {
+      path: '/checkout',
+      name: 'checkout',
+      component: Checkout,
     },
     {
       path: '*',
