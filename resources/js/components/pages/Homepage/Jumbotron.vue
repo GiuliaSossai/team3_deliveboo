@@ -67,7 +67,7 @@ export default {
             background-color: #ff7038;
         }
         .ls-3 {
-            background-color: #33ffccf8;
+            background-color: #33ffa0f8;
         }
         img {
             height: 100vh;
