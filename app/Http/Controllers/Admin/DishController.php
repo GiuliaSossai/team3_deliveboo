@@ -49,6 +49,8 @@ class DishController extends Controller
 
         $new_dish->restaurant_id = $restaurant_id;
 
+        $new_dish->slug = Dish::generateSlug($new_dish->name);
+
         $new_dish->save();
 
         $restaurant = Restaurant::where('id', $restaurant_id)->first();
@@ -73,10 +75,10 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($restaurant_slug, $dish_id)
+    public function edit($restaurant_slug, $dish_slug)
     {
         $types = Type::all();
-        $dish = Dish::find($dish_id);
+        $dish = Dish::where('slug', $dish_slug)->first();
 
         return view('admin.dishes.edit', compact('restaurant_slug', 'dish', 'types'));
     }
@@ -94,6 +96,10 @@ class DishController extends Controller
         $dish = Dish::find($dish_id);
 
         $data = $request->all();
+
+        if ($data['name'] != $dish->name) {
+            $data['slug'] = Dish::generateSlug($data['name']);
+        }
 
         if (!array_key_exists('visible',  $data)) {
             $data['visible'] = '1';

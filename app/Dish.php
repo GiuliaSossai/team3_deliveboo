@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Dish extends Model
 {
@@ -10,6 +11,7 @@ class Dish extends Model
         'restaurant_id',
         'type_id',
         'name',
+        'slug',
         'description',
         'price',
         'visible',
@@ -32,5 +34,20 @@ class Dish extends Model
     public function orders()
     {
         return $this->belongsToMany('App\Order')->withPivot('quantity');
+    }
+
+    static function generateSlug($string)
+    {
+
+        $slug = Str::slug($string);
+        $original_slug = $slug;
+        $count = 1;
+
+        while (static::whereSlug($slug)->exists()) {
+
+            $slug = $original_slug . '-' . $count++;
+        }
+
+        return $slug;
     }
 }

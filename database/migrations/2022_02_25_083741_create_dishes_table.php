@@ -20,6 +20,7 @@ class CreateDishesTable extends Migration
             $table->foreignId('restaurant_id')->constrained()->onDelete('cascade');
 
             $table->string('name', 100);
+            $table->string('slug', 100)->unique();
             $table->text('description');
             $table->decimal('price', 5, 2);
             $table->tinyInteger('visible')->default(1);

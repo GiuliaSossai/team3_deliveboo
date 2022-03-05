@@ -1,8 +1,6 @@
 <?php
 
 use App\Dish;
-use App\Restaurant;
-use App\Type;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 
@@ -164,6 +162,7 @@ class DishesTableSeeder extends Seeder
             $new_dish->restaurant_id = $plate['restaurant_id'];
             $new_dish->type_id = $plate['type_id'];
             $new_dish->name = $plate['name'];
+            $new_dish->slug = Dish::generateSlug($new_dish->name);
             $new_dish->description = $plate['description'];
             $new_dish->price = $plate['price'];
             $new_dish->photo = $plate['photo'];

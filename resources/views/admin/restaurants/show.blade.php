@@ -43,7 +43,7 @@
                             @endif
                         </td>
                         <td><a class="btn btn-success"
-                                href="{{ route('admin.piatti.edit', ['slug' => $restaurant->slug, 'piatti' => $dish]) }}"
+                                href="{{ route('admin.piatti.edit', ['slug' => $restaurant->slug, 'piatti' => $dish->slug]) }}"
                                 role="button">Modifica</a></td>
                         <td>
                             <form
