@@ -47,6 +47,13 @@ class DishController extends Controller
 
         $new_dish->fill($data);
 
+        // Cambio il valore di visibile in 1 o 0
+        if ($new_dish->visible == 'true') {
+            $new_dish->visible = 1;
+        } else {
+            $new_dish->visible = 0;
+        }
+
         $new_dish->restaurant_id = $restaurant_id;
 
         $new_dish->slug = Dish::generateSlug($new_dish->name);

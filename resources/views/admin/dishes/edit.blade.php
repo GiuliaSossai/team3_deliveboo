@@ -79,15 +79,23 @@
             </div>
 
             <div class="form-group">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" name="visible" id="visible" value="0"
-                        @if (!old('visible', $dish->visible)) checked @endif>
-                    <label class="custom-control-label" for="visible">Non Disponibile</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="visible" id="visible"
+                        value="{{ old('visible', 1) }}" @if ($dish->visible == 1) checked @endif>
+                    <label class="form-check-label" for="visible">
+                        Disponibile
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="visible" id="visible"
+                        value="{{ old('visible', 0) }}" @if ($dish->visible == 0) checked @endif>
+                    <label class="form-check-label" for="visible">
+                        Non disponibile
+                    </label>
                 </div>
             </div>
 
             <button type="submit" class="btn btn-primary">Modifica</button>
-            <button type="reset" class="btn btn-dark">Reset</button>
         </form>
 
     </div>

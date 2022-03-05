@@ -70,11 +70,25 @@
             </div>
 
             <div class="form-group">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" name="visible" id="visible" value="0"
-                        {{ old('visible') == '0' ? 'checked' : '' }}>
-                    <label class="custom-control-label" for="visible">Non Disponibile</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="visible" id="visible" value="true"
+                        {{ old('visible') == 'true' ? 'checked' : '' }}>
+                    <label class="form-check-label" for="visible">
+                        Disponibile
+                    </label>
                 </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="visible" id="visible" value="false"
+                        {{ old('visible') == 'false' ? 'checked' : '' }}>
+                    <label class="form-check-label" for="visible">
+                        Non disponibile
+                    </label>
+                </div>
+                @error('visible')
+                    <div class="invalid-feedback d-block">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
