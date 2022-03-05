@@ -1,15 +1,17 @@
 <header>
-    <nav class="navbar navbar-expand-md navbar-light h-100">
+    <nav class="navbar navbar-expand-md shadow-sm ls-custom">
         <div class="container">
-            <a href="/">
+            <a class="navbar-brand" href="/">
                 <div class="logo">
-                    <p>delive<span class="font-weight-bold">Boo</span></p>
+                    <p class="d-inline-block m-0 p-0 text-black">
+                        delive<span class="m-0 p-0 font-weight-bold">Boo</span>
+                    </p>
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon">Ciao</span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -23,11 +25,11 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Accedi</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">Registrati</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
@@ -54,4 +56,5 @@
             </div>
         </div>
     </nav>
+
 </header>

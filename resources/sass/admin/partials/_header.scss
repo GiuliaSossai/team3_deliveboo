@@ -1,48 +1,47 @@
 header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background-color: rgb(15, 15, 15);
-    // background: rgb(253, 238, 238) none repeat scroll 0% 0%;
-    box-shadow: rgb(39, 39, 39) 0px -2px 0px inset;
-    color: white;
-    font-family: "Poppins", sans-serif;
-    height: 80px;
     a {
         color: white;
-        text-decoration: none;
         &:hover {
             color: white;
-            text-decoration: none;
         }
     }
+    .nav-link {
+        color: rgb(96, 218, 96);
+    }
+}
+.ls-custom {
+    background-color: black;
+    height: 80px;
+    z-index: 999;
     .logo {
         cursor: pointer;
         font-size: 38px;
-        p {
-            margin: 0;
-            padding: 0;
-            span {
-                color: rgb(96, 218, 96);
-            }
+        a {
+            color: white;
+        }
+        span {
+            color: rgb(96, 218, 96);
         }
     }
-}
+    .navbar-toggler {
+        border: 1px solid rgb(96, 218, 96) !important;
+    }
+    #navbarDropdown {
+        color: rgb(96, 218, 96) !important;
+    }
+    .dropdown-menu-right {
+        background-color: black;
+        border: 1px solid rgb(96, 218, 96);
+        .dropdown-item {
+            color: rgb(96, 218, 96);
+            &:hover {
+                background-color: rgba(0, 0, 0, 0);
+                color: white;
+            }
+        }
 
-header h1 {
-    font-size: 48px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-header li a {
-    color: rgb(96, 218, 96) !important;
-}
-
-header .dropdown-menu {
-    background-color: black;
-}
-
-header .dropdown-item {
-    background-color: black;
+        &:hover {
+            background-color: black;
+        }
+    }
 }

@@ -5,9 +5,10 @@
                 <div class="row">
                     <div class="col-12 col-md-4 col-lg-6">
                         <div class="logo">
-                            <p class="d-inline-block m-0 p-0">delive</p>
-                            <p class="d-inline-block m-0 p-0 font-weight-bold">
-                                Boo
+                            <p class="d-inline-block m-0 p-0 text-black">
+                                delive<span class="m-0 p-0 font-weight-bold"
+                                    >Boo</span
+                                >
                             </p>
                         </div>
                         <div class="image">
@@ -28,13 +29,16 @@
                     </div>
                     <div class="col-12 col-md-4 col-lg-3">
                         <ul>
-                            <li><a href="#">Ristoranti nella mia zona</a></li>
-                            <li><a href="#">Visualizza tutte le città</a></li>
-                            <li><a href="#">Ritiro vicino a me</a></li>
-                            <li><a href="#">Crea un account aziendale</a></li>
                             <li>
-                                <a href="#">Informazioni su Uber Eats</a>
+                                <a
+                                    href="https://www.linkedin.com/in/luca-sunseri/"
+                                    >Luca Sunseri</a
+                                >
                             </li>
+                            <li><a href="#">Giulia Sossai</a></li>
+                            <li><a href="#">Giuseppe Salis</a></li>
+                            <li><a href="#">Anthony Barbagallo</a></li>
+                            <li><a href="#">Michele Di Gennaro</a></li>
                         </ul>
                     </div>
                 </div>
@@ -97,7 +101,7 @@ footer {
             height: 30%;
             cursor: pointer;
             font-size: 38px;
-            p:nth-of-type(2) {
+            span {
                 color: rgb(96, 218, 96);
             }
         }
@@ -109,6 +113,7 @@ footer {
                 width: 30%;
                 margin-right: 25px;
                 margin-top: 15px;
+                cursor: pointer;
             }
         }
         .col {
