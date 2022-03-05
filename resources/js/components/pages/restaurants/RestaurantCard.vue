@@ -9,7 +9,7 @@
             </div>
             <div class="card-rest-box-text">
                 <h5>{{ restaurant.name }}</h5>
-                <span>Costo: {{ restaurant.delivery_price }}€</span>
+                <span>Consegna: {{ restaurant.delivery_price }}€</span>
                 <span>•</span>
                 <span class="ls-min">{{ restaurant.delivery_time }} min</span>
             </div>

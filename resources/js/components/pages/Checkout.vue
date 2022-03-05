@@ -4,7 +4,7 @@
             <Loading />
         </div>
         <div v-else>
-            <Header :cart="cart" />
+            <Header :route="route" />
             <main class="container">
                 <h1>Checkout</h1>
 
@@ -89,7 +89,7 @@ export default {
             dishes: [],
             finalPrice: "",
             loading: false,
-            cart: false,
+            route: this.$route.path,
         };
     },
     mounted() {

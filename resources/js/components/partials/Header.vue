@@ -1,23 +1,31 @@
 <template>
-    <header class="">
+    <header>
         <div
             class="container d-flex justify-content-between align-items-center gs-box"
         >
-            <router-link :to="{ name: 'home' }">
-                <div class="logo">
-                    <p class="d-inline-block m-0 p-0 text-black">
-                        delive<span class="m-0 p-0 font-weight-bold">Boo</span>
-                    </p>
-                </div>
-            </router-link>
+            <div class="header__left">
+                <router-link :to="{ name: 'home' }">
+                    <div class="logo">
+                        <p class="d-inline-block m-0 p-0 text-black">
+                            delive<span class="m-0 p-0 font-weight-bold"
+                                >Boo</span
+                            >
+                        </p>
+                    </div>
+                </router-link>
+            </div>
 
-            <!-- aggiungere if: se sei già loggato, entri in area admin personale -->
-            <p v-if="cart">
-                <router-link :to="{ name: 'checkout' }"
-                    >Carrello: {{ cartQuantity }}</router-link
-                >
-            </p>
-            <a href="/admin/dashboard" class="gs-button">Accedi</a>
+            <div
+                class="header__right d-flex justify-content-between align-items-center"
+            >
+                <div id="ls-cart" v-if="checkRoute !== route">
+                    <router-link :to="{ name: 'checkout' }">
+                        Carrello <span>•</span> {{ cartQuantity }}</router-link
+                    >
+                </div>
+                <!-- aggiungere if: se sei già loggato, entri in area admin personale -->
+                <a href="/admin/dashboard" class="gs-button">Accedi</a>
+            </div>
         </div>
     </header>
     <!-- <div>
@@ -40,15 +48,15 @@ import { EventBus } from "../../global-event-bus.js";
 export default {
     name: "Header",
     props: {
-        cart: Boolean,
+        route: String,
     },
     data() {
         return {
             cartQuantity: this.printQuantity(),
+            checkRoute: this.$route.path,
         };
     },
     mounted() {
-        this.cart = true;
         EventBus.$on("getCartQuantity", (data) => {
             this.cartQuantity = data;
         });
@@ -70,8 +78,9 @@ export default {
 <style lang="scss" scoped>
 header {
     position: fixed;
-    width: 100%;
     top: 0;
+    left: 0;
+    width: 100%;
     height: 80px;
     background-color: rgb(245, 245, 245);
     // background: rgb(253, 238, 238) none repeat scroll 0% 0%;
@@ -90,15 +99,33 @@ header {
                 color: rgb(96, 218, 96);
             }
         }
-        .gs-button {
-            color: rgb(26, 26, 26);
-            padding: 8px 22px;
-            font-weight: 600;
-            border-radius: 16px;
-            background-color: rgb(218, 216, 216);
-            &:hover {
-                background-color: rgb(191, 189, 189);
-                text-decoration: none;
+        .header__right {
+            #ls-cart {
+                background-color: rgb(26, 26, 26);
+                padding: 4px 16px;
+                border-radius: 20px;
+                &:hover {
+                    outline: 2px solid black;
+                    outline-offset: 3px;
+                }
+                a {
+                    color: white;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+            .gs-button {
+                color: rgb(26, 26, 26);
+                padding: 8px 22px;
+                margin-left: 25px;
+                font-weight: 600;
+                border-radius: 15px;
+                background-color: rgb(218, 216, 216);
+                &:hover {
+                    background-color: rgb(191, 189, 189);
+                    text-decoration: none;
+                }
             }
         }
     }
