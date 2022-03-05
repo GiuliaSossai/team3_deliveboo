@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header :class="{ onScroll: !topOfPage }">
         <div
             class="container d-flex justify-content-between align-items-center gs-box"
         >
@@ -28,16 +28,6 @@
             </div>
         </div>
     </header>
-    <!-- <div>
-      <div class="header">
-        <div id="background"></div>
-        <div id="labels">
-          labels here
-        </div>
-      </div>
-
-      <div class="content"></div>
-   </div> -->
 </template>
 
 <script>
@@ -54,7 +44,11 @@ export default {
         return {
             cartQuantity: this.printQuantity(),
             checkRoute: this.$route.path,
+            topOfPage: true,
         };
+    },
+    beforeMount() {
+        window.addEventListener("scroll", this.handleScroll);
     },
     mounted() {
         EventBus.$on("getCartQuantity", (data) => {
@@ -71,6 +65,13 @@ export default {
             }
             return this.cartQuantity;
         },
+        handleScroll() {
+            if (window.pageYOffset > 0) {
+                if (this.topOfPage) this.topOfPage = false;
+            } else {
+                if (!this.topOfPage) this.topOfPage = true;
+            }
+        },
     },
 };
 </script>
@@ -82,11 +83,14 @@ header {
     left: 0;
     width: 100%;
     height: 80px;
-    background-color: rgb(245, 245, 245);
-    // background: rgb(253, 238, 238) none repeat scroll 0% 0%;
-    box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
+    background-color: transparent;
     color: rgb(26, 26, 26);
+    transition: all 0.2s ease-in-out;
     z-index: 999;
+    &.onScroll {
+        box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
+        background-color: rgb(245, 245, 245);
+    }
     .gs-box {
         height: 100%;
         a {

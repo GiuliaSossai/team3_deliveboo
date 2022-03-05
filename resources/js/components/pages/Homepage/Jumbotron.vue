@@ -57,16 +57,24 @@ export default {
 
 .jumbo-custom {
     position: relative;
-    .ls-1 {
-        background-color: #ffa600;
+    #carouselExampleSlidesOnly {
+        height: 100vh;
+        width: 100%;
+        .ls-1 {
+            background-color: #ffa600;
+        }
+        .ls-2 {
+            background-color: #ff7038;
+        }
+        .ls-3 {
+            background-color: #33ffccf8;
+        }
+        img {
+            height: 100vh;
+            object-fit: cover;
+            filter: opacity(85%);
+        }
     }
-    .ls-2 {
-        background-color: #fa9269;
-    }
-    .ls-3 {
-        background-color: #ff7664;
-    }
-
     .content-jumbo {
         position: absolute;
         top: 35vh;
@@ -80,7 +88,7 @@ export default {
 
         p {
             font-size: 36px;
-            background-color: whitesmoke;
+            background-color: white;
             padding: 10px 25px;
             display: inline-block;
         }
@@ -95,16 +103,5 @@ export default {
             cursor: pointer;
         }
     }
-}
-
-#carouselExampleSlidesOnly {
-    height: 100vh;
-    width: 100%;
-}
-
-.jumbo img {
-    height: 100vh;
-    object-fit: cover;
-    filter: opacity(85%);
 }
 </style>
