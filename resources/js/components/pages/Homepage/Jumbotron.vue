@@ -1,7 +1,6 @@
 <template>
-  <div class="jumbo">
-   
-  <!-- 
+    <div class="jumbo">
+        <!-- 
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -50,89 +49,111 @@
   </div>
   -->
 
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="img/homepage/italian.png" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="img/homepage/mex.png" alt="Second slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="img/homepage/sushi.png" alt="Third slide">
-      </div>
-    </div>
-  </div>
-   
-  <div class="content-jumbo ">
-    <h5>Ordina cosa vuoi mangiare, a casa tua.</h5>
-    <p class="m-0 rounded-pill">La tua città, <span class=" font-weight-bold">Perugia</span></p>
-    <div class="mdg-btn">
-      <router-link :to="{name:'restaurants'}" class="text-white">
-        Vedi i ristoranti
-      </router-link>
-    </div>
-  </div>
- 
+        <div
+            id="carouselExampleSlidesOnly"
+            class="carousel slide"
+            data-ride="carousel"
+        >
+            <div class="carousel-inner">
+                <div class="carousel-item active ls-1">
+                    <img
+                        class="d-block w-100"
+                        src="/img/homepage/jumbo/jumbo.svg"
+                        alt="First slide"
+                    />
+                </div>
+                <div class="carousel-item ls-2">
+                    <img
+                        class="d-block w-100"
+                        src="/img/homepage/jumbo/jumbo.svg"
+                        alt="Second slide"
+                    />
+                </div>
+                <div class="carousel-item ls-3">
+                    <img
+                        class="d-block w-100"
+                        src="/img/homepage/jumbo/jumbo.svg"
+                        alt="Third slide"
+                    />
+                </div>
+            </div>
+        </div>
 
-  </div>
+        <div class="content-jumbo">
+            <h5>Ordina cosa vuoi mangiare, a casa tua.</h5>
+            <p class="m-0 rounded-pill">
+                La tua città, <span class="font-weight-bold">Perugia</span>
+            </p>
+            <div class="mdg-btn">
+                <router-link :to="{ name: 'restaurants' }" class="text-white">
+                    Vedi i ristoranti
+                </router-link>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'Jumbotron',
-}
+    name: "Jumbotron",
+};
 </script>
 
 <style lang="scss" scoped>
-
 // .t3-opacity{
 //   opacity: 0.3;
 // }
 
-.jumbo{
-  position: relative;
-
-  .content-jumbo{
-    position: absolute;
-    top:50vh;
-    left: 100px;
-
-    h5{
-      font-size: 52px;
-      color: black;
-      font-weight: 700;
+.jumbo {
+    position: relative;
+    .ls-1 {
+        background-color: #ffa600;
+    }
+    .ls-2 {
+        background-color: #fa9269;
+    }
+    .ls-3 {
+        background-color: #ff7664;
     }
 
-    p{
-      font-size: 36px;
-      background-color: whitesmoke;
-      padding: 10px 25px;
-      display: inline-block;
+    .content-jumbo {
+        position: absolute;
+        top: 35vh;
+        left: 25px;
+
+        h5 {
+            font-size: 52px;
+            color: black;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 36px;
+            background-color: whitesmoke;
+            padding: 10px 25px;
+            display: inline-block;
+        }
+
+        .mdg-btn {
+            font-size: 24px;
+            background-color: black;
+            color: white;
+            padding: 10px 25px;
+            display: inline-block;
+            margin-left: 50px;
+            cursor: pointer;
+        }
     }
-
-    .mdg-btn{
-      font-size: 24px;
-      background-color: black;
-      color: white;
-      padding: 10px 25px;
-      display: inline-block;
-      margin-left: 50px;     
-      cursor: pointer; 
-    }
-  }
 }
 
-#carouselExampleSlidesOnly{
-  height: 100vh;
-  width: 100%;
+#carouselExampleSlidesOnly {
+    height: 100vh;
+    width: 100%;
 }
 
-.jumbo img{
-  height: 100vh;
-  object-fit: cover;
-  filter: opacity(85%);
+.jumbo img {
+    height: 100vh;
+    object-fit: cover;
+    filter: opacity(85%);
 }
-
-
 </style>
