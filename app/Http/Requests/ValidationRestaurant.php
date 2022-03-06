@@ -34,7 +34,6 @@ class ValidationRestaurant extends FormRequest
             "order_min" => "numeric|between: 0, 255",
             "delivery_time" => "numeric|between: 0, 200",
             "photo" => "mimes:jpeg,png,jpg,gif|max:2048",
-            "photo_bg" => "mimes:jpeg,png,jpg,gif|max:32000"
         ];
     }
 
@@ -57,6 +56,8 @@ class ValidationRestaurant extends FormRequest
             'order_min.between' => "L'ordine minimo deve essere un numero compreso tra :min e :max",
             'delivery_time.numeric' => "Il tempo di consegna deve essere un numero",
             'delivery_time.between' => "Il tempo di consegna deve essere un numero compreso tra :min e :max",
+            'photo.mimes' => "Il file deve essere :mimes",
+            'photo.max' => "Dimensione massima :max",
 
         ];
     }

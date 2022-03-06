@@ -43,7 +43,7 @@ class ValidationDish extends FormRequest
             'description.required' => "La descrizione è obbligatoria",
             'price.numeric' => "Il prezzo minimo è obbligatorio",
             'price.between' => "Il prezzo minimo deve essere un numero compreso tra :min e :max",
-            'photo.mimes' => "Il file deve essere jpeg,png,jpg,gif",
+            'photo.mimes' => "Il file deve essere :mimes",
             'photo.max' => "Dimensione massima :max",
             'visible.required' => "Selezionare se è Disponibile o Non",
         ];
