@@ -45,20 +45,35 @@
             </div>
             <div class="line"></div>
             <div class="footer__botton">
-                <div class="row">
-                    <div class="col-12 col-md-3">Icone</div>
-                    <div class="col-12 col-md-9">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-3 mb-5">
+                        <div class="ls-icon">
+                            <span
+                                ><i class="fa-brands fa-instagram ml-2"></i
+                            ></span>
+                            <span
+                                ><i class="fa-brands fa-facebook ml-2"></i
+                            ></span>
+                            <span>
+                                <i class="fa-brands fa-twitter ml-2"></i
+                            ></span>
+                            <span>
+                                <i class="fa-brands fa-tiktok ml-2"></i
+                            ></span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-9 mb-5">
                         <ul class="text-md-right">
-                            <li class="d-md-inline-block">
+                            <li class="d-md-inline-block mb-2 mb-md-0">
                                 <a href="#">Informativa sulla privacy</a>
                             </li>
-                            <li class="d-md-inline-block ml-md-4">
+                            <li class="d-md-inline-block mb-2 mb-md-0 ml-md-4">
                                 <a href="#">Termini e condizioni</a>
                             </li>
-                            <li class="d-md-inline-block ml-md-4">
+                            <li class="d-md-inline-block mb-2 mb-md-0 ml-md-4">
                                 <a href="#">Tariffe</a>
                             </li>
-                            <li class="d-md-inline-block ml-md-4">
+                            <li class="d-md-inline-block mb-2 mb-md-0 ml-md-4">
                                 <a href="#"
                                     >Non vendere le mie informazioni personali
                                     (California)</a
@@ -131,8 +146,16 @@ footer {
     }
     .footer__botton {
         font-size: 14px;
-        li {
-            margin-bottom: 20px;
+        .ls-icon {
+            span {
+                font-size: 16px;
+                margin-left: 3px;
+                cursor: pointer;
+            }
+        }
+        ul {
+            margin: 0;
+            padding: 0;
         }
         p {
             margin-top: 5px;
