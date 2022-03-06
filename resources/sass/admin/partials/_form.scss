@@ -1,4 +1,7 @@
-.ls-form {
-    width: 70%;
-    margin: 0 auto;
+.ls-form-back {
+    min-height: calc(100vh - 80px);
+    padding: 25px 0;
+    background-image: url("/img/back-end/form.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
