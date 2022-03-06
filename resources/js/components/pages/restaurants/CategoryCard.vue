@@ -1,12 +1,10 @@
 <template>
-    <div class="card-cat"
-        @click="getRestaurantsByCategory"
-    >
+    <div class="card-cat" @click="getRestaurantsByCategory">
         <div class="card-cat__text">
             <p>{{ category.name }}</p>
         </div>
         <div class="card-cat__image">
-            <img :src="category.image" :alt="category.name" />
+            <img :src="`/${category.image}`" :alt="category.name" />
         </div>
     </div>
 </template>
@@ -19,10 +17,10 @@ export default {
     },
 
     methods: {
-        getRestaurantsByCategory(){
-            this.$emit('getCategory', this.category.slug)
+        getRestaurantsByCategory() {
+            this.$emit("getCategory", this.category.slug);
         },
-    }
+    },
 };
 </script>
 

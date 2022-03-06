@@ -25,7 +25,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 3.99,
                 'delivery_time' => 20,
                 'order_min' => 5,
-                'photo' => '/img/img-seeder/restaurants/lasagna-rest.jpg',
+                'photo' => 'img/img-seeder/restaurants/lasagna-rest.jpg',
             ],
             [
                 'name' => 'Il capriccio di Ciccio',
@@ -33,7 +33,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 1.99,
                 'delivery_time' => 30,
                 'order_min' => 6,
-                'photo' =>  '/img/img-seeder/restaurants/ciccio-rest.jpg',
+                'photo' =>  'img/img-seeder/restaurants/ciccio-rest.jpg',
             ],
             [
                 'name' => 'Kebab da Ciro',
@@ -41,7 +41,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 1.50,
                 'delivery_time' => 40,
                 'order_min' => 0,
-                'photo' => '/img/img-seeder/restaurants/kebab-rest.jpg',
+                'photo' => 'img/img-seeder/restaurants/kebab-rest.jpg',
             ],
             [
                 'name' => 'Samurai Sushi',
@@ -49,7 +49,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 2.50,
                 'delivery_time' => 20,
                 'order_min' => 10,
-                'photo' => '/img/img-seeder/restaurants/sushi-rest.jpg',
+                'photo' => 'img/img-seeder/restaurants/sushi-rest.jpg',
             ],
             [
                 'name' => 'Los Pollos Hermanos',
@@ -57,7 +57,8 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 5,
                 'delivery_time' => 30,
                 'order_min' => 5,
-                'photo' =>  '/img/img-seeder/restaurants/pollos-rest.jpg',
+                'photo' =>  'img/img-seeder/restaurants/pollos-rest.jpg',
+                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'La bella bettola',
@@ -65,7 +66,8 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 0,
                 'delivery_time' => 10,
                 'order_min' => 7,
-                'photo' =>  '/img/img-seeder/restaurants/trattoria1.jpg',
+                'photo' =>  'img/img-seeder/restaurants/trattoria1.jpg',
+                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Vin Santo',
@@ -73,7 +75,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 5,
                 'delivery_time' => 30,
                 'order_min' => 6,
-                'photo' =>  '/img/img-seeder/restaurants/risto1.jpg',
+                'photo' =>  'img/img-seeder/restaurants/risto1.jpg',
             ],
             [
                 'name' => 'Dopolavoro Ferroviario',
@@ -81,7 +83,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 0,
                 'delivery_time' => 20,
                 'order_min' => 5,
-                'photo' =>  '/img/img-seeder/restaurants/dopo-rest.jpg',
+                'photo' =>  'img/img-seeder/restaurants/dopo-rest.jpg',
             ],
             [
                 'name' => 'Bambù Pokè',
@@ -89,7 +91,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 0.99,
                 'delivery_time' => 15,
                 'order_min' => 10,
-                'photo' => '/img/img-seeder/restaurants/poke-rest.jpg',
+                'photo' => 'img/img-seeder/restaurants/poke-rest.jpg',
             ],
             [
                 'name' => 'Non è mica pizza e fichi',
@@ -97,7 +99,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 2.50,
                 'delivery_time' => 20,
                 'order_min' => 8,
-                'photo' => '/img/img-seeder/restaurants/pizza-fichi-rest.jpg',
+                'photo' => 'img/img-seeder/restaurants/pizza-fichi-rest.jpg',
             ],
             [
                 'name' => 'Le mille e una notte',
@@ -105,7 +107,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 3.99,
                 'delivery_time' => 20,
                 'order_min' => 7,
-                'photo' => '/img/img-seeder/restaurants/chinese.jpg',
+                'photo' => 'img/img-seeder/restaurants/chinese.jpg',
             ],
             [
                 'name' => 'Il pacchero',
@@ -113,7 +115,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_price' => 0,
                 'delivery_time' => 30,
                 'order_min' => 7,
-                'photo' =>  '/img/img-seeder/restaurants/trattoria.jpg',
+                'photo' =>  'img/img-seeder/restaurants/trattoria.jpg',
             ]
 
         ];

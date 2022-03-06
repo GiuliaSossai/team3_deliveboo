@@ -144,11 +144,6 @@ class RestaurantController extends Controller
             Storage::delete($restaurant->photo);
         }
 
-        if ($restaurant->photo_bg) {
-            $restaurant->photo_bg = str_replace('storage/', '', $restaurant->photo_bg);
-            Storage::delete($restaurant->photo_bg);
-        }
-
         $restaurant->delete();
 
         return redirect()->route('admin.ristoranti.index');
