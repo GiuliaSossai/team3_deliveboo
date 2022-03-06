@@ -6,6 +6,9 @@
 
  require('./bootstrap');
 
+//  fontawesome
+ import '@fortawesome/fontawesome-free/js/all.js';
+
  window.Vue = require('vue');
  window.axios = require('axios');
  
