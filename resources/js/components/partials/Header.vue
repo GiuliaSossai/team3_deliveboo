@@ -18,12 +18,8 @@
             <div
                 class="header__right d-flex justify-content-between align-items-center"
             >
-                <div id="ls-cart" v-if="checkRoute !== route">
-                    <router-link :to="{ name: 'checkout' }">
-                        Carrello <span>•</span> {{ cartQuantity }}</router-link
-                    >
-                </div>
-                <!-- aggiungere if: se sei già loggato, entri in area admin personale -->
+                <Cart v-if="checkRoute !== route" />
+
                 <a href="/admin/dashboard" class="gs-button">Accedi</a>
             </div>
         </div>
@@ -31,18 +27,18 @@
 </template>
 
 <script>
-import { list } from "cart-localstorage";
-
-import { EventBus } from "../../global-event-bus.js";
+import Cart from "./Cart.vue";
 
 export default {
     name: "Header",
+    components: {
+        Cart,
+    },
     props: {
         route: String,
     },
     data() {
         return {
-            cartQuantity: this.printQuantity(),
             checkRoute: this.$route.path,
             topOfPage: true,
         };
@@ -50,21 +46,9 @@ export default {
     beforeMount() {
         window.addEventListener("scroll", this.handleScroll);
     },
-    mounted() {
-        EventBus.$on("getCartQuantity", (data) => {
-            this.cartQuantity = data;
-        });
-    },
+    mounted() {},
     computed: {},
     methods: {
-        printQuantity() {
-            let dishes = list();
-            this.cartQuantity = 0;
-            for (let key in dishes) {
-                this.cartQuantity += dishes[key].quantity;
-            }
-            return this.cartQuantity;
-        },
         handleScroll() {
             if (window.pageYOffset > 0) {
                 if (this.topOfPage) this.topOfPage = false;
@@ -104,21 +88,6 @@ header {
             }
         }
         .header__right {
-            #ls-cart {
-                background-color: rgb(26, 26, 26);
-                padding: 4px 16px;
-                border-radius: 20px;
-                &:hover {
-                    outline: 2px solid black;
-                    outline-offset: 3px;
-                }
-                a {
-                    color: white;
-                    &:hover {
-                        text-decoration: none;
-                    }
-                }
-            }
             .gs-button {
                 color: rgb(26, 26, 26);
                 padding: 8px 22px;
@@ -134,38 +103,4 @@ header {
         }
     }
 }
-
-//   .header{
-//     width:100%;
-//     height:100px;
-//     position:fixed;
-//     top:0px;
-//     z-index:3;
-// }
-
-// body{
-//     margin:0px;
-// }
-// .header #background, .header #labels
-// {
-//     position:absolute;
-//     top:0px;
-//     width:100%;
-//     height:100%;
-// }
-
-// .header #labels{
-//     background-color:transperent;
-// }
-
-// .header #background{
-//     background-color:yellow;
-//     display:none;
-// }
-
-// .content{
-//     width:100%;
-//     height:5000px;
-//     background-color:green;
-// }
 </style>
