@@ -16,15 +16,25 @@
                             class="col"
                             v-for="category in categories"
                             :key="`cat${category.id}`"
+                            @click="isActive = category.id"
                         >
                             <CategoryCard
                                 :category="category"
                                 @getCategory="getRestaurantsByCategory"
+                                :class="{
+                                    'active-category': isActive == category.id,
+                                }"
                             />
                         </div>
 
                         <div class="col">
-                            <div class="card-all" @click="getApi">
+                            <div
+                                class="card-all"
+                                @click="
+                                    getApi();
+                                    isActive = 0;
+                                "
+                            >
                                 <div class="card-cat__text">
                                     <p>Tutte</p>
                                 </div>
@@ -112,14 +122,12 @@ export default {
 
         getRestaurantsByCategory($slug) {
             this.restaurants = [];
-            this.loading = true;
             //console.log($slug);
             axios
                 .get(this.apiUrl + "/restaurantcategory/" + $slug)
                 .then((res) => {
                     this.restaurants = res.data.category.restaurants;
                     //console.log(res.data.category.restaurants);
-                    this.loading = false;
                 })
                 .catch((error) => {
                     console.log(error);
@@ -132,6 +140,11 @@ export default {
 <style lang="scss" scoped>
 main {
     margin-top: 90px;
+    .active-category {
+        transform: scale(1.05);
+        outline: 2px solid #60da60;
+        outline-offset: 3px;
+    }
     .card-all {
         display: flex;
         justify-content: space-between;
