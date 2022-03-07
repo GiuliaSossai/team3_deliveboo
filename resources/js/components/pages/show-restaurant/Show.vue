@@ -18,8 +18,6 @@
                     class="badge rounded-pill bg-light text-dark mr-1"
                     >{{ category.name }}</span
                 >
-                <p>{{ restaurant.delivery_time }}</p>
-                <p>{{ restaurant.delivery_price }}</p>
 
                 <div class="row">
                     <div class="col-3">
@@ -200,6 +198,7 @@ main {
         align-items: center;
         margin: 25px 0;
         user-select: none;
+        cursor: pointer;
         &:hover {
             box-shadow: 0px 4px 16px rgb(0 0 0 / 12%);
             transition: box-shadow 0.3s linear 0s;

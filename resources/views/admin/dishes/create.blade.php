@@ -18,7 +18,7 @@
                                 <div class="form-group">
                                     <label for="name">Nome</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                                        name="name" value="{{ old('name') }}">
+                                        name="name" value="{{ old('name') }}" required>
                                     @error('name')
                                         <div class="invalid-feedback d-block">
                                             {{ $message }}
@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <label for="description">Descrizione (es: Ingrediente1, Ingrediente2)</label>
                             <textarea type="text" rows="5" class="form-control @error('description') is-invalid @enderror"
-                                id="description" name="description">{{ old('description') }}</textarea>
+                                id="description" name="description" required>{{ old('description') }}</textarea>
                             @error('description')
                                 <div class="invalid-feedback d-block">
                                     {{ $message }}
@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                     <label for="price">Prezzo</label>
                                     <input type="number" class="form-control @error('price') is-invalid @enderror"
-                                        id="price" name="price" value="{{ old('price') }}">
+                                        id="price" name="price" value="{{ old('price') }}" required>
                                     @error('price')
                                         <div class="invalid-feedback d-block">
                                             {{ $message }}
@@ -74,6 +74,9 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="form-check-label" for="visible">
+                                Seleziona se il piatto è attualmente disponibile
+                            </label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="visible" id="visible" value="true"
                                     {{ old('visible') == 'true' ? 'checked' : '' }}>

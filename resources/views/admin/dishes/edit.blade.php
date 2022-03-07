@@ -76,6 +76,9 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="form-check-label" for="visible">
+                                Il piatto è attualmente disponibile o meno
+                            </label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="visible" id="visible"
                                     value="{{ old('visible', 1) }}" @if ($dish->visible == 1) checked @endif>
