@@ -9,6 +9,7 @@
                 <FirstSection />
                 <div class="container">
                     <h2 class="mb-4">Esplora per Categorie</h2>
+
                     <div
                         class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 my-5"
                     >
@@ -49,12 +50,26 @@
                     </div>
 
                     <h2>I Ristoranti</h2>
+
+                    
+                    <div 
+                        v-if="loadRest"
+                        class="d-flex justify-content-center m-5" >
+
+                        <div class="spinner-border" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+
+                    </div>
+
                     <div
+                        v-else
                         class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5"
                     >
                         <!-- <div class="col d-flex">
                     <RestaurantCard />
                 </div> -->
+
                         <div
                             class="col d-flex justify-content-center"
                             v-for="(restaurant, index) in restaurants"
@@ -97,6 +112,7 @@ export default {
             restaurants: [],
             loading: true,
             isActive: undefined,
+            loadRest: true
         };
     },
 
@@ -108,6 +124,7 @@ export default {
         getApi() {
             this.restaurants = [];
             this.loading = true;
+            this.loadRest = false;
             axios
                 .get(this.apiUrl)
                 .then((res) => {
@@ -123,11 +140,13 @@ export default {
 
         getRestaurantsByCategory($slug) {
             this.restaurants = [];
+            this.loadRest = true;
             //console.log($slug);
             axios
                 .get(this.apiUrl + "/restaurantcategory/" + $slug)
                 .then((res) => {
                     this.restaurants = res.data.category.restaurants;
+                    this.loadRest = false;
                     //console.log(res.data.category.restaurants);
                 })
                 .catch((error) => {

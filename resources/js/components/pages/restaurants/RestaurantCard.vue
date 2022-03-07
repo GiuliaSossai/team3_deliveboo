@@ -9,7 +9,8 @@
             </div>
             <div class="card-rest-box-text">
                 <h5>{{ restaurant.name }}</h5>
-                <span>Consegna: {{ restaurant.delivery_price }}€</span>
+                <span v-if="restaurant.delivery_price != 0">Consegna: {{ restaurant.delivery_price }}€</span>
+                <span v-else>Consegna: Gratuita</span>
                 <span>•</span>
                 <span class="ls-min">{{ restaurant.delivery_time }} min</span>
             </div>
