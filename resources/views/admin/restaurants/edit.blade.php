@@ -3,17 +3,22 @@
 @section('content')
     <div class="ls-form-back">
         <div class="container">
+
             <div class="card">
+
                 <div class="card-header">
                     <h2>Modifica {{ $restaurant->name }}</h2>
                 </div>
+
                 <div class="card-body">
+
                     <form action="{{ route('admin.ristoranti.update', $restaurant) }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
                         <div class="row">
+
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label for="name">Nome</label>
@@ -26,6 +31,7 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label for="p_iva">P.Iva (es. IT76428131056)</label>
@@ -38,6 +44,7 @@
                                     @enderror
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="form-group">
@@ -72,6 +79,7 @@
                         </div>
 
                         <div class="row">
+
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label for="email">Email</label>
@@ -84,6 +92,7 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label for="phone">N. cellulare (es.+39 0123456789)</label>
@@ -96,13 +105,16 @@
                                     @enderror
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="row">
+
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="delivery_price">Prezzo di consegna</label>
-                                    <input type="number" min="0" max="10" step="0.01" class="form-control @error('delivery_price') is-invalid @enderror"
+                                    <input type="number" min="0" max="10" step="0.01"
+                                        class="form-control @error('delivery_price') is-invalid @enderror"
                                         id="delivery_price" name="delivery_price"
                                         value="{{ old('delivery_price', $restaurant->delivery_price) }}">
                                     @error('delivery_price')
@@ -112,12 +124,13 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="order_min">Prezzo minimo ordine</label>
-                                    <input type="number" min="0" max="99" step="0.01" class="form-control @error('order_min') is-invalid @enderror"
-                                        id="order_min" name="order_min"
-                                        value="{{ old('order_min', $restaurant->order_min) }}" required>
+                                    <input type="number" min="0" max="99" step="0.01"
+                                        class="form-control @error('order_min') is-invalid @enderror" id="order_min"
+                                        name="order_min" value="{{ old('order_min', $restaurant->order_min) }}" required>
                                     @error('order_min')
                                         <div class="invalid-feedback d-block">
                                             {{ $message }}
@@ -125,11 +138,13 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="delivery_time">Tempo consegna in minuti</label>
-                                    <input type="number" min="10" max="120" step="1.00" class="form-control @error('delivery_time') is-invalid @enderror"
-                                        id="delivery_time" name="delivery_time"
+                                    <input type="number" min="10" max="120" step="1.00"
+                                        class="form-control @error('delivery_time') is-invalid @enderror" id="delivery_time"
+                                        name="delivery_time"
                                         value="{{ old('delivery_time', $restaurant->delivery_time) }}" required>
                                     @error('delivery_time')
                                         <div class="invalid-feedback d-block">
@@ -140,24 +155,49 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="form-group">
-                                <div class="mb-2">
-                                    <img width="250px" src="{{ asset($restaurant->photo) }}"
-                                        alt="{{ asset($restaurant->name) }}">
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <div class="mb-2">
+                                            <img width="250px" src="{{ asset($restaurant->photo) }}"
+                                                alt="{{ asset($restaurant->name) }}">
+                                        </div>
+                                        @if ($restaurant->photo)
+                                            <label for="photo">Modifica l' immagine per l'icona</label>
+                                        @else
+                                            <label for="photo">Inserisci un immagine per l'icona</label>
+                                        @endif
+                                        <input type="file" class="form-control-file" name="photo" id="photo">
+                                    </div>
+                                    @error('photo')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-                                @if ($restaurant->photo)
-                                    <label for="photo">Modifica l' immagine</label>
-                                @else
-                                    <label for="photo">Inserisci un immagine</label>
-                                @endif
-                                <input type="file" class="form-control-file" name="photo" id="photo">
                             </div>
-                            @error('photo')
-                                <div class="invalid-feedback d-block">
-                                    {{ $message }}
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <div class="mb-2">
+                                            <img width="250px" src="{{ asset($restaurant->photo_bg) }}"
+                                                alt="{{ asset($restaurant->name) }}">
+                                        </div>
+                                        @if ($restaurant->photo_bg)
+                                            <label for="photo_bg">Modifica l' immagine per il background</label>
+                                        @else
+                                            <label for="photo_bg">Inserisci un immagine per il background</label>
+                                        @endif
+                                        <input type="file" class="form-control-file" name="photo_bg" id="photo_bg">
+                                    </div>
+                                    @error('photo_bg')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-                            @enderror
+                            </div>
                         </div>
 
                         <div class="mt-4">

@@ -19,6 +19,7 @@ class Restaurant extends Model
         'order_min',
         'delivery_time',
         'photo',
+        'photo_bg',
     ];
 
     // Relazione tabella Users
