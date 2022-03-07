@@ -47,8 +47,7 @@
                                     <div class="d-flex align-items-center">
                                         <input class="form-check-input" type="checkbox" name="categories[]"
                                             id="{{ $cat->id }}" value="{{ $cat->id }}"
-                                            @if (!$errors->any() && $restaurant->categories->contains($cat->id)) checked @elseif ($errors->any() && in_array($cat->id, old('categories', []))) checked @endif
-                                            required>
+                                            @if (!$errors->any() && $restaurant->categories->contains($cat->id)) checked @elseif ($errors->any() && in_array($cat->id, old('categories', []))) checked @endif>
                                         <label class="form-check-label mr-3"
                                             for="inlineCheckbox1">{{ $cat->name }}</label>
                                     </div>
@@ -103,7 +102,7 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="delivery_price">Prezzo di consegna</label>
-                                    <input type="text" class="form-control @error('delivery_price') is-invalid @enderror"
+                                    <input type="number" class="form-control @error('delivery_price') is-invalid @enderror"
                                         id="delivery_price" name="delivery_price"
                                         value="{{ old('delivery_price', $restaurant->delivery_price) }}">
                                     @error('delivery_price')
@@ -116,7 +115,7 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="order_min">Prezzo minimo ordine</label>
-                                    <input type="text" class="form-control @error('order_min') is-invalid @enderror"
+                                    <input type="number" class="form-control @error('order_min') is-invalid @enderror"
                                         id="order_min" name="order_min"
                                         value="{{ old('order_min', $restaurant->order_min) }}" required>
                                     @error('order_min')
@@ -129,7 +128,7 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="delivery_time">Tempo consegna in minuti</label>
-                                    <input type="text" class="form-control @error('delivery_time') is-invalid @enderror"
+                                    <input type="number" class="form-control @error('delivery_time') is-invalid @enderror"
                                         id="delivery_time" name="delivery_time"
                                         value="{{ old('delivery_time', $restaurant->delivery_time) }}" required>
                                     @error('delivery_time')
