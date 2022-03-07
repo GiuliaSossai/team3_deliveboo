@@ -1,7 +1,11 @@
 <template>
     <div>
         <router-view></router-view>
-        <Cookie v-if="clickCookie == false" @getCookie="getCookie" />
+        <Cookie
+            v-if="clickCookie == false"
+            @getCookieRifiuta="getCookieRifiuta"
+            @getCookieAccetta="getCookieAccetta"
+        />
     </div>
 </template>
 
@@ -18,10 +22,20 @@ export default {
         };
     },
     computed: {},
-    mounted() {},
+    mounted() {
+        this.getCookieAccetta();
+        if (localStorage.getItem("cookie")) {
+            this.clickCookie = true;
+        }
+    },
     methods: {
-        getCookie(value) {
+        getCookieRifiuta(value) {
             this.clickCookie = value;
+        },
+        getCookieAccetta(value) {
+            if (value == 1) {
+                this.clickCookie = true;
+            }
         },
     },
 };

@@ -26,7 +26,13 @@
                         <div class="col">
                             <div class="card-all" @click="getApi">
                                 <div class="card-cat__text">
-                                    <p>tutti i ristoranti</p>
+                                    <p>Tutte</p>
+                                </div>
+                                <div class="card-cat__image">
+                                    <img
+                                        src="/img/img-seeder/categories/tutte.png"
+                                        alt="Tutte le categorie"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -125,23 +131,47 @@ main {
     margin-top: 90px;
     .card-all {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        width: 220px;
-        height: 80px;
-        padding: 15px 5px;
+        width: 200px;
+        height: 70px;
+        padding: 0px 15px;
         background-color: rgb(246, 246, 246);
-        color: rgb(96, 218, 96);
+        color: black;
         text-decoration: none;
         border-radius: 15px;
         margin-bottom: 15px;
-        text-transform: uppercase;
         cursor: pointer;
+        // transizioni
+        outline: 0px solid #60da60;
+        transform: scale(1);
+        transition: all 0.3s linear;
+        &:hover {
+            transform: scale(1.05);
+            outline: 2px solid #60da60;
+            outline-offset: 4px;
+        }
+        .card-all.active {
+            transform: scale(1.05);
+            outline: 2px solid #60da60;
+            outline-offset: 4px;
+        }
         .card-cat__text {
             p {
                 margin: 0;
                 font-size: 20px;
                 font-weight: 500;
+            }
+        }
+        .card-cat__image {
+            display: flex;
+            justify-content: flex-end;
+            width: 60%;
+            height: 100%;
+            img {
+                width: 80%;
+                height: 100%;
+                object-fit: contain;
             }
         }
     }

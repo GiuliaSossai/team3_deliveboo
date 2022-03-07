@@ -5,7 +5,7 @@
     >
         <div class="card-rest-box">
             <div class="card-rest-box-image">
-                <img :src="restaurant.photo" :alt="restaurant.name" />
+                <img :src="`/${restaurant.photo}`" :alt="restaurant.name" />
             </div>
             <div class="card-rest-box-text">
                 <h5>{{ restaurant.name }}</h5>
@@ -36,7 +36,7 @@ export default {
     width: 300px;
     cursor: pointer;
     transform: scale(1);
-    transition: all 0.8s ease-in-out;
+    transition: all 0.3s ease-in-out;
     margin: 15px 0;
     &:hover {
         transform: scale(1.15);
@@ -50,7 +50,7 @@ export default {
             width: 100%;
             object-fit: cover;
             filter: opacity(90%);
-            transition: all 0.8s ease-in-out;
+            transition: all 0.3s ease-in-out;
             &:hover {
                 filter: opacity(100%);
             }

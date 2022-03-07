@@ -26,7 +26,6 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 20,
                 'order_min' => 5,
                 'photo' => 'img/img-seeder/restaurants/lasagna-rest.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Il capriccio di Ciccio',
@@ -35,7 +34,6 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 30,
                 'order_min' => 6,
                 'photo' =>  'img/img-seeder/restaurants/ciccio-rest.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Kebab da Ciro',
@@ -44,7 +42,6 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 40,
                 'order_min' => 0,
                 'photo' => 'img/img-seeder/restaurants/kebab-rest.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Samurai Sushi',
@@ -53,7 +50,6 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 20,
                 'order_min' => 10,
                 'photo' => 'img/img-seeder/restaurants/sushi-rest.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Los Pollos Hermanos',
@@ -80,7 +76,6 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 30,
                 'order_min' => 6,
                 'photo' =>  'img/img-seeder/restaurants/risto1.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Dopolavoro Ferroviario',
@@ -89,7 +84,6 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 20,
                 'order_min' => 5,
                 'photo' =>  'img/img-seeder/restaurants/dopo-rest.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Bambù Pokè',
@@ -98,7 +92,6 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 15,
                 'order_min' => 10,
                 'photo' => 'img/img-seeder/restaurants/poke-rest.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Non è mica pizza e fichi',
@@ -107,7 +100,6 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 20,
                 'order_min' => 8,
                 'photo' => 'img/img-seeder/restaurants/pizza-fichi-rest.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Le mille e una notte',
@@ -116,7 +108,6 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 20,
                 'order_min' => 7,
                 'photo' => 'img/img-seeder/restaurants/chinese.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ],
             [
                 'name' => 'Il pacchero',
@@ -125,29 +116,9 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 30,
                 'order_min' => 7,
                 'photo' =>  'img/img-seeder/restaurants/trattoria.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
             ]
 
         ];
-
-        // foreach($users as $key => $user){
-
-        //     $new_restaurant = new Restaurant();
-        //     $new_restaurant->user_id = $user['id'];
-        //     $new_restaurant->name = $rests[$key]['name'];
-        //     $new_restaurant->slug = $rests[$key]['slug'];
-        //     $new_restaurant->p_iva = $rests[$key]['p_iva'];
-        //     $new_restaurant->email = $rests[$key]['email'];
-        //     $new_restaurant->address = $rests[$key]['address'];
-        //     $new_restaurant->phone = $rests[$key]['phone'];
-        //     $new_restaurant->delivery_price = $rests[$key]['delivery_price'];
-        //     $new_restaurant->delivery_time = $rests[$key]['delivery_time'];
-        //     $new_restaurant->order_min = $rests[$key]['order_min'];
-        //     $new_restaurant->photo = $rests[$key]['photo'];
-        //     $new_restaurant->photo_bg = $rests[$key]['photo_bg'];     
-        //     $new_restaurant->save();
-
-        // }
 
         foreach ($rests as $rest) {
 
@@ -164,7 +135,6 @@ class RestaurantsTableSeeder extends Seeder
             $new_restaurant->delivery_time = $rest['delivery_time'];
             $new_restaurant->order_min = $rest['order_min'];
             $new_restaurant->photo = $rest['photo'];
-            $new_restaurant->photo_bg = $rest['photo_bg'];
 
             $new_restaurant->save();
         }

@@ -13,8 +13,8 @@
             </p>
             <div class="ls-btn-container">
                 <div class="ls-imp">Impostazioni dei cookie</div>
-                <div class="ls-rif" @click="getCookie">Rifiuta</div>
-                <div class="ls-acc" @click="getCookie">Accetta</div>
+                <div class="ls-rif" @click="getCookieRifiuta">Rifiuta</div>
+                <div class="ls-acc" @click="getCookieAccetta">Accetta</div>
             </div>
         </div>
     </div>
@@ -26,9 +26,15 @@ export default {
     data() {
         return {};
     },
+    mounted() {},
     methods: {
-        getCookie() {
-            this.$emit("getCookie", true);
+        getCookieRifiuta() {
+            this.$emit("getCookieRifiuta", true);
+        },
+        getCookieAccetta() {
+            localStorage.setItem("cookie", 1);
+            const value = localStorage.getItem("cookie");
+            this.$emit("getCookieAccetta", value);
         },
     },
 };
