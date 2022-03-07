@@ -101,7 +101,8 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="delivery_price">Prezzo di consegna</label>
-                                    <input type="number" min="0" max="10" step="0.01" class="form-control @error('delivery_price') is-invalid @enderror"
+                                    <input type="number" min="0" max="10" step="0.01"
+                                        class="form-control @error('delivery_price') is-invalid @enderror"
                                         id="delivery_price" name="delivery_price" value="{{ old('delivery_price') }}"
                                         required>
                                     @error('delivery_price')
@@ -114,8 +115,9 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="order_min">Prezzo minimo ordine</label>
-                                    <input type="number" min="0" max="99" step="0.01" class="form-control @error('order_min') is-invalid @enderror"
-                                        id="order_min" name="order_min" value="{{ old('order_min') }}" required>
+                                    <input type="number" min="0" max="99" step="0.01"
+                                        class="form-control @error('order_min') is-invalid @enderror" id="order_min"
+                                        name="order_min" value="{{ old('order_min') }}" required>
                                     @error('order_min')
                                         <div class="invalid-feedback d-block">
                                             {{ $message }}
@@ -126,9 +128,9 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="delivery_time">Tempo consegna in minuti</label>
-                                    <input type="number" min="10" max="120" step="1.00" class="form-control @error('delivery_time') is-invalid @enderror"
-                                        id="delivery_time" name="delivery_time" value="{{ old('delivery_time') }}"
-                                        required>
+                                    <input type="number" min="10" max="120" step="1.00"
+                                        class="form-control @error('delivery_time') is-invalid @enderror" id="delivery_time"
+                                        name="delivery_time" value="{{ old('delivery_time') }}" required>
                                     @error('delivery_time')
                                         <div class="invalid-feedback d-block">
                                             {{ $message }}
@@ -138,29 +140,46 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="form-group">
-                                <label for="photo">Inserisci un immagine</label>
-                                <input type="file" class="form-control-file" name="photo" id="photo">
-                            </div>
-                            @error('photo')
-                                <div class="invalid-feedback d-block">
-                                    {{ $message }}
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="photo">Inserisci un immagine per l'icona</label>
+                                        <input type="file" class="form-control-file" name="photo" id="photo">
+                                    </div>
+                                    @error('photo')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-                            @enderror
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="photo_bg">Inserisci un immagine per il background</label>
+                                        <input type="file" class="form-control-file" name="photo_bg" id="photo_bg">
+                                    </div>
+                                    @error('photo_bg')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="mt-5">
+                        <div class="mt-4">
                             <button type="submit" class="btn btn-primary">Salva</button>
                             <button type="reset" class="btn btn-dark">Reset</button>
                         </div>
 
                     </form>
-
                 </div>
             </div>
-
         </div>
+
+    </div>
 
     </div>
 @endsection

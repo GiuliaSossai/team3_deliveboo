@@ -16,15 +16,25 @@
                             class="col"
                             v-for="category in categories"
                             :key="`cat${category.id}`"
+                            @click="isActive = category.id"
                         >
                             <CategoryCard
                                 :category="category"
                                 @getCategory="getRestaurantsByCategory"
+                                :class="{
+                                    active: isActive == category.id,
+                                }"
                             />
                         </div>
 
                         <div class="col">
-                            <div class="card-all" @click="getApi">
+                            <div
+                                class="card-all"
+                                @click="
+                                    getApi();
+                                    isActive = 0;
+                                "
+                            >
                                 <div class="card-cat__text">
                                     <p>Tutte</p>
                                 </div>
@@ -47,8 +57,8 @@
                 </div> -->
                         <div
                             class="col d-flex justify-content-center"
-                            v-for="restaurant in restaurants"
-                            :key="`rest${restaurant.id}`"
+                            v-for="(restaurant, index) in restaurants"
+                            :key="`rest${index}`"
                         >
                             <RestaurantCard :restaurant="restaurant" />
                         </div>
@@ -86,6 +96,7 @@ export default {
             apiUrl: "/api/restaurants",
             restaurants: [],
             loading: true,
+            isActive: undefined,
         };
     },
 
@@ -112,14 +123,12 @@ export default {
 
         getRestaurantsByCategory($slug) {
             this.restaurants = [];
-            this.loading = true;
             //console.log($slug);
             axios
                 .get(this.apiUrl + "/restaurantcategory/" + $slug)
                 .then((res) => {
                     this.restaurants = res.data.category.restaurants;
                     //console.log(res.data.category.restaurants);
-                    this.loading = false;
                 })
                 .catch((error) => {
                     console.log(error);

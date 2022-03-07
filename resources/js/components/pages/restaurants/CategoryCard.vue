@@ -47,11 +47,11 @@ export default {
     // transizioni
     outline: 0px solid #60da60;
     transform: scale(1);
-    transition: all 0.3s linear;
+    transition: all 0.2s ease-in-out;
     &:hover {
         transform: scale(1.05);
         outline: 2px solid #60da60;
-        outline-offset: 4px;
+        outline-offset: 3px;
     }
     .card-cat__text {
         p {

@@ -34,6 +34,7 @@ class ValidationRestaurant extends FormRequest
             "order_min" => "numeric|between: 0, 255",
             "delivery_time" => "numeric|between: 0, 200",
             "photo" => "mimes:jpeg,png,jpg,gif|max:2048",
+            "photo_bg" => "mimes:jpeg,png,jpg,gif|max:2048",
         ];
     }
 
