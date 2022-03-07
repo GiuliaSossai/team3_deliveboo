@@ -59,10 +59,15 @@ class RegisterController extends Controller
             ],
             [
                 'name.required' => "Il nome è obbligatorio",
+                'name.max' => "Il nome deve essere al massimo :max caratteri",
                 'surname.required' => "Il Cognome è obbligatorio",
+                'surname.max' => "Il cognome deve essere al massimo :max caratteri",
                 'email.required' => "L'email è obbligatoria",
                 'email.unique' => "Esiste già un utente con l'email inserita",
+                'email.max' => "L'email deve essere al massimo :max caratteri",
                 'password.required' => "La password è obbligatoria",
+                'password.min' => "La password deve essere minimo :min caratteri",
+                'password.confirmed' => "Le password non corrispondono"
             ]
         );
     }
