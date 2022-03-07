@@ -22,7 +22,7 @@
                                 :category="category"
                                 @getCategory="getRestaurantsByCategory"
                                 :class="{
-                                    'active-category': isActive == category.id,
+                                    active: isActive == category.id,
                                 }"
                             />
                         </div>
@@ -141,11 +141,6 @@ export default {
 <style lang="scss" scoped>
 main {
     margin-top: 90px;
-    .active-category {
-        transform: scale(1.05);
-        outline: 2px solid #60da60;
-        outline-offset: 3px;
-    }
     .card-all {
         display: flex;
         justify-content: space-between;

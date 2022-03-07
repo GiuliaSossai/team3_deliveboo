@@ -72,9 +72,9 @@ export default {
         }
     }
 }
-// .card-cat.active {
-//     transform: scale(1.05);
-//     outline: 2px solid #60da60;
-//     outline-offset: 4px;
-// }
+.card-cat.active {
+    transform: scale(1.05);
+    outline: 2px solid #60da60;
+    outline-offset: 4px;
+}
 </style>
