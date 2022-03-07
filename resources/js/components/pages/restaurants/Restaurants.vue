@@ -57,8 +57,8 @@
                 </div> -->
                         <div
                             class="col d-flex justify-content-center"
-                            v-for="restaurant in restaurants"
-                            :key="`rest${restaurant.id}`"
+                            v-for="(restaurant, index) in restaurants"
+                            :key="`rest${index}`"
                         >
                             <RestaurantCard :restaurant="restaurant" />
                         </div>
@@ -96,6 +96,7 @@ export default {
             apiUrl: "/api/restaurants",
             restaurants: [],
             loading: true,
+            isActive: undefined,
         };
     },
 
