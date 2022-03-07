@@ -96,13 +96,14 @@ export default {
     methods: {
         getApi() {
             this.restaurants = [];
+            this.loading = true;
             axios
                 .get(this.apiUrl)
                 .then((res) => {
                     this.restaurants = res.data.restaurants;
                     this.categories = res.data.categories;
                     //console.log(this.categories);
-                    setTimeout(() => (this.loading = false), 3000);
+                    this.loading = false;
                 })
                 .catch((error) => {
                     console.log(error);
@@ -111,12 +112,14 @@ export default {
 
         getRestaurantsByCategory($slug) {
             this.restaurants = [];
+            this.loading = true;
             //console.log($slug);
             axios
                 .get(this.apiUrl + "/restaurantcategory/" + $slug)
                 .then((res) => {
                     this.restaurants = res.data.category.restaurants;
                     //console.log(res.data.category.restaurants);
+                    this.loading = false;
                 })
                 .catch((error) => {
                     console.log(error);

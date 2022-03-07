@@ -102,7 +102,7 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="delivery_price">Prezzo di consegna</label>
-                                    <input type="number" class="form-control @error('delivery_price') is-invalid @enderror"
+                                    <input type="number" min="0" max="10" step="0.01" class="form-control @error('delivery_price') is-invalid @enderror"
                                         id="delivery_price" name="delivery_price"
                                         value="{{ old('delivery_price', $restaurant->delivery_price) }}">
                                     @error('delivery_price')
@@ -115,7 +115,7 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="order_min">Prezzo minimo ordine</label>
-                                    <input type="number" class="form-control @error('order_min') is-invalid @enderror"
+                                    <input type="number" min="0" max="99" step="0.01" class="form-control @error('order_min') is-invalid @enderror"
                                         id="order_min" name="order_min"
                                         value="{{ old('order_min', $restaurant->order_min) }}" required>
                                     @error('order_min')
@@ -128,7 +128,7 @@
                             <div class="col-12 col-md-4">
                                 <div class="form-group">
                                     <label for="delivery_time">Tempo consegna in minuti</label>
-                                    <input type="number" class="form-control @error('delivery_time') is-invalid @enderror"
+                                    <input type="number" min="10" max="120" step="1.00" class="form-control @error('delivery_time') is-invalid @enderror"
                                         id="delivery_time" name="delivery_time"
                                         value="{{ old('delivery_time', $restaurant->delivery_time) }}" required>
                                     @error('delivery_time')

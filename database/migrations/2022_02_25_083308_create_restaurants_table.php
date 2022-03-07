@@ -29,6 +29,7 @@ class CreateRestaurantsTable extends Migration
             $table->tinyInteger('delivery_time');
             $table->decimal('order_min', 4, 2);
             $table->string('photo')->nullable();
+            $table->string('photo_bg')->nullable();
 
             $table->timestamps();
         });

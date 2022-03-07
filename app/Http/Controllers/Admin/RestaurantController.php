@@ -54,6 +54,12 @@ class RestaurantController extends Controller
             $data['photo'] = 'storage/' . $img_path;
         }
 
+        if (array_key_exists('photo_bg', $data)) {
+
+            $img_path = Storage::put('uploads', $data['photo_bg']);
+            $data['photo_bg'] = 'storage/' . $img_path;
+        }
+
         $new_restaurant->fill($data);
 
         $new_restaurant->user_id = Auth::id();
@@ -122,6 +128,17 @@ class RestaurantController extends Controller
             $data['photo'] = 'storage/' . $img_path;
         }
 
+        if (array_key_exists('photo_bg', $data)) {
+
+            if ($restaurant->photo_bg) {
+                $restaurant->photo_bg = str_replace('storage/', '', $restaurant->photo_bg);
+                Storage::delete($restaurant->photo_bg);
+            }
+
+            $img_path = Storage::put('uploads', $data['photo_bg']);
+            $data['photo_bg'] = 'storage/' . $img_path;
+        }
+
         $restaurant->update($data);
 
         $restaurant->categories()->sync($data['categories']);
@@ -142,6 +159,11 @@ class RestaurantController extends Controller
         if ($restaurant->photo) {
             $restaurant->photo = str_replace('storage/', '', $restaurant->photo);
             Storage::delete($restaurant->photo);
+        }
+
+        if ($restaurant->photo_bg) {
+            $restaurant->photo_bg = str_replace('storage/', '', $restaurant->photo_bg);
+            Storage::delete($restaurant->photo_bg);
         }
 
         $restaurant->delete();

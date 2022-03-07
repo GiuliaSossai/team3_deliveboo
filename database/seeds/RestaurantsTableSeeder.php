@@ -26,6 +26,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 20,
                 'order_min' => 5,
                 'photo' => 'img/img-seeder/restaurants/lasagna-rest.jpg',
+                'photo_bg' => 'img/img-seeder/restaurants/lasagna-rest-bg.jpg',
             ],
             [
                 'name' => 'Il capriccio di Ciccio',
@@ -34,6 +35,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 30,
                 'order_min' => 6,
                 'photo' =>  'img/img-seeder/restaurants/ciccio-rest.jpg',
+                'photo_bg' => 'img/img-seeder/restaurants/ciccio-rest-bg.jpg',
             ],
             [
                 'name' => 'Kebab da Ciro',
@@ -42,6 +44,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 40,
                 'order_min' => 0,
                 'photo' => 'img/img-seeder/restaurants/kebab-rest.jpg',
+                'photo_bg' => 'img/img-seeder/restaurants/kebab-rest-bg.jpg',
             ],
             [
                 'name' => 'Samurai Sushi',
@@ -50,6 +53,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 20,
                 'order_min' => 10,
                 'photo' => 'img/img-seeder/restaurants/sushi-rest.jpg',
+                'photo_bg' => 'img/img-seeder/restaurants/sushi-rest-bg.jpg',
             ],
             [
                 'name' => 'Los Pollos Hermanos',
@@ -58,7 +62,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 30,
                 'order_min' => 5,
                 'photo' =>  'img/img-seeder/restaurants/pollos-rest.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
+                'photo_bg' => 'img/img-seeder/restaurants/pollos-rest-bg.jpg',
             ],
             [
                 'name' => 'La bella bettola',
@@ -67,7 +71,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 10,
                 'order_min' => 7,
                 'photo' =>  'img/img-seeder/restaurants/trattoria1.jpg',
-                'photo_bg' => $faker->imageUrl(800, 200, 'animals', true, 'bears')
+                'photo_bg' => 'img/img-seeder/restaurants/trattoria1-bg.jpg',
             ],
             [
                 'name' => 'Vin Santo',
@@ -76,6 +80,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 30,
                 'order_min' => 6,
                 'photo' =>  'img/img-seeder/restaurants/risto1.jpg',
+                'photo_bg' => 'img/img-seeder/restaurants/risto1-bg.jpg',
             ],
             [
                 'name' => 'Dopolavoro Ferroviario',
@@ -84,6 +89,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 20,
                 'order_min' => 5,
                 'photo' =>  'img/img-seeder/restaurants/dopo-rest.jpg',
+                'photo_bg' => 'img/img-seeder/restaurants/dopo-rest-bg.jpg',
             ],
             [
                 'name' => 'Bambù Pokè',
@@ -92,6 +98,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 15,
                 'order_min' => 10,
                 'photo' => 'img/img-seeder/restaurants/poke-rest.jpg',
+                'photo_bg' => 'img/img-seeder/restaurants/poke-rest-bg.jpg',
             ],
             [
                 'name' => 'Non è mica pizza e fichi',
@@ -100,6 +107,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 20,
                 'order_min' => 8,
                 'photo' => 'img/img-seeder/restaurants/pizza-fichi-rest.jpg',
+                'photo_bg' => 'img/img-seeder/restaurants/pizza-fichi-rest-bg.jpg',
             ],
             [
                 'name' => 'Le mille e una notte',
@@ -108,6 +116,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 20,
                 'order_min' => 7,
                 'photo' => 'img/img-seeder/restaurants/chinese.jpg',
+                'photo_bg' => 'img/img-seeder/restaurants/chinese-bg.jpg',
             ],
             [
                 'name' => 'Il pacchero',
@@ -116,6 +125,7 @@ class RestaurantsTableSeeder extends Seeder
                 'delivery_time' => 30,
                 'order_min' => 7,
                 'photo' =>  'img/img-seeder/restaurants/trattoria.jpg',
+                'photo_bg' => 'img/img-seeder/restaurants/trattoria-bg.jpg',
             ]
 
         ];
@@ -135,6 +145,7 @@ class RestaurantsTableSeeder extends Seeder
             $new_restaurant->delivery_time = $rest['delivery_time'];
             $new_restaurant->order_min = $rest['order_min'];
             $new_restaurant->photo = $rest['photo'];
+            $new_restaurant->photo_bg = $rest['photo_bg'];
 
             $new_restaurant->save();
         }

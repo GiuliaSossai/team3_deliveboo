@@ -7,7 +7,7 @@
             <Header class="ls-header" />
 
             <div class="ls-jumbo">
-                <img :src="`/${restaurant.photo}`" :alt="restaurant.name" />
+                <img :src="`/${restaurant.photo_bg}`" :alt="restaurant.name" />
             </div>
 
             <main class="container">
