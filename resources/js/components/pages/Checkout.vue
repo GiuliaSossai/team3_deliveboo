@@ -62,6 +62,18 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <div v-if="prova" class="container m-5">
+                    <div class="proviamo">
+                        <v-braintree
+                            :authorization="apiToken"
+                            locale="it_IT"
+                            @success="onSuccess"
+                            @error="onError"
+                        >
+                        </v-braintree>
+                    </div>
+                </div>
             </main>
 
             <Footer />
@@ -90,10 +102,14 @@ export default {
             finalPrice: "",
             loading: false,
             route: this.$route.path,
+            apiToken: "",
+            prova: false,
+            token: "",
         };
     },
     mounted() {
         this.getOrder();
+        this.getApiToken();
     },
     methods: {
         getOrder() {
@@ -111,13 +127,53 @@ export default {
             quantity(id, change);
             this.dishes = list();
         },
+
+        onSuccess(payload) {
+            let token = payload.nonce;
+            this.token = token;
+            this.buy();
+        },
+        onError(error) {
+            // let message = error.message;
+        },
+
+        buy() {
+            axios
+                .post("/api/payment/make", {
+                    token: this.token,
+                    price: this.getfinalPrice(),
+                })
+                .then((res) => {
+                    alert(res.data.message);
+                    console.log(res);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+
+        getApiToken() {
+            axios
+                .get("/api/payment/generate")
+                .then((res) => {
+                    this.apiToken = res.data.token;
+                    this.prova = true;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
     },
 };
 </script>
 
 <style lang="scss" scoped>
 main {
-    margin-top: 100px;
-    min-height: 500px;
+    margin-top: 80px;
+
+    .proviamo {
+        width: 40%;
+        margin: 0 auto;
+    }
 }
 </style>
