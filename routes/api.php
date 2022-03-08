@@ -26,3 +26,5 @@ Route::namespace('Api')
         Route::get('restaurantcategory/{slug}', 'RestaurantController@getRestaurantsByCategory');
    });
 
+Route::get('/generate', 'Api\PaymentController@generate');
+Route::post('/make-payment', 'Api\PaymentController@makePayment');
