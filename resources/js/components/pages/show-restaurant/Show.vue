@@ -58,6 +58,8 @@
                                                 @click="
                                                     addItem(dish);
                                                     getCartQuantity();
+                                                    getCartList();
+                                                    getCartTotal();
                                                 "
                                             >
                                                 <i
@@ -82,7 +84,7 @@ import Header from "../../partials/Header.vue";
 import Footer from "../../partials/Footer.vue";
 import Loading from "../Loading.vue";
 
-import { add, list, destroy } from "cart-localstorage";
+import { add, list, destroy, total } from "cart-localstorage";
 
 import { EventBus } from "../../../global-event-bus.js";
 
@@ -146,9 +148,20 @@ export default {
             }
             return this.cartQuantity;
         },
+        // Passo al componente Cart la quantità
         getCartQuantity() {
             this.cartQuantity = this.printQuantity();
             EventBus.$emit("getCartQuantity", this.cartQuantity);
+        },
+        // Passo al componente Cart la Lista
+        getCartList() {
+            let cartList = list();
+            EventBus.$emit("getCartList", cartList);
+        },
+        // Passo al componente Cart il Totale
+        getCartTotal() {
+            let cartTotal = total();
+            EventBus.$emit("getCartTotal", cartTotal);
         },
         getRestaurantIdFromCart() {
             let dishes = list();
