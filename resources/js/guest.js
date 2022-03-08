@@ -8,12 +8,17 @@
 
 //  fontawesome
  import '@fortawesome/fontawesome-free/js/all.js';
+ 
 
  window.Vue = require('vue');
  window.axios = require('axios');
  
  import App from "./App.vue";
  import router from "./routes";
+
+ import vueBraintree from 'vue-braintree';
+
+ Vue.use(vueBraintree);
 
 
  /**
