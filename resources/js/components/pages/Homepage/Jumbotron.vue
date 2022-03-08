@@ -1,67 +1,47 @@
 <template>
     <div class="jumbo-custom">
-    <!--    <div
-            id="carouselExampleSlidesOnly"
-            class="carousel slide"
-            data-ride="carousel"
+        <div
+            class="background-jumbo"
+            :style="{ 'background-color': currentJumbo.backgroundColor }"
         >
-            <div class="carousel-inner">
-                <div class="carousel-item active ls-1">
-                    <img
-                        class="d-block w-100"
-                        src="/img/homepage/jumbo/jumbo.svg"
-                        alt="First slide"
-                    />
-                </div>
-                <div class="carousel-item ls-2">
-                    <img
-                        class="d-block w-100"
-                        src="/img/homepage/jumbo/jumbo.svg"
-                        alt="Second slide"
-                    />
-                </div>
-                <div class="carousel-item ls-3">
-                    <img
-                        class="d-block w-100"
-                        src="/img/homepage/jumbo/jumbo.svg"
-                        alt="Third slide"
-                    />
-                </div>
-            </div>
+            <img
+                class="left-jumbo"
+                :src="currentJumbo.imgLeft"
+                alt="sfondo 1"
+            />
+            <img
+                class="right-jumbo"
+                :src="currentJumbo.imgRight"
+                alt="sfondo 2"
+            />
         </div>
 
         <div class="content-jumbo">
-            <h5>Ordina cosa vuoi mangiare, a casa tua.</h5>
-            <p class="m-0 rounded-pill">
-                La tua città, <span class="font-weight-bold">Perugia</span>
-            </p>
-            <div class="mdg-btn">
-                <router-link :to="{ name: 'restaurants' }" class="text-white">
-                    Vedi i ristoranti
-                </router-link>
+            <div class="row">
+                <div class="col">
+                    <h5>Ordina cosa vuoi mangiare, a casa tua.</h5>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-12 col-md-5">
+                    <p>
+                        La tua città,
+                        <span class="font-weight-bold">Perugia</span>
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <router-link
+                        :to="{ name: 'restaurants' }"
+                        class="text-white"
+                    >
+                        <div class="mdg-btn">
+                            <span>Vedi i ristoranti</span>
+                        </div>
+                    </router-link>
+                </div>
             </div>
         </div>
-    -->
-
-        <div :style="{'background-color': currentBackground }"
-        class="inside-jumbo">
-          <img class="left-jumbo" src="/img/homepage/jumbo/jumbo-sinistra.svg" alt="sfondo 1">
-          <img class="right-jumbo" src="/img/homepage/jumbo/jumbo-destra.svg" alt="sfondo 2">
-        </div>
-
-        <div class="content-jumbo">
-            <h5>Ordina cosa vuoi mangiare, a casa tua.</h5>
-            <p class="m-0 rounded-pill">
-                La tua città, <span class="font-weight-bold">Perugia</span>
-            </p>
-            <div class="mdg-btn">
-                <router-link :to="{ name: 'restaurants' }" class="text-white">
-                    Vedi i ristoranti
-                </router-link>
-            </div>
-        </div>
-
-
     </div>
 </template>
 
@@ -69,57 +49,72 @@
 export default {
     name: "Jumbotron",
 
-    data(){
-        return{
-            backgroundColor: ['#ffad88', '#FFC043', '#FA9269'], 
+    data() {
+        return {
+            backgroundColor: ["#ffad88", "#FFC043", "#FA9269"],
             currentBackground: null,
-        }
+            backJumbo: [
+                {
+                    backgroundColor: "#FFC043",
+                    imgLeft: "/img/homepage/jumbo/jumbo-sinistra-1.svg",
+                    imgRight: "/img/homepage/jumbo/jumbo-destra-1.svg",
+                },
+                {
+                    backgroundColor: "#FA9269",
+                    imgLeft: "/img/homepage/jumbo/jumbo-sinistra-2.svg",
+                    imgRight: "/img/homepage/jumbo/jumbo-destra-2.svg",
+                },
+                {
+                    backgroundColor: "#FFD7D2",
+                    imgLeft: "/img/homepage/jumbo/jumbo-sinistra-3.svg",
+                    imgRight: "/img/homepage/jumbo/jumbo-destra-3.svg",
+                },
+                {
+                    backgroundColor: "#FFF2D9",
+                    imgLeft: "/img/homepage/jumbo/jumbo-sinistra-4.svg",
+                    imgRight: "/img/homepage/jumbo/jumbo-destra-4.svg",
+                },
+            ],
+            currentJumbo: {},
+        };
     },
-
-    methods:{
-        getRandomColor(){
-            let random = Math.floor(Math.random()* this.backgroundColor.length);
-
-            this.currentBackground = this.backgroundColor[random];
-
-            console.log(this.currentBackground);
-        }
+    mounted() {
+        this.getRandomBack();
     },
-
-    mounted(){
-        this.getRandomColor();
-    }
+    methods: {
+        getRandomBack() {
+            let random = Math.floor(Math.random() * this.backJumbo.length);
+            this.currentJumbo = this.backJumbo[random];
+        },
+    },
 };
 </script>
 
 <style lang="scss" scoped>
-// .t3-opacity{
-//   opacity: 0.3;
-// }
-
 .jumbo-custom {
     position: relative;
-    /*#carouselExampleSlidesOnly {
-        height: 100vh;
+    height: 100vh;
+    width: 100%;
+
+    .background-jumbo {
+        height: 100%;
         width: 100%;
-        .ls-1 {
-            background-color: #ffa600;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+
+        img .left-jumbo {
+            object-fit: auto;
         }
-        .ls-2 {
-            background-color: #ff7038;
+
+        img .right-jumbo {
+            object-fit: auto;
         }
-        .ls-3 {
-            background-color: #33ffa0f8;
-        }
-        img {
-            height: 100vh;
-            object-fit: cover;
-            filter: opacity(85%);
-        }
-    }*/
+    }
+
     .content-jumbo {
         position: absolute;
-        top: 37vh;
+        top: 35vh;
         left: 25px;
 
         h5 {
@@ -130,10 +125,12 @@ export default {
         }
 
         p {
+            margin: 0;
             font-size: 34px;
             background-color: white;
             padding: 5px 25px;
             display: inline-block;
+            border-radius: 25px;
         }
 
         .mdg-btn {
@@ -142,31 +139,10 @@ export default {
             color: white;
             padding: 10px 25px;
             display: inline-block;
-            margin-left: 50px;
             cursor: pointer;
-        }
-    }
-
-    // background-image: url('/img/homepage/jumbo/jumbo.svg');
-    // background-position: center;
-    // background-repeat: no-repeat;
-    height: 100vh;
-    width: 100%;
-
-    .inside-jumbo{
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-
-        img .left-jumbo{
-           object-fit: cover;
-           object-position: left;
-        }
-
-        img .right-jumbo{
-           object-fit: cover;
-           object-position: right;
+            &:hover {
+                filter: opacity(75%);
+            }
         }
     }
 }

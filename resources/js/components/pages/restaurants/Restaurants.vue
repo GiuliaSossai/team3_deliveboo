@@ -28,13 +28,18 @@
                             />
                         </div>
 
-                        <div class="col">
+                        <div
+                            class="col"
+                            @click="
+                                getApi();
+                                isActive = 0;
+                            "
+                        >
                             <div
                                 class="card-all"
-                                @click="
-                                    getApi();
-                                    isActive = 0;
-                                "
+                                :class="{
+                                    active: isActive == 0,
+                                }"
                             >
                                 <div class="card-cat__text">
                                     <p>Tutte</p>
@@ -51,15 +56,13 @@
 
                     <h2>I Ristoranti</h2>
 
-                    
-                    <div 
+                    <div
                         v-if="loadRest"
-                        class="d-flex justify-content-center m-5" >
-
+                        class="d-flex justify-content-center m-5"
+                    >
                         <div class="spinner-border" role="status">
-                          <span class="sr-only">Loading...</span>
+                            <span class="sr-only">Loading...</span>
                         </div>
-
                     </div>
 
                     <div
@@ -112,25 +115,26 @@ export default {
             restaurants: [],
             loading: true,
             isActive: undefined,
-            loadRest: true
+            loadRest: true,
         };
     },
 
     mounted() {
+        this.loading = true;
         this.getApi();
     },
 
     methods: {
         getApi() {
             this.restaurants = [];
-            this.loading = true;
-            this.loadRest = false;
+            this.loadRest = true;
             axios
                 .get(this.apiUrl)
                 .then((res) => {
                     this.restaurants = res.data.restaurants;
                     this.categories = res.data.categories;
                     //console.log(this.categories);
+                    this.loadRest = false;
                     this.loading = false;
                 })
                 .catch((error) => {
@@ -182,11 +186,6 @@ main {
             outline: 2px solid #60da60;
             outline-offset: 4px;
         }
-        .card-all.active {
-            transform: scale(1.05);
-            outline: 2px solid #60da60;
-            outline-offset: 4px;
-        }
         .card-cat__text {
             p {
                 margin: 0;
@@ -205,6 +204,11 @@ main {
                 object-fit: contain;
             }
         }
+    }
+    .card-all.active {
+        transform: scale(1.05);
+        outline: 2px solid #60da60;
+        outline-offset: 4px;
     }
 }
 </style>
