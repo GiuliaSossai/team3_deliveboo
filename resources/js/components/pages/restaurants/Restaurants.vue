@@ -17,7 +17,10 @@
                             class="col"
                             v-for="category in categories"
                             :key="`cat${category.id}`"
-                            @click="isActive = category.id"
+                            @click="
+                                isActive = category.id;
+                                changeQueryUrl(category.slug);
+                            "
                         >
                             <CategoryCard
                                 :category="category"
@@ -33,6 +36,7 @@
                             @click="
                                 getApi();
                                 isActive = 0;
+                                changeQueryUrl('tutte');
                             "
                         >
                             <div
@@ -69,10 +73,6 @@
                         v-else
                         class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5"
                     >
-                        <!-- <div class="col d-flex">
-                    <RestaurantCard />
-                </div> -->
-
                         <div
                             class="col d-flex justify-content-center"
                             v-for="(restaurant, index) in restaurants"
@@ -122,6 +122,7 @@ export default {
     mounted() {
         this.loading = true;
         this.getApi();
+        this.removeQueryUrl();
     },
 
     methods: {
@@ -156,6 +157,15 @@ export default {
                 .catch((error) => {
                     console.log(error);
                 });
+        },
+
+        // Cambio url in modo dinamico al click della categoria
+        changeQueryUrl(slug) {
+            this.$router.replace({ query: { categoria: slug } });
+        },
+        // Rimizio url e torna all'origine al mounted della pagina
+        removeQueryUrl() {
+            this.$router.replace({ name: "restaurants" });
         },
     },
 };
