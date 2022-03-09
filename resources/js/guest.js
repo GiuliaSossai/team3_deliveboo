@@ -11,6 +11,9 @@
 
  window.Vue = require('vue');
  window.axios = require('axios');
+
+ import vueBraintree from 'vue-braintree';
+ Vue.use(vueBraintree);
  
  import App from "./App.vue";
  import router from "./routes";

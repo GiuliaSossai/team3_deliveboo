@@ -19,10 +19,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::namespace('Api')
-   ->prefix('restaurants')
-   ->group(function(){
-        Route::get('/', 'RestaurantController@index');
-        Route::get('{slug}', 'RestaurantController@show');
-        Route::get('restaurantcategory/{slug}', 'RestaurantController@getRestaurantsByCategory');
-   });
+     ->prefix('restaurants')
+     ->group(function () {
+          Route::get('/', 'RestaurantController@index');
+          Route::get('{slug}', 'RestaurantController@show');
+          Route::get('restaurantcategory/{slug}', 'RestaurantController@getRestaurantsByCategory');
+          Route::get('restaurantpay/{id}', 'RestaurantController@getRestaurantPay');
+     });
 
+Route::get('/payment/generate', 'Api\PaymentController@generate');
+Route::post('/payment/make', 'Api\PaymentController@makePayment');

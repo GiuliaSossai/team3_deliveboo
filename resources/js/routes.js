@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 import Home from './components/pages/homepage/Home';
 import Restaurants from './components/pages/restaurants/Restaurants';
 import Show from './components/pages/show-restaurant/Show';
-import Checkout from './components/pages/Checkout';
+import Checkout from './components/pages/checkout/Checkout';
 import Error404 from './components/pages/Error404';
 
 const router = new VueRouter({

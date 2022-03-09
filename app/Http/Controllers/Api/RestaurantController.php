@@ -70,4 +70,17 @@ class RestaurantController extends Controller
 
         return response()->json(compact('category', 'error', 'success'));
     }
+
+    public function getRestaurantPay($id)
+    {
+        $success = true;
+
+        $restaurant = Restaurant::where('id', $id)->first();
+
+        $name = $restaurant->name;
+        $delivery_price = $restaurant->delivery_price;
+        $delivery_time = $restaurant->delivery_time;
+
+        return response()->json(compact('success', 'name', 'delivery_price', 'delivery_time'));
+    }
 }

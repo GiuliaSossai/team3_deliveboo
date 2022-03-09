@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $fillable = [
+        'restaurant_id',
+        'customer_name',
+        'customer_surname',
+        'delivery_address',
+        'customer_email',
+        'customer_phone',
+        'final_price',
+    ];
+
     // Relazione tabella Restaurants
     public function restaurant()
     {

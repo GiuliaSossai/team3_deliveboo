@@ -27,6 +27,7 @@
         "@fontsource/poppins": "^4.5.2",
         "@fortawesome/fontawesome-free": "^6.0.0",
         "cart-localstorage": "^1.1.5",
+        "vue-braintree": "^2.1.0",
         "vue-router": "^3.5.3"
     }
 }

@@ -120,6 +120,7 @@ export default {
             quantity(id, change);
             this.cartTotal = total();
             this.cartLlist = list();
+            this.cartQuantity = this.printQuantity();
         },
     },
 };
