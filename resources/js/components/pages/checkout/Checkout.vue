@@ -10,6 +10,99 @@
 
                 <div class="row">
                     <div class="col-6">
+                        <form @submit.prevent="buy">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="name">Nome</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            v-model="name"
+                                            id="name"
+                                            required
+                                        />
+                                        <p v-if="errors.name" class="errors">
+                                            {{ errors.name[0] }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="surname">Cognome</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            v-model="surname"
+                                            id="surname"
+                                            required
+                                        />
+                                        <p v-if="errors.surname" class="errors">
+                                            {{ errors.surname[0] }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="address">Indirizzo</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            v-model="address"
+                                            id="address"
+                                            required
+                                        />
+                                        <p v-if="errors.address" class="errors">
+                                            {{ errors.address[0] }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input
+                                            type="email"
+                                            class="form-control"
+                                            v-model="email"
+                                            id="email"
+                                            required
+                                        />
+                                        <p v-if="errors.email" class="errors">
+                                            {{ errors.email[0] }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="phone">Telefono</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            v-model="phone"
+                                            id="phone"
+                                            required
+                                        />
+                                        <p v-if="errors.phone" class="errors">
+                                            {{ errors.phone[0] }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bottone d-none richiamato al bottone invia ordine  -->
+                            <button
+                                ref="takeForm"
+                                type="submit"
+                                class="d-none"
+                            />
+                        </form>
+
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -21,7 +114,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="dish in dishes" :key="dish.id">
+                                <tr v-for="dish in cart" :key="dish.id">
                                     <td>{{ dish.name }}</td>
                                     <td>{{ dish.price }}€</td>
                                     <td>
@@ -65,7 +158,28 @@
                             </tbody>
                         </table>
                     </div>
-                    <div v-if="prova" class="col-6">
+                    <div class="col-5 offset-1">
+                        <h2>Riepilogo ordine</h2>
+                        <v-braintree
+                            :authorization="apiToken"
+                            locale="it_IT"
+                            @success="onSuccess"
+                            @error="onError"
+                        >
+                            <template v-slot:button="slotProps">
+                                <button
+                                    @click="slotProps.submit"
+                                    class="d-none"
+                                    ref="payBtn"
+                                ></button>
+                            </template>
+                        </v-braintree>
+
+                        <div class="btn btn-success" @click.prevent="beforeBuy">
+                            Invia Ordine
+                        </div>
+                    </div>
+                    <!-- <div v-if="prova" class="col-6">
                         <form @submit.prevent="buy">
                             <div class="row">
                                 <div class="col-6">
@@ -76,7 +190,6 @@
                                             class="form-control"
                                             v-model="name"
                                             id="name"
-                                            aria-describedby="emailHelp"
                                             required
                                         />
                                         <p v-if="errors.name" class="errors">
@@ -92,7 +205,7 @@
                                             class="form-control"
                                             v-model="surname"
                                             id="surname"
-                                            aria-describedby="emailHelp"
+                                            required
                                         />
                                         <p v-if="errors.surname" class="errors">
                                             {{ errors.surname[0] }}
@@ -110,7 +223,7 @@
                                             class="form-control"
                                             v-model="address"
                                             id="address"
-                                            aria-describedby="emailHelp"
+                                            required
                                         />
                                         <p v-if="errors.address" class="errors">
                                             {{ errors.address[0] }}
@@ -128,7 +241,7 @@
                                             class="form-control"
                                             v-model="email"
                                             id="email"
-                                            aria-describedby="emailHelp"
+                                            required
                                         />
                                         <p v-if="errors.email" class="errors">
                                             {{ errors.email[0] }}
@@ -143,7 +256,7 @@
                                             class="form-control"
                                             v-model="phone"
                                             id="phone"
-                                            aria-describedby="emailHelp"
+                                            required
                                         />
                                         <p v-if="errors.phone" class="errors">
                                             {{ errors.phone[0] }}
@@ -153,27 +266,33 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-8">
                                     <v-braintree
-                                        ref="paymentRef"
                                         :authorization="apiToken"
                                         locale="it_IT"
                                         @success="onSuccess"
                                         @error="onError"
                                     >
                                         <template v-slot:button="slotProps">
-                                            <div
+                                            <button
                                                 @click="slotProps.submit"
-                                                class="btn btn-success mb-5"
-                                            >
-                                                Invia Ordine
-                                            </div>
+                                                class="d-none"
+                                                ref="payBtn"
+                                            ></button>
                                         </template>
                                     </v-braintree>
                                 </div>
                             </div>
+
+                            <button
+                                type="submit"
+                                class="btn btn-danger m-2"
+                                @click="beforeBuy"
+                            >
+                                Prova
+                            </button>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
             </main>
 
@@ -183,9 +302,9 @@
 </template>
 
 <script>
-import Header from "../partials/Header.vue";
-import Footer from "../partials/Footer.vue";
-import Loading from "./Loading.vue";
+import Header from "../../partials/Header.vue";
+import Footer from "../../partials/Footer.vue";
+import Loading from "../Loading.vue";
 
 import { list, total, remove, quantity } from "cart-localstorage";
 
@@ -199,7 +318,8 @@ export default {
 
     data() {
         return {
-            dishes: [],
+            restaurant: {},
+            cart: [],
             finalPrice: "",
             loading: true,
             route: this.$route.path,
@@ -220,7 +340,7 @@ export default {
     },
     methods: {
         getOrder() {
-            this.dishes = list();
+            this.cart = list();
         },
         getfinalPrice() {
             this.finalPrice = total();
@@ -228,11 +348,25 @@ export default {
         },
         deleteDish(id) {
             remove(id);
-            this.dishes = list();
+            this.cart = list();
         },
         changeQuantity(id, change) {
             quantity(id, change);
-            this.dishes = list();
+            this.cart = list();
+        },
+
+        // Prendo il token da inserire nel campo authorization
+        getApiToken() {
+            axios
+                .get("/api/payment/generate")
+                .then((res) => {
+                    this.apiToken = res.data.token;
+                    this.prova = true;
+                    this.loading = false;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         },
 
         onSuccess(payload) {
@@ -277,17 +411,10 @@ export default {
                 });
         },
 
-        getApiToken() {
-            axios
-                .get("/api/payment/generate")
-                .then((res) => {
-                    this.apiToken = res.data.token;
-                    this.prova = true;
-                    this.loading = false;
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+        // Intercetto il click del bottone vue-braintree
+        beforeBuy() {
+            this.$refs.payBtn.click();
+            this.$refs.takeForm.click();
         },
     },
 };

@@ -24,6 +24,7 @@ Route::namespace('Api')
           Route::get('/', 'RestaurantController@index');
           Route::get('{slug}', 'RestaurantController@show');
           Route::get('restaurantcategory/{slug}', 'RestaurantController@getRestaurantsByCategory');
+          Route::get('restaurantpay/{id}', 'RestaurantController@getRestaurantPay');
      });
 
 Route::get('/payment/generate', 'Api\PaymentController@generate');
