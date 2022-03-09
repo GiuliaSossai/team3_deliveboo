@@ -8,6 +8,7 @@ import Restaurants from './components/pages/restaurants/Restaurants';
 import Show from './components/pages/show-restaurant/Show';
 import Checkout from './components/pages/Checkout';
 import Error404 from './components/pages/Error404';
+import Grazie from './components/pages/Grazie';
 
 const router = new VueRouter({
   mode: 'history',
@@ -32,6 +33,11 @@ const router = new VueRouter({
       path: '/checkout',
       name: 'checkout',
       component: Checkout,
+    },
+    {
+      path: '/checkout/grazie',
+      name: 'grazie',
+      component: Grazie,
     },
     {
       path: '*',
