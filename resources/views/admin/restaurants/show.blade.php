@@ -5,10 +5,22 @@
         <h1>Ristorante "{{ $restaurant->name }}"</h1>
 
         <h3>Menu</h3>
-        <td> <a class="btn btn-primary mb-3" href="{{ route('admin.piatti.create', $restaurant->slug) }}"
-                role="button">Aggiungi un nuovo
-                piatto</a>
-        </td>
+        <div class="row">
+            <div class="col-6">
+                <a class="btn btn-primary mb-3" href="{{ route('admin.piatti.create', $restaurant->slug) }}"
+                    role="button">Aggiungi
+                    un nuovo
+                    piatto</a>
+            </div>
+            <div class="col-6">
+
+                <a class="btn btn-success mb-3" href="{{ route('admin.order.index', $restaurant->slug) }}"
+                    role="button">Vedi Ordini</a>
+
+            </div>
+        </div>
+
+
 
         <table class="table table-striped">
             <thead>

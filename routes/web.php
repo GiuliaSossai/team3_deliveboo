@@ -24,8 +24,9 @@ Route::middleware('auth')
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
         Route::resource('/ristoranti', 'RestaurantController');
         Route::resource('{slug}/piatti', 'DishController');
+        Route::get('{slug}/ordini', 'OrderController@index')->name('order.index');
     });
 
-    Route::get('{any?}', function(){
-        return view('guest.home');
-    })->where('any','.*')->name('home');
+Route::get('{any?}', function () {
+    return view('guest.home');
+})->where('any', '.*')->name('home');
