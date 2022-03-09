@@ -36,7 +36,7 @@
                             @click="
                                 getApi();
                                 isActive = 0;
-                                changeQueryUrl('tutte');
+                                removeQueryUrl();
                             "
                         >
                             <div
