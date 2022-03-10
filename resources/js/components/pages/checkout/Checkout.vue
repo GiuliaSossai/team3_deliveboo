@@ -187,8 +187,9 @@
                             type="submit"
                             class="btn btn-success"
                             @click.prevent="beforeBuy()"
+                            :disabled="sending"
                         >
-                            Invia Ordine
+                            {{ sending ? "Invio in corso..." : "Invia Ordine" }}
                         </div>
                     </div>
                 </div>
@@ -226,6 +227,7 @@ export default {
             email: "",
             phone: "",
             errors: {},
+            sending: false,
         };
     },
     mounted() {
@@ -274,6 +276,7 @@ export default {
         },
 
         buy(token) {
+            this.sending = true;
             axios
                 .post("/api/payment/make", {
                     token: token,
@@ -286,6 +289,7 @@ export default {
                     cart: list(),
                 })
                 .then((res) => {
+                    this.sending = false;
                     console.log("Ritorna chiamata post", res.data);
                     if (res.data.errors) {
                         this.errors = res.data.errors;
