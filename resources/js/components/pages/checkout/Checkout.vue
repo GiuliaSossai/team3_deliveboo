@@ -6,7 +6,7 @@
         <div v-else>
             <Header :route="route" />
             <main class="container">
-                <h1>Nome Ristorante</h1>
+                <h1>{{ cart[0].restaurant_name }}</h1>
 
                 <div class="row">
                     <div class="col-6">
@@ -20,7 +20,6 @@
                                             class="form-control"
                                             v-model="name"
                                             id="name"
-                                            required
                                         />
                                         <p v-if="errors.name" class="errors">
                                             {{ errors.name[0] }}
@@ -35,7 +34,6 @@
                                             class="form-control"
                                             v-model="surname"
                                             id="surname"
-                                            required
                                         />
                                         <p v-if="errors.surname" class="errors">
                                             {{ errors.surname[0] }}
@@ -53,7 +51,6 @@
                                             class="form-control"
                                             v-model="address"
                                             id="address"
-                                            required
                                         />
                                         <p v-if="errors.address" class="errors">
                                             {{ errors.address[0] }}
@@ -71,7 +68,6 @@
                                             class="form-control"
                                             v-model="email"
                                             id="email"
-                                            required
                                         />
                                         <p v-if="errors.email" class="errors">
                                             {{ errors.email[0] }}
@@ -86,7 +82,6 @@
                                             class="form-control"
                                             v-model="phone"
                                             id="phone"
-                                            required
                                         />
                                         <p v-if="errors.phone" class="errors">
                                             {{ errors.phone[0] }}
@@ -151,6 +146,13 @@
                                 <tr>
                                     <td></td>
                                     <td></td>
+                                    <td>Costo consegna:</td>
+                                    <td>{{ cart[0].delivery_price }}€</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
                                     <td>Totale:</td>
                                     <td>{{ getfinalPrice() }}€</td>
                                     <td></td>
@@ -175,124 +177,14 @@
                             </template>
                         </v-braintree>
 
-                        <div class="btn btn-success" @click.prevent="beforeBuy">
+                        <div
+                            type="submit"
+                            class="btn btn-success"
+                            @click.prevent="beforeBuy()"
+                        >
                             Invia Ordine
                         </div>
                     </div>
-                    <!-- <div v-if="prova" class="col-6">
-                        <form @submit.prevent="buy">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="name">Nome</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            v-model="name"
-                                            id="name"
-                                            required
-                                        />
-                                        <p v-if="errors.name" class="errors">
-                                            {{ errors.name[0] }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="surname">Cognome</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            v-model="surname"
-                                            id="surname"
-                                            required
-                                        />
-                                        <p v-if="errors.surname" class="errors">
-                                            {{ errors.surname[0] }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="address">Indirizzo</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            v-model="address"
-                                            id="address"
-                                            required
-                                        />
-                                        <p v-if="errors.address" class="errors">
-                                            {{ errors.address[0] }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input
-                                            type="email"
-                                            class="form-control"
-                                            v-model="email"
-                                            id="email"
-                                            required
-                                        />
-                                        <p v-if="errors.email" class="errors">
-                                            {{ errors.email[0] }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="phone">Telefono</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            v-model="phone"
-                                            id="phone"
-                                            required
-                                        />
-                                        <p v-if="errors.phone" class="errors">
-                                            {{ errors.phone[0] }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-8">
-                                    <v-braintree
-                                        :authorization="apiToken"
-                                        locale="it_IT"
-                                        @success="onSuccess"
-                                        @error="onError"
-                                    >
-                                        <template v-slot:button="slotProps">
-                                            <button
-                                                @click="slotProps.submit"
-                                                class="d-none"
-                                                ref="payBtn"
-                                            ></button>
-                                        </template>
-                                    </v-braintree>
-                                </div>
-                            </div>
-
-                            <button
-                                type="submit"
-                                class="btn btn-danger m-2"
-                                @click="beforeBuy"
-                            >
-                                Prova
-                            </button>
-                        </form>
-                    </div> -->
                 </div>
             </main>
 
@@ -318,14 +210,10 @@ export default {
 
     data() {
         return {
-            restaurant: {},
             cart: [],
-            finalPrice: "",
             loading: true,
             route: this.$route.path,
             apiToken: "",
-            prova: false,
-            token: "",
             name: "",
             surname: "",
             address: "",
@@ -343,8 +231,10 @@ export default {
             this.cart = list();
         },
         getfinalPrice() {
-            this.finalPrice = total();
-            return parseFloat(this.finalPrice).toFixed(2);
+            let totalPrice = parseFloat(total());
+            let delivery_price = parseFloat(this.cart[0].delivery_price);
+            let finalPrice = (totalPrice + delivery_price).toFixed(2);
+            return finalPrice;
         },
         deleteDish(id) {
             remove(id);
@@ -361,7 +251,6 @@ export default {
                 .get("/api/payment/generate")
                 .then((res) => {
                     this.apiToken = res.data.token;
-                    this.prova = true;
                     this.loading = false;
                 })
                 .catch((error) => {
@@ -371,18 +260,16 @@ export default {
 
         onSuccess(payload) {
             let token = payload.nonce;
-            this.token = token;
-            this.buy();
+            this.buy(token);
         },
         onError(error) {
             // let message = error.message;
         },
 
-        buy() {
-            console.log("clicco");
+        buy(token) {
             axios
                 .post("/api/payment/make", {
-                    token: this.token,
+                    token: token,
                     total: this.getfinalPrice(),
                     name: this.name,
                     surname: this.surname,
@@ -392,7 +279,7 @@ export default {
                     cart: list(),
                 })
                 .then((res) => {
-                    console.log("primo", res.data);
+                    console.log("Ritorna chiamata post", res.data);
                     if (res.data.errors) {
                         this.errors = res.data.errors;
                     } else {
@@ -402,7 +289,7 @@ export default {
                         this.address = "";
                         this.email = "";
                         this.phone = "";
-                        // alert(res.data.message);
+                        alert(res.data.message);
                         console.log(this.errors);
                     }
                 })

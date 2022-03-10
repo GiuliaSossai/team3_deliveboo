@@ -9,10 +9,16 @@
             </div>
             <div class="card-rest-box-text">
                 <h5>{{ restaurant.name }}</h5>
-                <span v-if="restaurant.delivery_price != 0">Consegna: {{ restaurant.delivery_price }}€</span>
+                <span v-if="restaurant.delivery_price != 0"
+                    >Consegna: {{ restaurant.delivery_price }}€</span
+                >
                 <span v-else>Consegna: Gratuita</span>
                 <span>•</span>
-                <span class="ls-min">{{ restaurant.delivery_time }} min</span>
+                <span class="ls-min"
+                    >{{ restaurant.delivery_time }} -
+                    {{ restaurant.delivery_time + 15 }}
+                    min</span
+                >
             </div>
         </div>
     </router-link>
@@ -40,7 +46,7 @@ export default {
     transition: all 0.3s ease-in-out;
     margin: 15px 0;
     &:hover {
-        transform: scale(1.15);
+        transform: scale(1.1);
     }
     .card-rest-box-image {
         height: 150px;

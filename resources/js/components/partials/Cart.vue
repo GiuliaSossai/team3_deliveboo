@@ -25,6 +25,9 @@
                 </div>
                 <!-- Se il carrello è pieno -->
                 <div v-else class="cart-full">
+                    <div class="name-restaurant">
+                        {{ cartLlist[0].restaurant_name }}
+                    </div>
                     <div class="cart-full__content">
                         <div
                             v-for="item in cartLlist"
@@ -55,7 +58,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- Bottone per andare alla cassa  -->
                     <router-link :to="{ name: 'checkout' }">
                         <div class="btn-checkout">
                             <span>Vai alla Cassa</span>
@@ -97,7 +100,6 @@ export default {
         EventBus.$on("getCartTotal", (data) => {
             this.cartTotal = data;
         });
-        console.log(this.cartLlist);
     },
     methods: {
         printQuantity() {
@@ -130,6 +132,24 @@ export default {
 #ls-cart {
     position: relative;
     user-select: none;
+    // /*Custom Scrollbar*/
+    // scrollbar-color: rgb(255, 255, 255) rgb(0, 0, 0);
+    // scrollbar-width: thin;
+
+    /* Custom Scrollbar Chrome */
+    *::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: rgb(0, 0, 0, 0);
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #000000;
+        border-radius: 20px;
+    }
     .ls-cart__btn {
         background-color: rgb(26, 26, 26);
         padding: 4px 16px;
@@ -191,13 +211,22 @@ export default {
             .cart-full {
                 width: 100%;
                 height: 100%;
-                margin-top: 40px;
                 padding: 0 15px;
+                .name-restaurant {
+                    font-size: 27px;
+                    font-weight: 700;
+                    margin-left: 30px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    width: calc(100% - 30px);
+                }
                 .cart-full__content {
                     width: 100%;
-                    height: 70%;
+                    height: 68%;
                     overflow: hidden;
                     overflow-y: auto;
+                    padding: 0 10px;
                     .item-list {
                         align-items: center;
                         padding: 12px 0px;
