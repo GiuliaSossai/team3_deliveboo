@@ -38,7 +38,11 @@
                                 <p id="name-item">{{ item.name }}</p>
                             </div>
                             <div class="col-4 text-center" id="quantity">
-                                <span @click="changeQuantity(item.id, -1)"
+                                <span
+                                    @click="
+                                        changeQuantity(item.id, -1);
+                                        sendCartQuantity();
+                                    "
                                     ><i class="fa-solid fa-circle-minus"></i
                                 ></span>
                                 <p>{{ item.quantity }}</p>
@@ -123,6 +127,9 @@ export default {
             this.cartTotal = total();
             this.cartLlist = list();
             this.cartQuantity = this.printQuantity();
+        },
+        sendCartQuantity() {
+            EventBus.$emit("sendCartQuantity", this.cartQuantity);
         },
     },
 };

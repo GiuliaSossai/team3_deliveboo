@@ -115,7 +115,10 @@
                                     <td>
                                         <div
                                             class="btn btn-success"
-                                            @click="changeQuantity(dish.id, -1)"
+                                            @click="
+                                                changeQuantity(dish.id, -1);
+                                                backRestaurantUrl();
+                                            "
                                         >
                                             -
                                         </div>
@@ -137,7 +140,10 @@
                                     <td>
                                         <div
                                             class="btn btn-danger"
-                                            @click="deleteDish(dish.id)"
+                                            @click="
+                                                deleteDish(dish.id);
+                                                backRestaurantUrl();
+                                            "
                                         >
                                             Elimina
                                         </div>
@@ -302,6 +308,10 @@ export default {
         beforeBuy() {
             this.$refs.payBtn.click();
             this.$refs.takeForm.click();
+        },
+
+        backRestaurantUrl() {
+            if (this.cart == 0) this.$router.push({ name: "restaurants" });
         },
     },
 };

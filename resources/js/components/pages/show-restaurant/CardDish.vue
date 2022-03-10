@@ -44,6 +44,9 @@ export default {
     },
     mounted() {
         this.printQuantity();
+        EventBus.$on("sendCartQuantity", (data) => {
+            this.cartQuantity = data;
+        });
     },
     methods: {
         addItem() {

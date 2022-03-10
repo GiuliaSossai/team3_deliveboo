@@ -140,7 +140,6 @@ export default {
                     //console.log(this.categories);
                     this.loadRest = false;
                     this.loading = false;
-                    sendRestaurants(this.restaurants);
                 })
                 .catch((error) => {
                     console.log(error);
