@@ -7,6 +7,9 @@ use Braintree\Gateway;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidationPayment;
+use App\Mail\ConfirmGuestMail;
+use App\Mail\ConfirmRestMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
@@ -81,6 +84,9 @@ class PaymentController extends Controller
                 'success' => true,
                 'message' => "Transazione eseguita con Successo!"
             ];
+
+            Mail::to($new_order->customer_email)->send(new ConfirmGuestMail($new_order));
+            Mail::to($new_order->restaurant->email)->send(new ConfirmRestMail($new_order));
 
             return response()->json($data_1, 200);
         } else {
