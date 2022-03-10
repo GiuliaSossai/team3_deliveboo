@@ -1,0 +1,47 @@
+.card-rest {
+  color: black;
+  text-decoration: none;
+}
+
+.card-rest-box {
+  width: 300px;
+  cursor: pointer;
+  
+  
+  margin: 15px 0;
+  .translate{
+    &:hover {
+        transform: scale(1);
+        transition: all 0.3s ease-in-out;
+        transform: scale(1.05);
+    }
+  }
+  .card-rest-box-image {
+      height: 150px;
+      border-radius: 8px;
+      overflow: hidden;
+      img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          filter: opacity(90%);
+          transition: all 0.3s ease-in-out;
+          &:hover {
+              filter: opacity(100%);
+          }
+      }
+  }
+  .card-rest-box-text {
+      h5 {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          width: 100%;
+          margin: 0;
+          margin-top: 10px;
+      }
+      .ls-min {
+          color: grey;
+      }
+  }
+}
