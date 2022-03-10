@@ -231,6 +231,7 @@ export default {
     mounted() {
         this.getOrder();
         this.getApiToken();
+        this.backRestaurantUrl();
     },
     methods: {
         getOrder() {
