@@ -70,7 +70,7 @@ header {
     background-color: transparent;
     color: rgb(26, 26, 26);
     transition: all 0.2s ease-in-out;
-    z-index: 999;
+    z-index: 950;
     &.onScroll {
         box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
         background-color: rgb(245, 245, 245);

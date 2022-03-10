@@ -27,7 +27,7 @@
                             <td>{{ $order->customer_email }}</td>
                             <td>{{ $order->customer_phone }}</td>
                             <td>{{ $order->final_price }} €</td>
-                            <td>{{ $order->created_at }}</td>
+                            <td>{{ date_format($order->created_at, 'd/m/Y H:i') }}</td>
                         </tr>
                     @endforeach
 

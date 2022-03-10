@@ -97,6 +97,8 @@ import RestaurantCard from "./RestaurantCard.vue";
 import Footer from "../../partials/Footer.vue";
 import Loading from "../Loading.vue";
 
+import { EventBus } from "../../../global-event-bus.js";
+
 export default {
     name: "Restaurants",
     components: {
@@ -122,6 +124,7 @@ export default {
     mounted() {
         this.loading = true;
         this.getApi();
+        // Ritorna al URL di origine
         this.removeQueryUrl();
     },
 
@@ -137,6 +140,7 @@ export default {
                     //console.log(this.categories);
                     this.loadRest = false;
                     this.loading = false;
+                    sendRestaurants(this.restaurants);
                 })
                 .catch((error) => {
                     console.log(error);
@@ -163,9 +167,9 @@ export default {
         changeQueryUrl(slug) {
             this.$router.replace({ query: { categoria: slug } });
         },
-        // Rimizio url e torna all'origine al mounted della pagina
+        // Rimozione url e torna all'origine al mounted della pagina (.catch, perchè altrimenti dava errore in console)
         removeQueryUrl() {
-            this.$router.replace({ name: "restaurants" });
+            this.$router.replace({ name: "restaurants" }).catch(() => {});
         },
     },
 };

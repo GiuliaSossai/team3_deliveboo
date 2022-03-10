@@ -32,17 +32,16 @@ class PaymentController extends Controller
 
         $restaurant_id = $cart[0]["restaurant_id"];
 
-
         // return response()->json($restaurant_id);
 
         $validator = Validator::make($data, [
-            'name' => 'required',
-            'surname' => 'required',
-            'address' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            'name' => 'required|max:100',
+            'surname' => 'required|max:100',
+            'address' => 'required|max:150',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|max:20',
             'token' => 'required',
-            'total' => 'required'
+            'total' => 'numeric|between:0.50,9999'
         ]);
 
         if ($validator->fails()) {
@@ -61,10 +60,6 @@ class PaymentController extends Controller
         ]);
 
         if ($result->success) {
-            $data_1 = [
-                'success' => true,
-                'message' => "Transazione eseguita con Successo!"
-            ];
 
             $new_order = new Order();
 
@@ -78,14 +73,14 @@ class PaymentController extends Controller
 
             $new_order->save();
 
-            // foreach ($cart as $item) {
-            //     $new_order->dishes()->attach($item['dish_id'], ['quantity' => $item['quantity']]);
-            // }
+            foreach ($cart as $item) {
+                $new_order->dishes()->attach($item["id"], ['quantity' => $item["quantity"]]);
+            }
 
-            // foreach ($cart as $item) {
-            //     $new_order->dishes()->attach($item, ['quantity' => $item]);
-            // }
-
+            $data_1 = [
+                'success' => true,
+                'message' => "Transazione eseguita con Successo!"
+            ];
 
             return response()->json($data_1, 200);
         } else {

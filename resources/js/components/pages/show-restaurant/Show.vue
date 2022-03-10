@@ -12,14 +12,33 @@
 
             <main class="container">
                 <h1>{{ restaurant.name }}</h1>
-                <span
-                    v-for="category in restaurant.categories"
-                    :key="category.id"
-                    class="badge rounded-pill bg-light text-dark mr-1"
-                    >{{ category.name }}</span
-                >
 
-                <div class="row">
+                <div class="row my-3">
+                    <div class="col-6 col-md-8 col-lg-9">
+                        <span
+                            v-for="category in restaurant.categories"
+                            :key="category.id"
+                            class="badge rounded-pill bg-light text-dark mr-1"
+                            >{{ category.name }}</span
+                        >
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="banner-info">
+                            <p>Consegna</p>
+                            <div class="banner-info__content">
+                                <span
+                                    >{{ restaurant.delivery_time }} -
+                                    {{ restaurant.delivery_time + 15 }}
+                                    min</span
+                                >
+                                <span>-</span>
+                                <span>{{ restaurant.delivery_price }} €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row py-5">
                     <div class="col-3">
                         <div class="ls-types">
                             <div v-for="type in types" :key="`type${type.id}`">
@@ -32,41 +51,20 @@
                         <div v-for="type in types" :key="`type2-${type.id}`">
                             <h4>{{ type.name }}</h4>
 
-                            <div
-                                v-for="dish in restaurant.dishes"
-                                :key="`dish${dish.id}`"
-                            >
+                            <div class="row">
                                 <div
-                                    v-if="type.id == dish.type_id"
-                                    class="ls-dish"
+                                    class="col-12"
+                                    v-for="dish in restaurant.dishes"
+                                    :key="`dish${dish.id}`"
                                 >
-                                    <div class="ls-dish__image">
-                                        <img
-                                            :src="`/${dish.photo}`"
-                                            :alt="dish.name"
+                                    <div
+                                        v-if="type.id == dish.type_id"
+                                        class="ls-dish"
+                                    >
+                                        <CardDish
+                                            :dish="dish"
+                                            :restaurant="restaurant"
                                         />
-                                    </div>
-                                    <div class="ls-dish__text">
-                                        <div class="div">
-                                            <h4>{{ dish.name }}</h4>
-                                            <p>{{ dish.price }}€</p>
-                                            <p>{{ dish.description }}</p>
-                                        </div>
-                                        <div class="div">
-                                            <div
-                                                class="ls-plus p-2"
-                                                @click="
-                                                    addItem(dish);
-                                                    getCartQuantity();
-                                                    getCartList();
-                                                    getCartTotal();
-                                                "
-                                            >
-                                                <i
-                                                    class="fas fa-plus-circle fa-xl"
-                                                ></i>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -81,17 +79,15 @@
 
 <script>
 import Header from "../../partials/Header.vue";
+import CardDish from "./CardDish.vue";
 import Footer from "../../partials/Footer.vue";
 import Loading from "../Loading.vue";
-
-import { add, list, destroy, total } from "cart-localstorage";
-
-import { EventBus } from "../../../global-event-bus.js";
 
 export default {
     name: "Show",
     components: {
         Header,
+        CardDish,
         Footer,
         Loading,
     },
@@ -102,14 +98,11 @@ export default {
             slug: this.$route.params.slug,
             restaurant: [],
             types: [],
-            cartQuantity: 0,
-            count: 0,
             idRestaurant: null,
         };
     },
     mounted() {
         this.getApi();
-        this.printQuantity();
     },
     methods: {
         getApi() {
@@ -126,47 +119,6 @@ export default {
                     // handle error
                     console.log(error);
                 });
-        },
-        addItem(item) {
-            if (
-                this.cartQuantity == 0 ||
-                this.idRestaurant == this.getRestaurantIdFromCart()
-            ) {
-                add(item);
-            } else {
-                if (confirm("Vuoi davvero eliminare il carrello?")) {
-                    destroy();
-                    add(item);
-                }
-            }
-        },
-        printQuantity() {
-            let dishes = list();
-            this.cartQuantity = 0;
-            for (let key in dishes) {
-                this.cartQuantity += dishes[key].quantity;
-            }
-            return this.cartQuantity;
-        },
-        // Passo al componente Cart la quantità
-        getCartQuantity() {
-            this.cartQuantity = this.printQuantity();
-            EventBus.$emit("getCartQuantity", this.cartQuantity);
-        },
-        // Passo al componente Cart la Lista
-        getCartList() {
-            let cartList = list();
-            EventBus.$emit("getCartList", cartList);
-        },
-        // Passo al componente Cart il Totale
-        getCartTotal() {
-            let cartTotal = total();
-            EventBus.$emit("getCartTotal", cartTotal);
-        },
-        getRestaurantIdFromCart() {
-            let dishes = list();
-            const id = dishes[0].restaurant_id;
-            return id;
         },
     },
 };
@@ -189,6 +141,23 @@ main {
     margin-top: 15px;
     margin-bottom: 100px;
     min-height: 500px;
+    .banner-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 5px solid #80808052;
+        border-radius: 50px;
+        p {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+            border-bottom: 1px solid grey;
+        }
+        .banner-info__content {
+            font-size: 12px;
+        }
+    }
     .ls-types {
         display: flex;
         flex-direction: column;
@@ -205,49 +174,6 @@ main {
     .ls-style {
         border-left: 1px solid rgb(68, 68, 68);
         padding-left: 6%;
-    }
-    .ls-dish {
-        display: flex;
-        align-items: center;
-        margin: 25px 0;
-        user-select: none;
-        cursor: pointer;
-        &:hover {
-            box-shadow: 0px 4px 16px rgb(0 0 0 / 12%);
-            transition: box-shadow 0.3s linear 0s;
-        }
-        .ls-dish__image {
-            width: 75px;
-            height: 75px;
-            border: 1px solid black;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 8px;
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-        .ls-dish__text {
-            display: flex;
-            justify-content: space-between;
-            width: calc(100% - 75px);
-            padding-left: 15px;
-            p {
-                margin: 0;
-                padding: 0;
-            }
-            .ls-plus {
-                padding: 2px;
-                margin-right: 25px;
-                cursor: pointer;
-                &:hover {
-                    transform: scale(1.15);
-                    transition: transform 0.3s ease-in-out 0s;
-                }
-            }
-        }
     }
 }
 </style>
