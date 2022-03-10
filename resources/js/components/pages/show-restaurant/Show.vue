@@ -17,7 +17,7 @@
                     <div class="col-6 col-md-8 col-lg-9">
                         <span
                             v-for="category in restaurant.categories"
-                            :key="category.id"
+                            :key="`category${category.id}`"
                             class="badge rounded-pill bg-light text-dark mr-1"
                             >{{ category.name }}</span
                         >
