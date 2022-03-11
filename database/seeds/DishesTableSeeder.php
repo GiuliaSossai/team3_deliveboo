@@ -35,12 +35,111 @@ class DishesTableSeeder extends Seeder
                 'restaurant_id' => 1
             ],
             [
+                'name' => 'Farinata',
+                'description' => 'ceci, acqua, olio',
+                'price' => 2.5,
+                'photo' => 'img/img-seeder/dishes/farinata.jpg',
+                'visible' => 1,
+                'type_id' => 1,
+                'restaurant_id' => 10
+            ],
+            [
                 'name' => 'Calzone',
                 'description' => 'mozzarella, pomodoro, prosciutto',
                 'price' => 6,
                 'photo' => 'img/img-seeder/dishes/calzone.jpg',
                 'visible' => 1,
                 'type_id' => 2,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Diavola',
+                'description' => 'mozzarella, pomodoro, salame piccante, provola affumicata',
+                'price' => 7.99,
+                'photo' => 'img/img-seeder/dishes/diavola.jpg',
+                'visible' => 1,
+                'type_id' => 2,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Ortolana',
+                'description' => 'mozzarella, verdure grigliate',
+                'price' => 5,
+                'photo' => 'img/img-seeder/dishes/ortolana.jpg',
+                'visible' => 1,
+                'type_id' => 2,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Topolino',
+                'description' => 'mozzarella, pomodoro, patatine, wurstel',
+                'price' => 6,
+                'photo' => 'img/img-seeder/dishes/topolino.jpg',
+                'visible' => 1,
+                'type_id' => 2,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Carbonara',
+                'description' => 'pasta, uova, pecorino, guanciale',
+                'price' => 8,
+                'photo' => 'img/img-seeder/dishes/carbonara.jpg',
+                'visible' => 1,
+                'type_id' => 2,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Fiorentina',
+                'description' => 'Chianina, aglio, rosmarino',
+                'price' => 20,
+                'photo' => 'img/img-seeder/dishes/fiorentina.png',
+                'visible' => 1,
+                'type_id' => 3,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Tortino di cuore caldo',
+                'description' => 'cioccolato, panna',
+                'price' => 5,
+                'photo' => 'img/img-seeder/dishes/tortino.jpg',
+                'visible' => 1,
+                'type_id' => 4,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Coca-Cola',
+                'description' => 'lattina 33cl',
+                'price' => 2.5,
+                'photo' => 'img/img-seeder/dishes/cocacola.jpg',
+                'visible' => 1,
+                'type_id' => 5,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Fanta',
+                'description' => 'lattina 33cl',
+                'price' => 2.5,
+                'photo' => 'img/img-seeder/dishes/fanta.jpg',
+                'visible' => 1,
+                'type_id' => 5,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Sprite',
+                'description' => 'lattina 33cl',
+                'price' => 2.5,
+                'photo' => 'img/img-seeder/dishes/sprite.jpg',
+                'visible' => 1,
+                'type_id' => 5,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Nastro Azzurro',
+                'description' => 'bottiglia 33cl',
+                'price' => 3,
+                'photo' => 'img/img-seeder/dishes/nastroazzurro.jpeg',
+                'visible' => 1,
+                'type_id' => 5,
                 'restaurant_id' => 10
             ],
             [
