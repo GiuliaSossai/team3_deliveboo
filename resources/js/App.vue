@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="all-web">
         <router-view></router-view>
         <Cookie
             v-if="clickCookie == false"
@@ -41,4 +41,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.all-web {
+    overflow: hidden;
+}
+</style>

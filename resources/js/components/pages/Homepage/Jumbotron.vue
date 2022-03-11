@@ -24,7 +24,7 @@
             </div>
 
             <div class="row align-items-center">
-                <div class="col-12 col-md-5">
+                <div class="col-12 mb-3 mb-md-0 col-md-7 col-lg-5">
                     <p>
                         La tua città,
                         <span class="font-weight-bold">Perugia</span>

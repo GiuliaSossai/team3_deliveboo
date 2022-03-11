@@ -20,6 +20,7 @@ class RestaurantsTableSeeder extends Seeder
         $users = User::all();
         $rests = [
             [
+                'user_id' => 2,
                 'name' => 'Flora Alpina',
                 'address' => 'Via del Lucumone 5, 06129 Perugia',
                 'delivery_price' => 3.99,
@@ -29,6 +30,7 @@ class RestaurantsTableSeeder extends Seeder
                 'photo_bg' => 'img/img-seeder/restaurants/lasagna-rest-bg.jpg',
             ],
             [
+                'user_id' => 3,
                 'name' => 'Il capriccio di Ciccio',
                 'address' => 'Strada del gioco 5, 06129 Perugia',
                 'delivery_price' => 1.99,
@@ -38,6 +40,7 @@ class RestaurantsTableSeeder extends Seeder
                 'photo_bg' => 'img/img-seeder/restaurants/ciccio-rest-bg.jpg',
             ],
             [
+                'user_id' => 4,
                 'name' => 'Kebab da Ciro',
                 'address' => 'Via Enrico Caruso 7, 06132 Perugia',
                 'delivery_price' => 1.50,
@@ -47,6 +50,7 @@ class RestaurantsTableSeeder extends Seeder
                 'photo_bg' => 'img/img-seeder/restaurants/kebab-rest-bg.jpg',
             ],
             [
+                'user_id' => 3,
                 'name' => 'Samurai Sushi',
                 'address' => 'Strada San Simone del Carmine 13, 06126 Perugia',
                 'delivery_price' => 2.50,
@@ -56,6 +60,7 @@ class RestaurantsTableSeeder extends Seeder
                 'photo_bg' => 'img/img-seeder/restaurants/sushi-rest-bg.jpg',
             ],
             [
+                'user_id' => 1,
                 'name' => 'Los Pollos Hermanos',
                 'address' => 'Via Tommaso Tittoni 1, 06131 Perugia',
                 'delivery_price' => 5,
@@ -65,6 +70,7 @@ class RestaurantsTableSeeder extends Seeder
                 'photo_bg' => 'img/img-seeder/restaurants/pollos-rest-bg.jpg',
             ],
             [
+                'user_id' => 2,
                 'name' => 'La bella bettola',
                 'address' => 'Via delle Valli 4, 06125 Perugia',
                 'delivery_price' => 0,
@@ -74,6 +80,7 @@ class RestaurantsTableSeeder extends Seeder
                 'photo_bg' => 'img/img-seeder/restaurants/trattoria1-bg.jpg',
             ],
             [
+                'user_id' => 4,
                 'name' => 'Vin Santo',
                 'address' => 'Via dell\'acero 34, 06131 Perugia',
                 'delivery_price' => 5,
@@ -83,6 +90,7 @@ class RestaurantsTableSeeder extends Seeder
                 'photo_bg' => 'img/img-seeder/restaurants/risto1-bg.jpg',
             ],
             [
+                'user_id' => 1,
                 'name' => 'Dopolavoro Ferroviario',
                 'address' => 'Via Quintino Sella 37, 06131 Perugia',
                 'delivery_price' => 0,
@@ -92,6 +100,7 @@ class RestaurantsTableSeeder extends Seeder
                 'photo_bg' => 'img/img-seeder/restaurants/dopo-rest-bg.jpg',
             ],
             [
+                'user_id' => 3,
                 'name' => 'Bambù Pokè',
                 'address' => 'Corso Bersaglieri 20, 06130 Perugia',
                 'delivery_price' => 0.99,
@@ -101,6 +110,7 @@ class RestaurantsTableSeeder extends Seeder
                 'photo_bg' => 'img/img-seeder/restaurants/poke-rest-bg.jpg',
             ],
             [
+                'user_id' => 1,
                 'name' => 'Non è mica pizza e fichi',
                 'address' => 'Via dei narcisi 2, 06126 Perugia',
                 'delivery_price' => 2.50,
@@ -110,6 +120,7 @@ class RestaurantsTableSeeder extends Seeder
                 'photo_bg' => 'img/img-seeder/restaurants/pizza-fichi-rest-bg.jpg',
             ],
             [
+                'user_id' => 4,
                 'name' => 'Le mille e una notte',
                 'address' => 'Via dei gladioli 3, 06126 Perugia',
                 'delivery_price' => 3.99,
@@ -119,6 +130,7 @@ class RestaurantsTableSeeder extends Seeder
                 'photo_bg' => 'img/img-seeder/restaurants/chinese-bg.jpg',
             ],
             [
+                'user_id' => 2,
                 'name' => 'Il pacchero',
                 'address' => 'Via Bruno Colli 19, 06127 Perugia',
                 'delivery_price' => 0,
@@ -133,7 +145,7 @@ class RestaurantsTableSeeder extends Seeder
         foreach ($rests as $rest) {
 
             $new_restaurant = new Restaurant();
-            $new_restaurant->user_id = User::inRandomOrder()->first()->id;
+            $new_restaurant->user_id = $rest['user_id'];
 
             $new_restaurant->name = $rest['name'];
             $new_restaurant->slug = Str::slug($new_restaurant->name);
