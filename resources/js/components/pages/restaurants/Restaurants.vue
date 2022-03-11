@@ -164,7 +164,9 @@ export default {
 
         // Cambio url in modo dinamico al click della categoria
         changeQueryUrl(slug) {
-            this.$router.replace({ query: { categoria: slug } });
+            this.$router
+                .replace({ query: { categoria: slug } })
+                .catch(() => {});
         },
         // Rimozione url e torna all'origine al mounted della pagina (.catch, perchè altrimenti dava errore in console)
         removeQueryUrl() {

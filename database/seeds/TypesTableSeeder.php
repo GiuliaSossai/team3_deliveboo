@@ -18,6 +18,8 @@ class TypesTableSeeder extends Seeder
             'Antipasti',
             'Primi',
             'Secondi',
+            'Pizze',
+            'Panini',
             'Dessert',
             'Bevande'
         ];

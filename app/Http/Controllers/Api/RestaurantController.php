@@ -32,8 +32,10 @@ class RestaurantController extends Controller
         $type_id = [];
         foreach ($dishes as $dish) {
             // condizione dove controllo se è presente
-            if (!in_array($dish->type_id, $type_id)) {
-                array_push($type_id, $dish->type_id);
+            if ($dish->visible == 1) {
+                if (!in_array($dish->type_id, $type_id)) {
+                    array_push($type_id, $dish->type_id);
+                }
             }
         }
         // mi creo un array con tutti i dati di $type 
@@ -42,6 +44,9 @@ class RestaurantController extends Controller
             $type = Type::where('id', $type_id[$i])->first();
             array_push($types, $type);
         }
+
+        // Riordiniamo l'array piatti in ordine numerico 
+        sort($types);
 
         // se sbaglio a cercare il ristorante, ottengo:
         if (!$restaurant) {

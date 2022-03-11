@@ -38,8 +38,8 @@
                 <div class="ls-box">
                     <img src="img/restaurants/img3.jpg" alt="img3" />
                     <div class="box__text">
-                        <h3>Ehi! A Perugi ci sono delle gustose novità!</h3>
-                        <p>Goditele e osservi tutti i ristoranti presenti</p>
+                        <h3>Ehi! A Perugia ci sono delle gustose novità!</h3>
+                        <p>Goditele e osservi tutti i ristoranti!</p>
                         <span class="ls-btn">Buona navigazione &#128521;</span>
                     </div>
                 </div>

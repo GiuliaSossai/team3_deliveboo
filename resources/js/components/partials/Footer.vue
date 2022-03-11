@@ -32,13 +32,38 @@
                             <li>
                                 <a
                                     href="https://www.linkedin.com/in/luca-sunseri/"
+                                    target="_blank"
                                     >Luca Sunseri</a
                                 >
                             </li>
-                            <li><a href="#">Giulia Sossai</a></li>
-                            <li><a href="#">Giuseppe Salis</a></li>
-                            <li><a href="#">Anthony Barbagallo</a></li>
-                            <li><a href="#">Michele Di Gennaro</a></li>
+                            <li>
+                                <a
+                                    href="https://www.linkedin.com/in/giuliasossai/"
+                                    target="_blank"
+                                    >Giulia Sossai</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.linkedin.com/in/giuseppe-salis/"
+                                    target="_blank"
+                                    >Giuseppe Salis</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.linkedin.com/in/anthony-barbagallo/"
+                                    target="_blank"
+                                    >Anthony Barbagallo</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.linkedin.com/in/michele-di-gennaro/"
+                                    target="_blank"
+                                    >Michele Di Gennaro</a
+                                >
+                            </li>
                         </ul>
                     </div>
                 </div>

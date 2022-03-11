@@ -13,7 +13,7 @@ class CategoriesRestaurantsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 50; $i++) { 
+        for ($i = 0; $i < 50; $i++) {
             $resturant = Restaurant::inRandomOrder()->first();
             $category_id = Category::inRandomOrder()->first()->id;
 

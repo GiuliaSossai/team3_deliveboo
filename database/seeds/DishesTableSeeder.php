@@ -22,7 +22,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 4.50,
                 'photo' => 'img/img-seeder/dishes/margherita.jpg',
                 'visible' => 1,
-                'type_id' => 2,
+                'type_id' => 4,
                 'restaurant_id' => 7
             ],
             [
@@ -31,7 +31,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 4.99,
                 'photo' => 'img/img-seeder/dishes/marinara.jpeg',
                 'visible' => 1,
-                'type_id' => 2,
+                'type_id' => 4,
                 'restaurant_id' => 1
             ],
             [
@@ -41,42 +41,6 @@ class DishesTableSeeder extends Seeder
                 'photo' => 'img/img-seeder/dishes/farinata.jpg',
                 'visible' => 1,
                 'type_id' => 1,
-                'restaurant_id' => 10
-            ],
-            [
-                'name' => 'Calzone',
-                'description' => 'mozzarella, pomodoro, prosciutto',
-                'price' => 6,
-                'photo' => 'img/img-seeder/dishes/calzone.jpg',
-                'visible' => 1,
-                'type_id' => 2,
-                'restaurant_id' => 10
-            ],
-            [
-                'name' => 'Diavola',
-                'description' => 'mozzarella, pomodoro, salame piccante, provola affumicata',
-                'price' => 7.99,
-                'photo' => 'img/img-seeder/dishes/diavola.jpg',
-                'visible' => 1,
-                'type_id' => 2,
-                'restaurant_id' => 10
-            ],
-            [
-                'name' => 'Ortolana',
-                'description' => 'mozzarella, verdure grigliate',
-                'price' => 5,
-                'photo' => 'img/img-seeder/dishes/ortolana.jpg',
-                'visible' => 1,
-                'type_id' => 2,
-                'restaurant_id' => 10
-            ],
-            [
-                'name' => 'Topolino',
-                'description' => 'mozzarella, pomodoro, patatine, wurstel',
-                'price' => 6,
-                'photo' => 'img/img-seeder/dishes/topolino.jpg',
-                'visible' => 1,
-                'type_id' => 2,
                 'restaurant_id' => 10
             ],
             [
@@ -98,21 +62,57 @@ class DishesTableSeeder extends Seeder
                 'restaurant_id' => 10
             ],
             [
-                'name' => 'Tortino di cuore caldo',
-                'description' => 'cioccolato, panna',
-                'price' => 5,
-                'photo' => 'img/img-seeder/dishes/tortino.jpg',
+                'name' => 'Calzone',
+                'description' => 'mozzarella, pomodoro, prosciutto',
+                'price' => 6,
+                'photo' => 'img/img-seeder/dishes/calzone.jpg',
                 'visible' => 1,
                 'type_id' => 4,
                 'restaurant_id' => 10
             ],
             [
-                'name' => 'Coca-Cola',
-                'description' => 'lattina 33cl',
-                'price' => 2.5,
-                'photo' => 'img/img-seeder/dishes/cocacola.jpg',
+                'name' => 'Diavola',
+                'description' => 'mozzarella, pomodoro, salame piccante, provola affumicata',
+                'price' => 7.99,
+                'photo' => 'img/img-seeder/dishes/diavola.jpg',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 4,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Ortolana',
+                'description' => 'mozzarella, verdure grigliate',
+                'price' => 5,
+                'photo' => 'img/img-seeder/dishes/ortolana.jpg',
+                'visible' => 1,
+                'type_id' => 4,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Topolino',
+                'description' => 'mozzarella, pomodoro, patatine, wurstel',
+                'price' => 6,
+                'photo' => 'img/img-seeder/dishes/topolino.jpg',
+                'visible' => 1,
+                'type_id' => 4,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Tortino di cuore caldo',
+                'description' => 'cioccolato, panna',
+                'price' => 5,
+                'photo' => 'img/img-seeder/dishes/tortino.jpg',
+                'visible' => 1,
+                'type_id' => 6,
+                'restaurant_id' => 10
+            ],
+            [
+                'name' => 'Coca-Cola',
+                'description' => 'vetro 33cl',
+                'price' => 2.5,
+                'photo' => 'img/img-seeder/dishes/cocacola.png',
+                'visible' => 1,
+                'type_id' => 7,
                 'restaurant_id' => 10
             ],
             [
@@ -121,7 +121,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 2.5,
                 'photo' => 'img/img-seeder/dishes/fanta.jpg',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 10
             ],
             [
@@ -130,7 +130,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 2.5,
                 'photo' => 'img/img-seeder/dishes/sprite.jpg',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 10
             ],
             [
@@ -139,7 +139,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 3,
                 'photo' => 'img/img-seeder/dishes/nastroazzurro.jpeg',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 10
             ],
             [
@@ -175,7 +175,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 5.50,
                 'photo' => 'img/img-seeder/dishes/kebab.jpg',
                 'visible' => 1,
-                'type_id' => 3,
+                'type_id' => 5,
                 'restaurant_id' => 3
             ],
             [
@@ -184,7 +184,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 3.50,
                 'photo' => 'img/img-seeder/dishes/baklava.jpg',
                 'visible' => 1,
-                'type_id' => 4,
+                'type_id' => 6,
                 'restaurant_id' => 3
             ],
             [
@@ -202,7 +202,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 8.50,
                 'photo' => 'img/img-seeder/dishes/hamburger.jpg',
                 'visible' => 1,
-                'type_id' => 3,
+                'type_id' => 5,
                 'restaurant_id' => 5
             ],
             [
@@ -220,7 +220,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 5,
                 'photo' => 'img/img-seeder/dishes/tiramisu.jpg',
                 'visible' => 1,
-                'type_id' => 4,
+                'type_id' => 6,
                 'restaurant_id' => 1
             ],
             [
@@ -229,7 +229,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 4,
                 'photo' => 'img/img-seeder/dishes/tisana.jpg',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 11
             ],
             [
@@ -257,7 +257,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 2
             ],
             [
@@ -266,7 +266,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 3
             ],
             [
@@ -275,7 +275,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 4
             ],
             [
@@ -284,7 +284,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 5
             ],
             [
@@ -293,7 +293,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 6
             ],
             [
@@ -302,7 +302,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 1
             ],
             [
@@ -311,7 +311,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 7
             ],
             [
@@ -320,7 +320,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 8
             ],
             [
@@ -329,7 +329,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 9
             ],
             [
@@ -338,7 +338,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 10
             ],
             [
@@ -347,7 +347,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 11
             ],
             [
@@ -356,7 +356,7 @@ class DishesTableSeeder extends Seeder
                 'price' => 1.50,
                 'photo' => 'img/img-seeder/dishes/acqua-nat.png',
                 'visible' => 1,
-                'type_id' => 5,
+                'type_id' => 7,
                 'restaurant_id' => 12
             ],
         ];
