@@ -39,16 +39,17 @@
                 </div>
 
                 <div class="row py-5">
-                    <div class="col-3">
+                    <div class="col-3" id="sticky">
                         <div class="ls-types">
                             <div v-for="type in types" :key="`type${type.id}`">
-                                <p>{{ type.name }}</p>
+                                <a :href="`#${type.name}`">{{ type.name }}</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-12 offset-md-1 col-md-8 ls-style">
                         <div v-for="type in types" :key="`type2-${type.id}`">
+                            <div :id="type.name" class="anchor"></div>
                             <h4>{{ type.name }}</h4>
 
                             <div class="row">
@@ -125,6 +126,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+    max-height: 100vh;
+}
+
+.anchor {
+    display: block;
+    position: relative;
+    top: -90px;
+    visibility: hidden;
+}
+
 .ls-header {
     box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
     background-color: rgb(245, 245, 245);
@@ -174,6 +189,12 @@ main {
     .ls-style {
         border-left: 1px solid rgb(68, 68, 68);
         padding-left: 6%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #sticky {
+        position: static;
     }
 }
 </style>

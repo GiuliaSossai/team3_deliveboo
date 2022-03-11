@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="all-web">
         <Header />
         <main>
             <Jumbotron />
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/*main {
-    margin-top: 90px;
-}*/
+.all-web {
+    overflow: hidden;
+}
 </style>
