@@ -43,8 +43,17 @@ class PaymentController extends Controller
             'address' => 'required|max:150',
             'email' => 'required|email|max:255',
             'phone' => 'required|max:20',
-            'token' => 'required',
-            'total' => 'numeric|between:0.50,9999'
+        ], [
+            'name.required' => 'Il nome è un campo obbligatorio',
+            'name.max' => 'Sono consentiti al massimo :max caratteri',
+            'surname.required' => 'Il cognome è un campo obbligatorio',
+            'surname.max' => 'Sono consentiti al massimo :max caratteri',
+            'address.required' => 'L\'indirizzo è un campo obbligatorio',
+            'address.max' => 'Sono consentiti al massimo :max caratteri',
+            'email.required' => 'L\'email è un campo obbligatorio',
+            'email.max' => 'Sono consentiti al massimo :max caratteri',
+            'phone.required' => 'Il telefono è un campo obbligatorio',
+            'phone.max' => 'Sono consentiti al massimo :max caratteri',
         ]);
 
         if ($validator->fails()) {
