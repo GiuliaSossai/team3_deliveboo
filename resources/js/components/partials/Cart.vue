@@ -180,6 +180,7 @@ export default {
         width: 380px;
         background-color: white;
         border-radius: 15px;
+        box-shadow: 0px 2px 5px rgba(26, 26, 26, 0.75);
         // cross chiusura carrello
         .cart-close {
             position: relative;
