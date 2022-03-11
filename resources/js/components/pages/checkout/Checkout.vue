@@ -14,7 +14,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="name">Nome</label>
+                                        <label for="name">Nome *</label>
                                         <input
                                             type="text"
                                             class="form-control"
@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="surname">Cognome</label>
+                                        <label for="surname">Cognome *</label>
                                         <input
                                             type="text"
                                             class="form-control"
@@ -45,7 +45,10 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="address">Indirizzo</label>
+                                        <label for="address"
+                                            >Indirizzo * (es. Via/piazza .....
+                                            n° ....)</label
+                                        >
                                         <input
                                             type="text"
                                             class="form-control"
@@ -62,7 +65,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="email">Email</label>
+                                        <label for="email">Email *</label>
                                         <input
                                             type="email"
                                             class="form-control"
@@ -76,7 +79,10 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="phone">Telefono</label>
+                                        <label for="phone"
+                                            >Telefono * (es. +39
+                                            1234567891)</label
+                                        >
                                         <input
                                             type="text"
                                             class="form-control"
