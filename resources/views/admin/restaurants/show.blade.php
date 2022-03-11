@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="gs-box">
     <div class="container">
         <h1>Ristorante "{{ $restaurant->name }}"</h1>
 
@@ -20,58 +21,38 @@
             </div>
         </div>
 
+        
+
+        @foreach ($types as $type)
+            <h2 class="my-4">{{ $type->name }}</h2>
+            <div class="row row-cols-3">
+                
+            @foreach ($dishes as $dish)
+                @if($type->id == $dish->type_id)
+                <div class="col mb-4">
+                    <div class="card gs-card" style="width: 18rem;">
+                        <img src="{{ asset($dish->photo) }}" class="gs-img card-img-top" alt="{{ $dish->name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $dish->name}}</h5>
+                            <p>{{ $dish->price }}</p>
+                            <p class="card-text">Ingredienti: {{ $dish->description}}</p>
+                            <a href="#" class="btn btn-primary">modifica</a>
+                        </div>
+                    </div>
+                </div>
+                
+                    
 
 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Foto</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Ingredienti</th>
-                    <th scope="col">Prezzo</th>
-                    <th scope="col">Visibile</th>
-                    <th scope="col" colspan="2">Azioni</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($restaurant->dishes as $dish)
-                    <tr>
-                        <td>
-                            @if ($dish->photo)
-                                <img src="{{ asset($dish->photo) }}" alt="#" style="width:50px">
-                            @else
-                                <p>Nessuna foto presente</p>
-                            @endif
-                        </td>
-                        <td>{{ $dish->name }}</td>
-                        <td>{{ $dish->description }}</td>
-                        <td>{{ $dish->price }}</td>
-                        <td>
-                            @if ($dish->visible === 1)
-                                Sì
-                            @else
-                                No
-                            @endif
-                        </td>
-                        <td><a class="btn btn-success"
-                                href="{{ route('admin.piatti.edit', ['slug' => $restaurant->slug, 'piatti' => $dish->slug]) }}"
-                                role="button">Modifica</a></td>
-                        <td>
-                            <form
-                                action="{{ route('admin.piatti.destroy', ['slug' => $restaurant->slug, 'piatti' => $dish]) }}"
-                                method="post"
-                                onsubmit="return confirm('Sei sicuro di voler eliminare il piatto {{ $dish->name }}')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Elimina</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-
-            </tbody>
-        </table>
+                
+                
+        
+                @endif
+            @endforeach
+            </div>
+        @endforeach
 
     </div>
+    </div>
+    
 @endsection

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Dish;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidationRestaurant;
 use App\Restaurant;
+use App\Type;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use SebastianBergmann\GlobalState\Restorer;
@@ -82,8 +84,26 @@ class RestaurantController extends Controller
     public function show($slug)
     {
         $restaurant = Restaurant::where('slug', $slug)->first();
-
-        return view('admin.restaurants.show', compact('restaurant'));
+        $restaurant_id = $restaurant->id; 
+        $dishes = Dish::where('restaurant_id', $restaurant_id)->orderBy('type_id')->get();
+        
+        $type_id = [];
+        foreach ($dishes as $dish) {
+            // condizione dove controllo se è presente
+            if ($dish->visible == 1) {
+                if (!in_array($dish->type_id, $type_id)) {
+                    array_push($type_id, $dish->type_id);
+                }
+            }
+        }
+        // mi creo un array con tutti i dati di $type 
+        $types = [];
+        for ($i = 0; $i < count($type_id); $i++) {
+            $type = Type::where('id', $type_id[$i])->first();
+            array_push($types, $type);
+        }
+        
+        return view('admin.restaurants.show', compact('restaurant', 'dishes', 'types'));
     }
 
     /**
