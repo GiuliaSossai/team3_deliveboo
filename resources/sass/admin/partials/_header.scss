@@ -1,13 +1,13 @@
 header {
-    a {
+    z-index: 999;
+    a, a:hover {
         color: white;
-        &:hover {
-            color: white;
-        }
-    }
+    } 
     .nav-link {
-        color: rgb(96, 218, 96);
+        color: $main-var;
+        font-size: 18px;
     }
+    
 }
 .ls-custom {
     background-color: black;
@@ -20,28 +20,49 @@ header {
             color: white;
         }
         span {
-            color: rgb(96, 218, 96);
+            color: $main-var;
         }
     }
     .navbar-toggler {
-        border: 1px solid rgb(96, 218, 96) !important;
+        border: 1px solid $main-var !important;
     }
     #navbarDropdown {
-        color: rgb(96, 218, 96) !important;
+        color: $main-var !important;
     }
     .dropdown-menu-right {
-        background-color: black;
-        border: 1px solid rgb(96, 218, 96);
+        background-color: $bg-dark;
+        border: none;
         .dropdown-item {
-            color: rgb(96, 218, 96);
+            color: $main-var;
+            font-size: 18px;
             &:hover {
-                background-color: rgba(0, 0, 0, 0);
-                color: white;
+                color: $body-bg;
+                background-color: $bg-dark;
             }
         }
 
         &:hover {
-            background-color: black;
+            background-color: $bg-dark;
         }
     }
+}
+
+.fa-burger {
+    color: $main-var;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    .gs-user {
+        background-color: $bg-dark;
+        padding-left: 20px;
+        border-radius: 5px;
+    }
+    
+    
+    // .gs-register-menu {
+    //     background-color: $bg-dark;
+        
+    // }
 }

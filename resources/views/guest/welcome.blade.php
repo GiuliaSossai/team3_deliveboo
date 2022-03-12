@@ -16,7 +16,7 @@
         body {
             background-color: #fff;
             color: #636b6f;
-            font-family: 'Nunito', sans-serif;
+            font-family: "Poppins", sans-serif;
             font-weight: 200;
             height: 100vh;
             margin: 0;

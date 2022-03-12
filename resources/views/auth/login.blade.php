@@ -4,7 +4,7 @@
     <div class="ls-back">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-6">
+                <div class="col-6">
                     <div class="card">
                         <div class="card-header">Accedi</div>
 
