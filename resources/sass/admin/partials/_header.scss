@@ -5,7 +5,9 @@ header {
     } 
     .nav-link {
         color: $main-var;
+        font-size: 18px;
     }
+    
 }
 .ls-custom {
     background-color: black;
@@ -28,18 +30,39 @@ header {
         color: $main-var !important;
     }
     .dropdown-menu-right {
-        background-color: black;
-        border: 1px solid $main-var;;
+        background-color: $bg-dark;
+        border: none;
         .dropdown-item {
-            color: $main-var;;
+            color: $main-var;
+            font-size: 18px;
             &:hover {
-                background-color: rgba(0, 0, 0, 0);
-                color: white;
+                color: $body-bg;
+                background-color: $bg-dark;
             }
         }
 
         &:hover {
-            background-color: black;
+            background-color: $bg-dark;
         }
     }
+}
+
+.fa-burger {
+    color: $main-var;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    .gs-user {
+        background-color: $bg-dark;
+        padding-left: 20px;
+        border-radius: 5px;
+    }
+    
+    
+    // .gs-register-menu {
+    //     background-color: $bg-dark;
+        
+    // }
 }

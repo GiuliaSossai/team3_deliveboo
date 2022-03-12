@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    
     <div class="container">
 
-        <h1 class="my-5">Ordini Ristorante {{ $restaurant_name }}</h1>
+        <h2 class="my-5">Ordini di: <span class="font-italic">{{ $restaurant_name }}</span></h2>
 
         @if (count($orders))
             <table class="table table-striped">
@@ -37,6 +38,10 @@
             <h2>Non ci sono ordini per il tuo Ristorante (Stai Fallendo!!!)</h2>
         @endif
 
-
+        <div class="orders mb-4">
+            <span><i class="fa-solid fa-left-long"></i></span>
+            <span><a class="gs-link mb-5" href="{{ route('admin.ristoranti.show', $slug) }}" 
+            >torna al ristorante</a></span>
+        </div>
     </div>
 @endsection

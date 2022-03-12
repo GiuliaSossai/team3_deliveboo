@@ -37,8 +37,8 @@
                         </div>
                         {{-- <a href="{{ route('admin.ristoranti.index') }}" class="btn w-25 m-2 gs-btn">I tuoi ristoranti</a> --}}
                         <div class="p-4 gs-card-text">
-                            <span><i class="fa-solid fa-arrow-right"></i></span>
-                            <span><a href="{{ route('admin.ristoranti.index') }}" class="gs-link">I tuoi ristoranti</a></span>
+                            <span><i class="fa-solid fa-right-long"></i></span>
+                            <span><a href="{{ route('admin.ristoranti.index') }}" class="gs-link">i tuoi ristoranti</a></span>
                         </div>
                         
                     </div>

@@ -18,6 +18,6 @@ class OrderController extends Controller
 
         $orders = Order::where('restaurant_id', $restaurant_id)->orderBy('created_at', 'DESC')->get();
 
-        return view('admin.oreders.index', compact('orders', 'restaurant_name'));
+        return view('admin.oreders.index', compact('orders', 'restaurant_name', 'slug'));
     }
 }
