@@ -1,12 +1,10 @@
 header {
-    a {
+    z-index: 999;
+    a, a:hover {
         color: white;
-        &:hover {
-            color: white;
-        }
-    }
+    } 
     .nav-link {
-        color: rgb(96, 218, 96);
+        color: $main-var;
     }
 }
 .ls-custom {
@@ -20,20 +18,20 @@ header {
             color: white;
         }
         span {
-            color: rgb(96, 218, 96);
+            color: $main-var;
         }
     }
     .navbar-toggler {
-        border: 1px solid rgb(96, 218, 96) !important;
+        border: 1px solid $main-var !important;
     }
     #navbarDropdown {
-        color: rgb(96, 218, 96) !important;
+        color: $main-var !important;
     }
     .dropdown-menu-right {
         background-color: black;
-        border: 1px solid rgb(96, 218, 96);
+        border: 1px solid $main-var;;
         .dropdown-item {
-            color: rgb(96, 218, 96);
+            color: $main-var;;
             &:hover {
                 background-color: rgba(0, 0, 0, 0);
                 color: white;

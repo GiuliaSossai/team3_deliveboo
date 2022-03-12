@@ -1,11 +1,18 @@
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito");
+// // Fonts
+// @import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
 @import "variables";
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
+
+// Font Poppins
+@import "@fontsource/poppins/scss/mixins.scss";
+
+// Fntawesome
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/solid";
 
 @import "./partials/header";
 @import "./partials/main";

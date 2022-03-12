@@ -1,0 +1,28 @@
+.gs-container {
+   height: 100vh;
+   width: 100%;
+   background-image: url("/img/back-end/bg-show6.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   .card {
+      margin-top: 100px;
+      background-color: $body-bg !important;
+      border-radius: 8px;
+      border: none;
+      //box-shadow: 5px 10px 8px #888888;
+      box-shadow: 20px 20px 50px #888888;
+   }
+   h2 {
+      font-size: 40px;
+      span {
+         color: $main-var;
+      }
+   }
+   .gs-card-text {
+      font-size: 24px;
+   }
+   .gs-link {
+      //background-color: $main-var;
+      color: $main-var;
+   }
+}
