@@ -4,90 +4,105 @@
             <Loading />
         </div>
         <div v-else>
-            <Header :route="route" />
-            <main class="container">
-                <h1>{{ cart[0].restaurant_name }}</h1>
-
-                <div class="row">
-                    <div class="col-6">
+            <div class="row p-0 m-0" id="ls-mobile">
+                <div class="col-12 col-md-7 col-lg-6 p-0">
+                    <div class="ls-logo">
+                        <router-link :to="{ name: 'home' }">
+                            <div class="logo">
+                                <p class="d-inline-block m-0 p-0 text-black">
+                                    delive<span class="m-0 p-0 font-weight-bold"
+                                        >Boo</span
+                                    >
+                                </p>
+                            </div>
+                        </router-link>
+                    </div>
+                    <div class="ls-container__left">
+                        <h1>{{ cart[0].restaurant_name }}</h1>
                         <form @submit.prevent="buy">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="name">Nome *</label>
+                            <div class="ls-form">
+                                <div class="ls-form name">
+                                    <div class="logo">
+                                        <i
+                                            class="fa-solid fa-id-card fa-2xl"
+                                        ></i>
+                                    </div>
+                                    <div class="content">
                                         <input
                                             type="text"
-                                            class="form-control"
                                             v-model="name"
                                             id="name"
+                                            placeholder="Inserisci il nome"
                                         />
                                         <p v-if="errors.name" class="errors">
                                             {{ errors.name[0] }}
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="surname">Cognome *</label>
+                                <div class="ls-form surname">
+                                    <div class="logo">
+                                        <i
+                                            class="fa-solid fa-id-card fa-2xl"
+                                        ></i>
+                                    </div>
+                                    <div class="content">
                                         <input
                                             type="text"
-                                            class="form-control"
                                             v-model="surname"
                                             id="surname"
+                                            placeholder="Inserisci il cognome"
                                         />
                                         <p v-if="errors.surname" class="errors">
                                             {{ errors.surname[0] }}
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="address"
-                                            >Indirizzo * (es. Via/piazza .....
-                                            n° ....)</label
-                                        >
+                                <div class="ls-form address">
+                                    <div class="logo">
+                                        <i
+                                            class="fa-solid fa-location-dot fa-2xl"
+                                        ></i>
+                                    </div>
+                                    <div class="content">
                                         <input
                                             type="text"
-                                            class="form-control"
                                             v-model="address"
                                             id="address"
+                                            placeholder="Inserisci l'indirizzo di consegna"
                                         />
                                         <p v-if="errors.address" class="errors">
                                             {{ errors.address[0] }}
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="email">Email *</label>
+                                <div class="ls-form email">
+                                    <div class="logo">
+                                        <i
+                                            class="fa-solid fa-envelope fa-2xl"
+                                        ></i>
+                                    </div>
+                                    <div class="content">
                                         <input
                                             type="email"
-                                            class="form-control"
                                             v-model="email"
                                             id="email"
+                                            placeholder="Inserisci l'indirizzo email"
                                         />
                                         <p v-if="errors.email" class="errors">
                                             {{ errors.email[0] }}
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="phone"
-                                            >Telefono * (es. +39
-                                            1234567891)</label
-                                        >
+                                <div class="ls-form phone">
+                                    <div class="logo">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div class="content">
                                         <input
                                             type="text"
-                                            class="form-control"
                                             v-model="phone"
                                             id="phone"
+                                            placeholder="Inserisci il numero di telefono"
                                         />
                                         <p v-if="errors.phone" class="errors">
                                             {{ errors.phone[0] }}
@@ -95,7 +110,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Bottone d-none richiamato al bottone invia ordine  -->
                             <button
                                 ref="takeForm"
@@ -103,121 +117,60 @@
                                 class="d-none"
                             />
                         </form>
-
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Nome</th>
-                                    <th scope="col">Prezzo</th>
-                                    <th scope="col">Quantità</th>
-                                    <th scope="col">Totale</th>
-                                    <th scope="col">Elimina</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="dish in cart" :key="dish.id">
-                                    <td>{{ dish.name }}</td>
-                                    <td>{{ dish.price }}€</td>
-                                    <td>
-                                        <div
-                                            class="btn btn-success"
-                                            @click="
-                                                changeQuantity(dish.id, -1);
-                                                backRestaurantUrl();
-                                            "
-                                        >
-                                            -
-                                        </div>
-                                        {{ dish.quantity }}
-                                        <div
-                                            class="btn btn-success"
-                                            @click="changeQuantity(dish.id, +1)"
-                                        >
-                                            +
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {{
-                                            parseFloat(
-                                                dish.price * dish.quantity
-                                            ).toFixed(2)
-                                        }}€
-                                    </td>
-                                    <td>
-                                        <div
-                                            class="btn btn-danger"
-                                            @click="
-                                                deleteDish(dish.id);
-                                                backRestaurantUrl();
-                                            "
-                                        >
-                                            Elimina
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Costo consegna:</td>
-                                    <td>{{ cart[0].delivery_price }}€</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Totale:</td>
-                                    <td>{{ getfinalPrice() }}€</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-5 offset-1">
-                        <h2>Riepilogo ordine</h2>
-                        <v-braintree
-                            :authorization="apiToken"
-                            locale="it_IT"
-                            @success="onSuccess"
-                            @error="onError"
-                        >
-                            <template v-slot:button="slotProps">
-                                <button
-                                    @click="slotProps.submit"
-                                    class="d-none"
-                                    ref="payBtn"
-                                ></button>
-                            </template>
-                        </v-braintree>
-
-                        <div
-                            type="submit"
-                            class="btn btn-success"
-                            @click.prevent="beforeBuy()"
-                            :disabled="sending"
-                        >
-                            {{ sending ? "Invio in corso..." : "Invia Ordine" }}
+                        <div class="ls-braintree">
+                            <v-braintree
+                                :authorization="apiToken"
+                                locale="it_IT"
+                                @success="onSuccess"
+                                @error="onError"
+                            >
+                                <template v-slot:button="slotProps">
+                                    <button
+                                        @click="slotProps.submit"
+                                        class="d-none"
+                                        ref="payBtn"
+                                    ></button>
+                                </template>
+                            </v-braintree>
                         </div>
+
+                        <Cart />
                     </div>
                 </div>
-            </main>
-
-            <Footer />
+                <div class="col-12 col-md-5 offset-lg-1 col-lg-5 p-0">
+                    <ContentRight
+                        class="h-100"
+                        @sendOrder="beforeBuy()"
+                        :sending="sending"
+                    />
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="footer_left">
+                    <span>© 2022 deliveBoo Technologies Inc.</span>
+                </div>
+                <div class="footer_right">
+                    <a href="#">Informativa sulla privacy</a>
+                    <span>|</span>
+                    <a href="#">Termini e condizioni</a>
+                </div>
+            </footer>
         </div>
     </div>
 </template>
 
 <script>
-import Header from "../../partials/Header.vue";
-import Footer from "../../partials/Footer.vue";
+import Cart from "./Cart.vue";
+import ContentRight from "./ContentRight.vue";
 import Loading from "../Loading.vue";
 
-import { list, total, remove, quantity } from "cart-localstorage";
+import { list, total } from "cart-localstorage";
 
 export default {
     name: "Checkout",
     components: {
-        Header,
-        Footer,
+        Cart,
+        ContentRight,
         Loading,
     },
 
@@ -225,7 +178,6 @@ export default {
         return {
             cart: [],
             loading: true,
-            route: this.$route.path,
             apiToken: "",
             name: "",
             surname: "",
@@ -251,14 +203,6 @@ export default {
             let finalPrice = (totalPrice + delivery_price).toFixed(2);
             return finalPrice;
         },
-        deleteDish(id) {
-            remove(id);
-            this.cart = list();
-        },
-        changeQuantity(id, change) {
-            quantity(id, change);
-            this.cart = list();
-        },
 
         // Prendo il token da inserire nel campo authorization
         getApiToken() {
@@ -273,6 +217,7 @@ export default {
                 });
         },
 
+        // Funzioni di Braintree
         onSuccess(payload) {
             let token = payload.nonce;
             this.buy(token);
@@ -307,7 +252,6 @@ export default {
                         this.email = "";
                         this.phone = "";
                         alert(res.data.message);
-                        console.log(this.errors);
                     }
                 })
                 .catch((error) => {
@@ -321,6 +265,7 @@ export default {
             this.$refs.takeForm.click();
         },
 
+        // Torno alla home dei ristoranti sei il carrello è vuoto
         backRestaurantUrl() {
             if (this.cart == 0) this.$router.push({ name: "restaurants" });
         },
@@ -329,11 +274,76 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-main {
-    margin-top: 80px;
+.ls-logo {
+    margin: 25px 50px;
+    a {
+        color: black;
+    }
+    .logo {
+        cursor: pointer;
+        font-size: 38px;
+        span {
+            color: rgb(96, 218, 96);
+        }
+    }
 }
-.errors {
-    font-size: 12px;
-    color: red;
+.ls-container__left {
+    padding: 0 50px;
+    h1 {
+        font-weight: 700;
+    }
+    .ls-form {
+        label {
+            display: block;
+        }
+        .ls-form {
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid grey;
+            .logo {
+                margin-right: 15px;
+            }
+            .content {
+                width: 100%;
+            }
+        }
+        input {
+            border: hidden;
+            width: 100%;
+            padding: 8px 20px;
+        }
+        .errors {
+            font-size: 12px;
+            color: red;
+            margin: 0;
+            padding: 0 20px;
+        }
+    }
+    .ls-braintree {
+        padding-top: 15px;
+        padding-bottom: 35px;
+    }
 }
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    padding: 15px 25px;
+    color: white;
+    font-size: 14px;
+    a {
+        color: white;
+    }
+}
+
+// @media only screen and (max-width: 767px) {
+//     #ls-mobile {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+//     }
+// }
 </style>
