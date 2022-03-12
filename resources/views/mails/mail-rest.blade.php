@@ -80,7 +80,7 @@
             <td align="center" style="background-color: #eeeeee;" bgcolor="#eeeeee">
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
                     <tr>
-                        <td align="center" valign="top" style="font-size:0; padding: 35px;" bgcolor="#F44336">
+                        <td align="center" valign="top" style="font-size:0; padding: 35px;" bgcolor="#000">
                             <div
                                 style="display:inline-block; max-width:50%; min-width:100px; vertical-align:top; width:100%;">
                                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%"
@@ -109,7 +109,8 @@
                                                         <p
                                                             style="font-size: 18px; font-weight: 400; margin: 0; color: #ffffff;">
                                                             <a href="#" target="_blank"
-                                                                style="color: #ffffff; text-decoration: none;">Shop
+                                                                style="color: #ffffff; text-decoration: none;">delive<span
+                                                                    style="color: #60da60;">Boo</span>
                                                                 &nbsp;</a>
                                                         </p>
                                                     </td>

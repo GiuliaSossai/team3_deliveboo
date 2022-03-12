@@ -55,6 +55,7 @@ export default {
                 name: this.dish.name,
                 price: this.dish.price,
                 restaurant_id: this.restaurant.id,
+                restaurant_slug: this.restaurant.slug,
                 restaurant_name: this.restaurant.name,
                 delivery_price: this.restaurant.delivery_price,
                 delivery_time: this.restaurant.delivery_time,
