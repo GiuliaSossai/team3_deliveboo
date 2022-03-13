@@ -39,7 +39,7 @@
                     </div>
                     
                     {{-- nome ristorante --}}
-                    <a href="{{ route('admin.ristoranti.show', $restaurant->slug) }}">
+                    <a href="{{ route('admin.ristoranti.show', $restaurant->slug) }}" class="gs-hover">
                         <div class="text-box">
                             <h5>{{ $restaurant->name }}</h5>
                         </div>

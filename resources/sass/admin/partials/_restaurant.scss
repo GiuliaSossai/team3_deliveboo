@@ -122,11 +122,13 @@
 //     transition: scale 3s;
 // }
   
-a {
+.gs-hover {
     color: #000;
     &:hover {
         color: $main-var;
-        text-decoration: none;
+        text-decoration: underline $main-var;
+        // -webkit-text-stroke-width: 1px;
+        // -webkit-text-stroke-color: rgb(61, 61, 61);
     }
     .text-box {
         h5 {
