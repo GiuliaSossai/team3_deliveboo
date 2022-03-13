@@ -1,38 +1,50 @@
 <template>
-    <div v-if="dish.visible" class="ls-dish">
-        <div class="ls-dish__image">
-            <img :src="`/${dish.photo}`" :alt="dish.name" />
-        </div>
-        <div class="ls-dish__text">
-            <div class="div">
-                <h4>{{ dish.name }}</h4>
-                <p>{{ dish.price }}€</p>
-                <p>{{ dish.description }}</p>
+    <div>
+        <div v-if="dish.visible" class="ls-dish">
+            <div class="ls-dish__image">
+                <img :src="`/${dish.photo}`" :alt="dish.name" />
             </div>
-            <div class="div">
-                <div
-                    class="ls-plus p-2"
-                    @click="
-                        addItem();
-                        getCartQuantity();
-                        getCartList();
-                        getCartTotal();
-                    "
-                >
-                    <i class="fas fa-plus-circle fa-xl"></i>
+            <div class="ls-dish__text">
+                <div class="div">
+                    <h4>{{ dish.name }}</h4>
+                    <p>{{ dish.price }}€</p>
+                    <p>{{ dish.description }}</p>
+                </div>
+                <div class="div">
+                    <div
+                        class="ls-plus p-2"
+                        @click="
+                            addItem();
+                            getCartQuantity();
+                            getCartList();
+                            getCartTotal();
+                        "
+                    >
+                        <i class="fas fa-plus-circle fa-xl"></i>
+                    </div>
                 </div>
             </div>
         </div>
+        <NewOrder
+            :newOrder="newOrder"
+            :restaurantName="restaurantName"
+            @confrimNewOrder="newOrderCart"
+            @cancel="noNewOrder"
+        />
     </div>
 </template>
 
 <script>
+import NewOrder from "./NewOrder.vue";
 import { add, list, destroy, total } from "cart-localstorage";
 
 import { EventBus } from "../../../global-event-bus.js";
 
 export default {
     name: "CardDish",
+    components: {
+        NewOrder,
+    },
     props: {
         dish: Object,
         restaurant: Object,
@@ -40,6 +52,9 @@ export default {
     data() {
         return {
             cartQuantity: 0,
+            newOrder: false,
+            cart: {},
+            restaurantName: this.restaurant.name,
         };
     },
     mounted() {
@@ -50,7 +65,7 @@ export default {
     },
     methods: {
         addItem() {
-            let cart = {
+            this.cart = {
                 id: this.dish.id,
                 name: this.dish.name,
                 price: this.dish.price,
@@ -64,17 +79,21 @@ export default {
                 this.cartQuantity == 0 ||
                 this.restaurant.id == this.getRestaurantIdFromCart()
             ) {
-                add(cart);
+                add(this.cart);
             } else {
-                if (
-                    confirm(
-                        "Creare un nuovo ordine? Cosi facendo eliminerai gli articoli presenti"
-                    )
-                ) {
-                    destroy();
-                    add(cart);
-                }
+                this.newOrder = true;
             }
+        },
+        newOrderCart(value) {
+            if (value == true) {
+                destroy();
+                add(this.cart);
+                this.newOrder = false;
+                this.getCartQuantity();
+            }
+        },
+        noNewOrder() {
+            this.newOrder = false;
         },
         getRestaurantIdFromCart() {
             let dishes = list();

@@ -90,10 +90,9 @@ header {
         .header__right {
             .gs-button {
                 color: rgb(26, 26, 26);
-                padding: 8px 22px;
+                padding: 7px 18px;
                 margin-left: 25px;
                 font-weight: 600;
-                border-radius: 15px;
                 background-color: rgb(218, 216, 216);
                 &:hover {
                     background-color: rgb(191, 189, 189);
