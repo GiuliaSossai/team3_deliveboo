@@ -3,7 +3,7 @@
         <div v-if="loading">
             <Loading />
         </div>
-        <div v-else>
+        <div v-else :class="{ overflowhidden: isLoading }">
             <div class="row p-0 m-0" id="ls-mobile">
                 <div class="col-12 col-md-7 col-lg-6 p-0">
                     <div class="ls-logo">
@@ -155,6 +155,7 @@
                     <a href="#">Termini e condizioni</a>
                 </div>
             </footer>
+            <Success v-if="isLoading" :isSuccess="isSuccess" />
         </div>
     </div>
 </template>
@@ -162,15 +163,17 @@
 <script>
 import Cart from "./Cart.vue";
 import ContentRight from "./ContentRight.vue";
+import Success from "./Success.vue";
 import Loading from "../Loading.vue";
 
-import { list, total } from "cart-localstorage";
+import { list, total, destroy } from "cart-localstorage";
 
 export default {
     name: "Checkout",
     components: {
         Cart,
         ContentRight,
+        Success,
         Loading,
     },
 
@@ -186,6 +189,8 @@ export default {
             phone: "",
             errors: {},
             sending: false,
+            isLoading: false,
+            isSuccess: false,
         };
     },
     mounted() {
@@ -228,6 +233,7 @@ export default {
 
         buy(token) {
             this.sending = true;
+            this.isLoading = true;
             axios
                 .post("/api/payment/make", {
                     token: token,
@@ -241,17 +247,24 @@ export default {
                 })
                 .then((res) => {
                     this.sending = false;
+                    this.isLoading = false;
                     console.log("Ritorna chiamata post", res.data);
                     if (res.data.errors) {
                         this.errors = res.data.errors;
                     } else {
+                        this.isLoading = true;
+                        this.isSuccess = true;
+                        console.log("success", this.isSuccess);
                         this.errors = {};
                         this.name = "";
                         this.surname = "";
                         this.address = "";
                         this.email = "";
                         this.phone = "";
-                        alert(res.data.message);
+                        if (res.data.success == true) {
+                            destroy();
+                        }
+                        // alert(res.data.message);
                     }
                 })
                 .catch((error) => {
@@ -338,12 +351,8 @@ export default {
     }
 }
 
-// @media only screen and (max-width: 767px) {
-//     #ls-mobile {
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//         align-items: center;
-//     }
-// }
+.overflowhidden {
+    height: 100vh;
+    overflow: hidden;
+}
 </style>

@@ -6,10 +6,7 @@
                     <button
                         type="submit"
                         class="ls-btn-send"
-                        @click="
-                            $emit('sendOrder');
-                            prova();
-                        "
+                        @click="$emit('sendOrder')"
                         :disabled="sending"
                     >
                         {{ sending ? "Invio in corso..." : "Invia Ordine" }}
@@ -128,9 +125,6 @@ export default {
             let delivery_price = parseFloat(this.cart[0].delivery_price);
             let finalPrice = (this.totalPrice + delivery_price).toFixed(2);
             return finalPrice;
-        },
-        prova() {
-            console.log("clicco");
         },
     },
 };
