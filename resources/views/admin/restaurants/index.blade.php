@@ -8,6 +8,35 @@
 
             {{-- riga con i ristoranti --}}
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5">
+
+                @foreach ($restaurants as $restaurant)
+                <div class="box p-3">
+                    <div class="cover">
+                        <a href="{{ route('admin.ristoranti.show', $restaurant->slug) }}">
+                            <div class="box-image">
+                                @if ($restaurant->photo)
+
+                                    <img src="{{ asset($restaurant->photo) }}" alt="#">
+                                @else
+                                    <p>Nessuna foto presente</p>
+                                @endif
+                            </div>
+                        
+                            <div class="layover">
+                                <i class="fa-solid fa-pencil gs-icon"></i>
+                                <i class="fa-solid fa-trash-can gs-icon"></i>
+                            </div>    
+                        </a>
+                    </div>
+                      
+                        <div class="text-box">
+                            <h5>{{ $restaurant->name }}</h5>
+                        </div>
+                    
+                </div>
+                @endforeach
+
+
                 @foreach ($restaurants as $restaurant)
                 <div class="card-rest-box p-3">
                     <div class="translate">
@@ -30,7 +59,7 @@
                         </div>
                     </div>
                     
-                    {{-- azioni --}}
+                    
                     <div class="d-flex mt-4">
                         <a class="btn btn-success mr-3" href="{{ route('admin.ristoranti.edit', $restaurant->slug) }}" role="button"
                         >Modifica</a>

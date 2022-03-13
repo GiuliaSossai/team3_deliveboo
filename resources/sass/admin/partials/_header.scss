@@ -52,17 +52,20 @@ header {
 }
 
 
-
+// gestion del dropdown sotto medium screen
 @media only screen and (max-width: 767px) {
     .gs-user {
         background-color: $bg-dark;
         padding-left: 20px;
         border-radius: 5px;
     }
-    
-    
-    // .gs-register-menu {
-    //     background-color: $bg-dark;
-        
-    // }
+    .gs-register-menu {
+        background-color: $bg-dark;
+    }
+    .gs-register-menu:nth-child(1) {
+        border-radius: 5px 5px 0 0;
+    }
+    .gs-register-menu:nth-child(2) {    
+        border-radius: 0 0 5px 5px;
+    }
 }

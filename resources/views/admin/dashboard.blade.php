@@ -34,6 +34,7 @@
                             <h2>
                                 Benvenuto <span class="font-weight-bolder">{{ Auth::user()->name }}</span> {{ __('nella tua area personale!') }}
                             </h2>
+                            <h5 class="mt-4">Grazie di far parte della nostra rete!</h5>
                         </div>
                         {{-- <a href="{{ route('admin.ristoranti.index') }}" class="btn w-25 m-2 gs-btn">I tuoi ristoranti</a> --}}
                         <div class="p-4 gs-card-text">

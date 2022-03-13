@@ -1,9 +1,10 @@
 .gs-container {
     height: 100vh;
     width: 100%;
-    background-image: url("/img/back-end/bg-be1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background-image: url("/img/back-end/bg-be1.jpg");
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    background-color: $body-bg;
 }
 
 .card-rest {
@@ -50,5 +51,89 @@
         .ls-min {
             color: grey;
         }
+    }
+}
+
+// mia versioneeeeeeeeeeeee
+
+.box {
+    margin-bottom: 20px;
+    .cover {
+        position: relative;
+        width: 100%;
+        &:hover {
+            transform: scale(1);
+            transition: all 0.3s ease-in-out;
+            transform: scale(1.05);
+        }
+    }    
+}
+  
+.cover img {
+    display: block;
+    height: 200px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    object-fit: cover;
+    // filter: opacity(90%);
+    // &:hover {
+    //     filter: opacity(100%);
+    // }
+}
+
+.layover {
+    position: absolute;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+  
+.gs-icon {
+    color: rgb(252, 64, 64);
+    font-size: 32px !important;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+.gs-icon:nth-child(1) {
+    color: $main-var;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+  
+.cover:hover .layover {
+    display: block;
+}
+  
+.layover:hover .gs-icon {
+    scale: 1.2;
+    transition: scale 3s;
+}
+  
+//   .cover img {
+//     width: 100%;
+//   }
+  
+//   .cover.circle img, .cover.circle .layover {
+//     border-radius: 50%
+//   }
+  
+.text-box {
+    h5 {
+        font-size: 24px;
+        font-weight: 800;
+        overflow: hidden;
+        //white-space: nowrap;
+        //text-overflow: ellipsis;
+        //width: 100%;
+        margin-top: 10px;
     }
 }
