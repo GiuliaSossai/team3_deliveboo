@@ -131,6 +131,7 @@ export default {
 .ls-dish {
     display: flex;
     align-items: center;
+    height: 100%;
     margin: 25px 0;
     user-select: none;
     cursor: pointer;
@@ -141,7 +142,6 @@ export default {
     .ls-dish__image {
         width: 75px;
         height: 75px;
-        border: 1px solid black;
         border-radius: 50%;
         overflow: hidden;
         margin: 8px;

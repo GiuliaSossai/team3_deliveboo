@@ -39,7 +39,10 @@
                 </div>
 
                 <div class="row py-5">
-                    <div class="col-3" id="sticky">
+                    <div
+                        class="col-2 d-flex justify-content-center"
+                        id="sticky"
+                    >
                         <div class="ls-types">
                             <div v-for="type in types" :key="`type${type.id}`">
                                 <a :href="`#${type.name}`">{{ type.name }}</a>
@@ -47,21 +50,20 @@
                         </div>
                     </div>
 
-                    <div class="col-12 offset-md-1 col-md-8 ls-style">
+                    <div class="col-10 offset-md-1 col-md-9 ls-style">
                         <div v-for="type in types" :key="`type2-${type.id}`">
                             <div :id="type.name" class="anchor"></div>
                             <h4>{{ type.name }}</h4>
 
                             <div class="row">
                                 <div
-                                    class="col-12"
-                                    v-for="dish in restaurant.dishes"
+                                    class="col-12 col-md-6"
+                                    v-for="dish in restaurant.dishes.filter(
+                                        (dish) => type.id == dish.type_id
+                                    )"
                                     :key="`dish${dish.id}`"
                                 >
-                                    <div
-                                        v-if="type.id == dish.type_id"
-                                        class="ls-dish"
-                                    >
+                                    <div class="ls-dish">
                                         <CardDish
                                             :dish="dish"
                                             :restaurant="restaurant"
@@ -192,9 +194,9 @@ main {
     }
 }
 
-@media only screen and (max-width: 767px) {
-    #sticky {
-        position: static;
-    }
-}
+// @media only screen and (max-width: 767px) {
+//     #sticky {
+//         position: static;
+//     }
+// }
 </style>
