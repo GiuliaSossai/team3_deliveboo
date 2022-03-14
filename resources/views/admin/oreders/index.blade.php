@@ -8,6 +8,12 @@
 
             <h2 class="py-5">Ordini di: <span class="font-italic">{{ $restaurant_name }}</span></h2>
 
+            <div class="orders mb-4">
+                <span><i class="fa-solid fa-left-long"></i></span>
+                <span><a class="gs-link mb-5" href="{{ route('admin.ristoranti.show', $slug) }}">torna al
+                        ristorante</a></span>
+            </div>
+
             @if (count($orders))
                 <table class="table table-striped table-dark">
                     <thead>
@@ -43,14 +49,8 @@
 
                 {{ $orders->links() }}
             @else
-                <h2>Non ci sono ordini per il tuo Ristorante (Stai Fallendo!!!)</h2>
+                <h2>Non ci sono ordini per il tuo Ristorante</h2>
             @endif
-
-            <div class="orders mb-4">
-                <span><i class="fa-solid fa-left-long"></i></span>
-                <span><a class="gs-link mb-5" href="{{ route('admin.ristoranti.show', $slug) }}">torna al
-                        ristorante</a></span>
-            </div>
         </div>
 
     </div>
