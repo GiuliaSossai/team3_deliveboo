@@ -1,7 +1,9 @@
 .gs-box {
+    min-height: calc(100vh - 80px);
     background-image: url("/img/back-end/bg-show6.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    padding-bottom: 100px;
     //background-color: $body-bg;
     h2 {
         span {
@@ -50,6 +52,9 @@ button {
     }
 }
 
+.table {
+    margin: 0;
+}
 //versione con tabella
 thead {
     border-bottom: 12px solid #dee2e6;

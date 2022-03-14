@@ -1,10 +1,10 @@
 .gs-container {
     height: 100vh;
     width: 100%;
-    // background-image: url("/img/back-end/bg-be1.jpg");
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    background-color: $body-bg;
+    background-image: url("/img/back-end/bg-show6.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background-color: $body-bg;
 }
 
 // .card-rest {
@@ -66,9 +66,9 @@
             transition: all 0.3s ease-in-out;
             transform: scale(1.05);
         }
-    }    
+    }
 }
-  
+
 .cover img {
     display: block;
     height: 200px;
@@ -93,17 +93,16 @@
     border-radius: 8px;
     overflow: hidden;
 }
-  
+
 .gs-icon {
-    
     font-size: 32px !important;
-    
+
     position: absolute;
     top: 50%;
-    
+
     transform: translate(-50%, -50%);
 }
-.gs-icon.fa-trash-can{
+.gs-icon.fa-trash-can {
     color: rgb(252, 64, 64);
     left: 70%;
     padding: none;
@@ -112,16 +111,16 @@
     color: $main-var;
     left: 30%;
 }
-  
+
 .cover:hover .layover {
     display: block;
 }
-  
+
 // .layover:hover i {
 //     scale: 1.2;
 //     transition: scale 3s;
 // }
-  
+
 .gs-hover {
     color: #000;
     &:hover {
@@ -139,11 +138,9 @@
             //text-overflow: ellipsis;
             //width: 100%;
             margin-top: 10px;
-            
         }
     }
 }
-
 
 .gs-btn {
     font-size: 20px;

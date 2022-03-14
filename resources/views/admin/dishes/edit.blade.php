@@ -50,9 +50,8 @@
 
                         <div class="form-group">
                             <label for="description">Descrizione * (es: Ingrediente1, Ingrediente2)</label>
-                            <textarea type="text" class="form-control @error('description') is-invalid @enderror"
-                                id="description" name="description"
-                                required>{{ old('description', $dish->description) }}</textarea>
+                            <textarea type="text" class="form-control @error('description') is-invalid @enderror" id="description"
+                                name="description" required>{{ old('description', $dish->description) }}</textarea>
                             @error('description')
                                 <div class="invalid-feedback d-block">
                                     {{ $message }}
@@ -82,14 +81,14 @@
                             </label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="visible" id="visible"
-                                    value="{{ old('visible', 1) }}" @if ($dish->visible == 1) checked @endif>
+                                    value="{{ old('visible', 1) }}" @if ($dish->visible === 1) checked @endif>
                                 <label class="form-check-label" for="visible">
                                     Disponibile
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="visible" id="visible"
-                                    value="{{ old('visible', 0) }}" @if ($dish->visible == 0) checked @endif>
+                                    value="{{ old('visible', 0) }}" @if ($dish->visible === 0) checked @endif>
                                 <label class="form-check-label" for="visible">
                                     Non disponibile
                                 </label>

@@ -84,9 +84,9 @@ class RestaurantController extends Controller
     public function show($slug)
     {
         $restaurant = Restaurant::where('slug', $slug)->first();
-        $restaurant_id = $restaurant->id; 
+        $restaurant_id = $restaurant->id;
         $dishes = Dish::where('restaurant_id', $restaurant_id)->orderBy('type_id')->get();
-        
+
         $type_id = [];
         foreach ($dishes as $dish) {
             // condizione dove controllo se è presente
@@ -102,7 +102,7 @@ class RestaurantController extends Controller
             $type = Type::where('id', $type_id[$i])->first();
             array_push($types, $type);
         }
-        
+
         return view('admin.restaurants.show', compact('restaurant', 'dishes', 'types'));
     }
 
@@ -163,7 +163,7 @@ class RestaurantController extends Controller
 
         $restaurant->categories()->sync($data['categories']);
 
-        return redirect()->route('admin.ristoranti.show', $restaurant->slug);
+        return redirect()->route('admin.ristoranti.index');
     }
 
     /**
