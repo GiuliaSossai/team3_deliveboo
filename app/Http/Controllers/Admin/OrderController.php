@@ -16,16 +16,16 @@ class OrderController extends Controller
 
         $restaurant_name = Restaurant::where('id', $restaurant_id)->first()->name;
 
-        $orders = Order::where('restaurant_id', $restaurant_id)->orderBy('created_at', 'DESC')->get();
+        $orders = Order::where('restaurant_id', $restaurant_id)->orderBy('created_at', 'DESC')->paginate(5);
 
         return view('admin.oreders.index', compact('orders', 'restaurant_name', 'slug'));
     }
 
     public function show($slug, $id)
     {
-        
-        $order= Order::find($id);
-        
+
+        $order = Order::find($id);
+
         return view('admin.oreders.show', compact('order'));
     }
 }

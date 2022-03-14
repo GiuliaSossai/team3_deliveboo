@@ -14,14 +14,19 @@
         .gs-link {
             color: black;
             &:hover {
-            color: $main-var;
+                color: $main-var;
             }
         }
     }
-    
+    #ls-is-visible {
+        color: #60da60;
+    }
+    #ls-no-visible {
+        color: red;
+    }
 }
 
-.gs-card{
+.gs-card {
     border-radius: 8px;
     overflow: hidden;
     height: 400px;
