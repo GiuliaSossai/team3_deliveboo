@@ -1,54 +1,150 @@
 .gs-container {
     height: 100vh;
     width: 100%;
-    background-image: url("/img/back-end/bg-be1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background-image: url("/img/back-end/bg-be1.jpg");
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    background-color: $body-bg;
 }
 
-.card-rest {
-    color: black;
-    text-decoration: none;
-}
+// .card-rest {
+//     color: black;
+//     text-decoration: none;
+// }
 
-.card-rest-box {
-    width: 300px;
-    cursor: pointer;
-    margin: 15px 0;
-    .translate{
+// .card-rest-box {
+//     width: 300px;
+//     cursor: pointer;
+//     margin: 15px 0;
+//     .translate{
+//         &:hover {
+//             transform: scale(1);
+//             transition: all 0.3s ease-in-out;
+//             transform: scale(1.05);
+//         }
+//     }
+//     .card-rest-box-image {
+//         height: 150px;
+//         border-radius: 8px;
+//         overflow: hidden;
+//         img {
+//             height: 100%;
+//             width: 100%;
+//             object-fit: cover;
+//             filter: opacity(90%);
+//             transition: all 0.3s ease-in-out;
+//             &:hover {
+//                 filter: opacity(100%);
+//             }
+//         }
+//     }
+//     .card-rest-box-text {
+//         h5 {
+//             font-size: 24px;
+//             overflow: hidden;
+//             white-space: nowrap;
+//             text-overflow: ellipsis;
+//             width: 100%;
+//             margin: 0;
+//             margin-top: 10px;
+//         }
+//         .ls-min {
+//             color: grey;
+//         }
+//     }
+// }
+
+// mia versioneeeeeeeeeeeee
+
+.box {
+    margin-bottom: 20px;
+    .cover {
+        position: relative;
+        width: 100%;
         &:hover {
             transform: scale(1);
             transition: all 0.3s ease-in-out;
             transform: scale(1.05);
         }
+    }    
+}
+  
+.cover img {
+    display: block;
+    height: 200px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    object-fit: cover;
+    // filter: opacity(90%);
+    // &:hover {
+    //     filter: opacity(100%);
+    // }
+}
+
+.layover {
+    position: absolute;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+  
+.gs-icon {
+    
+    font-size: 32px !important;
+    
+    position: absolute;
+    top: 50%;
+    
+    transform: translate(-50%, -50%);
+}
+.gs-icon.fa-trash-can{
+    color: rgb(252, 64, 64);
+    left: 70%;
+    padding: none;
+}
+.gs-icon.fa-pencil {
+    color: $main-var;
+    left: 30%;
+}
+  
+.cover:hover .layover {
+    display: block;
+}
+  
+// .layover:hover i {
+//     scale: 1.2;
+//     transition: scale 3s;
+// }
+  
+.gs-hover {
+    color: #000;
+    &:hover {
+        color: $main-var;
+        text-decoration: underline $main-var;
+        // -webkit-text-stroke-width: 1px;
+        // -webkit-text-stroke-color: rgb(61, 61, 61);
     }
-    .card-rest-box-image {
-        height: 150px;
-        border-radius: 8px;
-        overflow: hidden;
-        img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            filter: opacity(90%);
-            transition: all 0.3s ease-in-out;
-            &:hover {
-                filter: opacity(100%);
-            }
-        }
-    }
-    .card-rest-box-text {
+    .text-box {
         h5 {
             font-size: 24px;
+            font-weight: 800;
             overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            width: 100%;
-            margin: 0;
+            //white-space: nowrap;
+            //text-overflow: ellipsis;
+            //width: 100%;
             margin-top: 10px;
-        }
-        .ls-min {
-            color: grey;
+            
         }
     }
+}
+
+
+.gs-btn {
+    font-size: 20px;
 }

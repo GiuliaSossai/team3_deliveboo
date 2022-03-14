@@ -1,7 +1,8 @@
 .gs-box {
-    background-image: url("/img/back-end/bg-be1.jpg");
+    background-image: url("/img/back-end/bg-show6.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    //background-color: $body-bg;
     h2 {
         span {
             font-size: 32px;
@@ -30,10 +31,6 @@
     }
 }
 
-// .gs-row {
-//     display: inline-block;
-// }
-
 .fa-pencil {
     color: $main-var;
     font-size: 24px;
@@ -46,4 +43,31 @@ button {
         color: red;
         font-size: 24px;
     }
+}
+
+//versione con tabella
+thead {
+    border-bottom: 12px solid #dee2e6;
+}
+.gs-row {
+    border-top: 10px solid #dee2e6;
+}
+
+.gs-dish-img {
+    width: 75px;
+    height: 75px;
+    border: 1px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 8px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+}
+
+td p {
+    font-size: 18px;
 }
