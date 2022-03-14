@@ -2,8 +2,9 @@
     <div class="all-web">
         <Header />
         <main>
-            <Jumbotron />
+            <Jumbotron :takeCity="city" />
             <FirstSection />
+            <SecondSection @takeCity="takeCity" />
         </main>
         <Footer />
     </div>
@@ -13,6 +14,7 @@
 import Header from "../../partials/Header.vue";
 import Jumbotron from "./Jumbotron.vue";
 import FirstSection from "./FirstSection.vue";
+import SecondSection from "./SecondSection.vue";
 import Footer from "../../partials/Footer.vue";
 
 export default {
@@ -21,7 +23,19 @@ export default {
         Header,
         Jumbotron,
         FirstSection,
+        SecondSection,
         Footer,
+    },
+    data() {
+        return {
+            city: "",
+        };
+    },
+    mounted() {},
+    methods: {
+        takeCity(city) {
+            this.city = city;
+        },
     },
 };
 </script>
