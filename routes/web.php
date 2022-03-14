@@ -25,6 +25,7 @@ Route::middleware('auth')
         Route::resource('/ristoranti', 'RestaurantController');
         Route::resource('{slug}/piatti', 'DishController');
         Route::get('{slug}/ordini', 'OrderController@index')->name('order.index');
+        Route::get('{slug}/dettagli/{id}', 'OrderController@show')->name('order.show');
     });
 
 Route::get('{any?}', function () {

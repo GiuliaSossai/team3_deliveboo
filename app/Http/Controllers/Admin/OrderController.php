@@ -20,4 +20,12 @@ class OrderController extends Controller
 
         return view('admin.oreders.index', compact('orders', 'restaurant_name', 'slug'));
     }
+
+    public function show($slug, $id)
+    {
+        
+        $order= Order::find($id);
+        
+        return view('admin.oreders.show', compact('order'));
+    }
 }

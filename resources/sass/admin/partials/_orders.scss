@@ -1,6 +1,20 @@
-.orders {
-   font-size: 24px;
-   .gs-link {
-       color: $main-var;
-   }
+.od-bg{
+    height: calc(100vh - 80px);
+     width: 100%;
+    background-image: url("/img/back-end/bg-show6.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    .i-color{
+        color: #60da60;
+        &:hover{
+            filter: opacity(0.5);
+        }
+    }
+    .orders {
+       font-size: 24px;
+       .gs-link {
+           color: $main-var;
+       }
+    }
 }
+        
