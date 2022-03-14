@@ -62,6 +62,9 @@ class DishController extends Controller
 
         $restaurant = Restaurant::where('id', $restaurant_id)->first();
 
+        // $restaurants = Restaurant::all();
+
+        // return redirect()->route('admin.ristoranti.show', compact('restaurant->slug', 'restaurants'));
         return redirect()->route('admin.ristoranti.show', $restaurant->slug);
     }
 
