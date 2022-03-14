@@ -40,24 +40,49 @@
 
                 <div class="row py-5">
                     <div
-                        class="col-2 d-flex justify-content-center"
+                        class="col-3 d-flex flex-column align-items-center"
                         id="sticky"
                     >
-                        <div class="ls-types">
+                        <div class="ls-types mb-5">
                             <div v-for="type in types" :key="`type${type.id}`">
                                 <a :href="`#${type.name}`">{{ type.name }}</a>
                             </div>
                         </div>
+                        <div class="d-none d-md-block">
+                            <p class="font-weight-bold">
+                                Ulteriori informazioni:
+                            </p>
+                            <ul>
+                                <li>
+                                    <span
+                                        ><i class="fa-solid fa-location-dot"></i
+                                    ></span>
+                                    {{ restaurant.address }}
+                                </li>
+                                <li>
+                                    <span
+                                        ><i class="fa-solid fa-phone"></i
+                                    ></span>
+                                    {{ restaurant.phone }}
+                                </li>
+                                <li>
+                                    <span
+                                        ><i class="fa-solid fa-envelope"></i
+                                    ></span>
+                                    {{ restaurant.email }}
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="col-10 offset-md-1 col-md-9 ls-style">
+                    <div class="col-9 offset-md-1 col-md-8 ls-style">
                         <div v-for="type in types" :key="`type2-${type.id}`">
                             <div :id="type.name" class="anchor"></div>
                             <h4>{{ type.name }}</h4>
 
                             <div class="row">
                                 <div
-                                    class="col-12 col-md-6"
+                                    class="col-12 col-lg-6"
                                     v-for="dish in restaurant.dishes.filter(
                                         (dish) => type.id == dish.type_id
                                     )"
@@ -158,6 +183,17 @@ main {
     margin-top: 15px;
     margin-bottom: 100px;
     min-height: 500px;
+    ul {
+        list-style: none;
+        padding: 5px;
+        li {
+            font-size: 14px;
+        }
+        span {
+            color: #60da60;
+            font-size: 16px;
+        }
+    }
     .banner-info {
         display: flex;
         flex-direction: column;

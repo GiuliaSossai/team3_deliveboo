@@ -1,20 +1,25 @@
-.od-bg{
+.od-bg {
     height: calc(100vh - 80px);
-     width: 100%;
+    width: 100%;
     background-image: url("/img/back-end/bg-show6.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    .i-color{
+    h2 {
+        span {
+            font-size: 32px;
+            border-bottom: 3px $main-var solid;
+        }
+    }
+    .i-color {
         color: #60da60;
-        &:hover{
+        &:hover {
             filter: opacity(0.5);
         }
     }
     .orders {
-       font-size: 24px;
-       .gs-link {
-           color: $main-var;
-       }
+        font-size: 24px;
+        .gs-link {
+            color: $main-var;
+        }
     }
 }
-        

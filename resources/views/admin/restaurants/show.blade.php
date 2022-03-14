@@ -67,76 +67,78 @@
             {{-- </div>
 
             @endforeach --}}
+            @if (count($restaurant->dishes) != 0)
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Foto</th>
+                            <th scope="col">Descrizione</th>
+                            {{-- <th scope="col">Ingredienti</th> --}}
+                            <th scope="col">Prezzo</th>
+                            <th scope="col">Visibile</th>
+                            <th scope="col" colspan="2" class="text-center">Azioni</th>
 
-            <table class="table table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">Foto</th>
-                        <th scope="col">Descrizione</th>
-                        {{-- <th scope="col">Ingredienti</th> --}}
-                        <th scope="col">Prezzo</th>
-                        <th scope="col">Visibile</th>
-                        <th scope="col" colspan="2" class="text-center">Azioni</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($types as $type)
-                        <tr class="gs-row">
-                            <td colspan="6">
-                                <h4>{{ $type->name }}</h4>
-                            </td>
                         </tr>
-                        @foreach ($restaurant->dishes as $dish)
-                            @if ($type->id == $dish->type_id)
-                                <tr>
-                                    <td>
-                                        <div class="gs-dish-img">
-                                            @if ($dish->photo)
-                                                <img src="{{ asset($dish->photo) }}" alt="{{ $dish->name }}">
-                                            @else
-                                                <p>Nessuna foto presente</p>
-                                            @endif
-                                        </div>
+                    </thead>
+                    <tbody>
+                        @foreach ($types as $type)
+                            <tr class="gs-row">
+                                <td colspan="6">
+                                    <h4>{{ $type->name }}</h4>
+                                </td>
+                            </tr>
+                            @foreach ($restaurant->dishes as $dish)
+                                @if ($type->id == $dish->type_id)
+                                    <tr>
+                                        <td>
+                                            <div class="gs-dish-img">
+                                                @if ($dish->photo)
+                                                    <img src="{{ asset($dish->photo) }}" alt="{{ $dish->name }}">
+                                                @else
+                                                    <p>Nessuna foto presente</p>
+                                                @endif
+                                            </div>
 
-                                    </td>
-                                    <td>
-                                        <h4 class="mt-2">{{ $dish->name }}</h4>
-                                        <p>ingredienti: {{ $dish->description }}</p>
-                                    </td>
-                                    {{-- <td>{{ $dish->description }}</td> --}}
-                                    <td>
-                                        <p class="mt-4 text-center">{{ $dish->price }} €</p>
-                                    </td>
-                                    <td>
-                                        <p class="mt-4 text-center">
-                                            @if ($dish->visible === 1)
-                                                <span id="ls-is-visible"><i class="fa-solid fa-eye"></i></span>
-                                            @else
-                                                <span id="ls-no-visible"><i class="fa-solid fa-eye-slash"></i></span>
-                                            @endif
-                                        </p>
-                                    </td>
-                                    <td><a class="btn mt-4"
-                                            href="{{ route('admin.piatti.edit', ['slug' => $restaurant->slug, 'piatti' => $dish->slug]) }}"
-                                            role="button"><i class="fa-solid fa-pencil"></i></a></td>
-                                    <td>
-                                        <form class="mt-4"
-                                            action="{{ route('admin.piatti.destroy', ['slug' => $restaurant->slug, 'piatti' => $dish]) }}"
-                                            method="post"
-                                            onsubmit="return confirm('Sei sicuro di voler eliminare il piatto {{ $dish->name }}')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn"><i
-                                                    class="fa-solid fa-trash-can"></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endif
+                                        </td>
+                                        <td>
+                                            <h4 class="mt-2">{{ $dish->name }}</h4>
+                                            <p>ingredienti: {{ $dish->description }}</p>
+                                        </td>
+                                        {{-- <td>{{ $dish->description }}</td> --}}
+                                        <td>
+                                            <p class="mt-4 text-center">{{ $dish->price }} €</p>
+                                        </td>
+                                        <td>
+                                            <p class="mt-4 text-center">
+                                                @if ($dish->visible === 1)
+                                                    <span id="ls-is-visible"><i class="fa-solid fa-eye"></i></span>
+                                                @else
+                                                    <span id="ls-no-visible"><i class="fa-solid fa-eye-slash"></i></span>
+                                                @endif
+                                            </p>
+                                        </td>
+                                        <td><a class="btn mt-4"
+                                                href="{{ route('admin.piatti.edit', ['slug' => $restaurant->slug, 'piatti' => $dish->slug]) }}"
+                                                role="button"><i class="fa-solid fa-pencil"></i></a></td>
+                                        <td>
+                                            <form class="mt-4"
+                                                action="{{ route('admin.piatti.destroy', ['slug' => $restaurant->slug, 'piatti' => $dish]) }}"
+                                                method="post"
+                                                onsubmit="return confirm('Sei sicuro di voler eliminare il piatto {{ $dish->name }}')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn"><i
+                                                        class="fa-solid fa-trash-can"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
                         @endforeach
-                </tbody>
-                @endforeach
-            </table>
+                    </tbody>
+                </table>
+            @endif
+
 
 
         </div>

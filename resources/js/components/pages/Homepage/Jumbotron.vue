@@ -27,9 +27,9 @@
                 <div class="col-12 mb-3 mb-md-0 col-md-7 col-lg-5">
                     <p>
                         La tua città,
-                        <span v-if="takeCity" class="font-weight-bold">
-                            {{ takeCity }}</span
-                        >
+                        <span v-if="takeCity" class="font-weight-bold">{{
+                            takeCity
+                        }}</span>
                         <span v-else class="font-weight-bold">Perugia</span>
                     </p>
                 </div>
